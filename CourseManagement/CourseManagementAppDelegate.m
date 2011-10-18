@@ -11,9 +11,17 @@
 @implementation CourseManagementAppDelegate
 
 @synthesize window = m_window;
+@synthesize courseViewController = m_courseViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    CourseViewController *courseViewController = [[CourseViewController alloc] initWithNibName:@"CourseViewController" bundle:[NSBundle mainBundle]];
+    
+    self.courseViewController = courseViewController;
+    [courseViewController release];
+    
+    [self.window addSubview:[courseViewController view]];
+    
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     return YES;
@@ -61,6 +69,7 @@
 - (void)dealloc
 {
     [m_window release];
+    [m_courseViewController release];
     [super dealloc];
 }
 
