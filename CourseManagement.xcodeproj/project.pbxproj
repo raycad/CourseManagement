@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A47144D784E00D66A0A /* UIKit.framework */; };
+		76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A49144D784E00D66A0A /* Foundation.framework */; };
+		76A29A4C144D784E00D66A0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A4B144D784E00D66A0A /* CoreGraphics.framework */; };
+		76A29A52144D784E00D66A0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76A29A50144D784E00D66A0A /* InfoPlist.strings */; };
+		76A29A55144D784E00D66A0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A54144D784E00D66A0A /* main.m */; };
+		76A29A58144D784E00D66A0A /* CourseManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A57144D784E00D66A0A /* CourseManagementAppDelegate.m */; };
+		76A29A5B144D784E00D66A0A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A29A59144D784E00D66A0A /* MainWindow.xib */; };
+		76A29A66144D790C00D66A0A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A65144D790C00D66A0A /* Course.m */; };
+		76A29A69144D793C00D66A0A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A68144D793C00D66A0A /* Person.m */; };
+		76A29A6C144D795E00D66A0A /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A6B144D795E00D66A0A /* Student.m */; };
+		76A29A6F144D798F00D66A0A /* Instructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A6E144D798F00D66A0A /* Instructor.m */; };
+		76A29A75144D7AC600D66A0A /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A73144D7AC500D66A0A /* CourseViewController.m */; };
+		76A29A76144D7AC600D66A0A /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A29A74144D7AC500D66A0A /* CourseViewController.xib */; };
+		76A29A7E144D860300D66A0A /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A7D144D860300D66A0A /* Common.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		76A29A43144D784E00D66A0A /* CourseManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A29A47144D784E00D66A0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		76A29A49144D784E00D66A0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		76A29A4B144D784E00D66A0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		76A29A4F144D784E00D66A0A /* CourseManagement-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CourseManagement-Info.plist"; sourceTree = "<group>"; };
+		76A29A51144D784E00D66A0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		76A29A53144D784E00D66A0A /* CourseManagement-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CourseManagement-Prefix.pch"; sourceTree = "<group>"; };
+		76A29A54144D784E00D66A0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		76A29A56144D784E00D66A0A /* CourseManagementAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseManagementAppDelegate.h; sourceTree = "<group>"; };
+		76A29A57144D784E00D66A0A /* CourseManagementAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseManagementAppDelegate.m; sourceTree = "<group>"; };
+		76A29A5A144D784E00D66A0A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		76A29A64144D790C00D66A0A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		76A29A65144D790C00D66A0A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		76A29A67144D793C00D66A0A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		76A29A68144D793C00D66A0A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		76A29A6A144D795E00D66A0A /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		76A29A6B144D795E00D66A0A /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		76A29A6D144D798F00D66A0A /* Instructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instructor.h; sourceTree = "<group>"; };
+		76A29A6E144D798F00D66A0A /* Instructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instructor.m; sourceTree = "<group>"; };
+		76A29A72144D7AC500D66A0A /* CourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseViewController.h; sourceTree = "<group>"; };
+		76A29A73144D7AC500D66A0A /* CourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseViewController.m; sourceTree = "<group>"; };
+		76A29A74144D7AC500D66A0A /* CourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseViewController.xib; sourceTree = "<group>"; };
+		76A29A77144D7EE100D66A0A /* ModalViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewControllerDelegate.h; sourceTree = "<group>"; };
+		76A29A7C144D860300D66A0A /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		76A29A7D144D860300D66A0A /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		76A29A40144D784D00D66A0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */,
+				76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */,
+				76A29A4C144D784E00D66A0A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		76A29A38144D784D00D66A0A = {
+			isa = PBXGroup;
+			children = (
+				76A29A4D144D784E00D66A0A /* CourseManagement */,
+				76A29A46144D784E00D66A0A /* Frameworks */,
+				76A29A44144D784E00D66A0A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		76A29A44144D784E00D66A0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A43144D784E00D66A0A /* CourseManagement.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		76A29A46144D784E00D66A0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A47144D784E00D66A0A /* UIKit.framework */,
+				76A29A49144D784E00D66A0A /* Foundation.framework */,
+				76A29A4B144D784E00D66A0A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		76A29A4D144D784E00D66A0A /* CourseManagement */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A78144D84EC00D66A0A /* Common */,
+				76A29A71144D7A3600D66A0A /* XIBs */,
+				76A29A70144D79B600D66A0A /* Main */,
+				76A29A63144D78DC00D66A0A /* Controllers */,
+				76A29A62144D78C400D66A0A /* Delegates */,
+				76A29A61144D78A000D66A0A /* Models */,
+				76A29A4E144D784E00D66A0A /* Supporting Files */,
+			);
+			path = CourseManagement;
+			sourceTree = "<group>";
+		};
+		76A29A4E144D784E00D66A0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A4F144D784E00D66A0A /* CourseManagement-Info.plist */,
+				76A29A50144D784E00D66A0A /* InfoPlist.strings */,
+				76A29A53144D784E00D66A0A /* CourseManagement-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		76A29A61144D78A000D66A0A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A64144D790C00D66A0A /* Course.h */,
+				76A29A65144D790C00D66A0A /* Course.m */,
+				76A29A67144D793C00D66A0A /* Person.h */,
+				76A29A68144D793C00D66A0A /* Person.m */,
+				76A29A6A144D795E00D66A0A /* Student.h */,
+				76A29A6B144D795E00D66A0A /* Student.m */,
+				76A29A6D144D798F00D66A0A /* Instructor.h */,
+				76A29A6E144D798F00D66A0A /* Instructor.m */,
+			);
+			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		76A29A62144D78C400D66A0A /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A56144D784E00D66A0A /* CourseManagementAppDelegate.h */,
+				76A29A57144D784E00D66A0A /* CourseManagementAppDelegate.m */,
+				76A29A77144D7EE100D66A0A /* ModalViewControllerDelegate.h */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		76A29A63144D78DC00D66A0A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A72144D7AC500D66A0A /* CourseViewController.h */,
+				76A29A73144D7AC500D66A0A /* CourseViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		76A29A70144D79B600D66A0A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A54144D784E00D66A0A /* main.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		76A29A71144D7A3600D66A0A /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A74144D7AC500D66A0A /* CourseViewController.xib */,
+				76A29A59144D784E00D66A0A /* MainWindow.xib */,
+			);
+			name = XIBs;
+			sourceTree = "<group>";
+		};
+		76A29A78144D84EC00D66A0A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				76A29A7C144D860300D66A0A /* Common.h */,
+				76A29A7D144D860300D66A0A /* Common.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		76A29A42144D784D00D66A0A /* CourseManagement */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76A29A5E144D784E00D66A0A /* Build configuration list for PBXNativeTarget "CourseManagement" */;
+			buildPhases = (
+				76A29A3F144D784D00D66A0A /* Sources */,
+				76A29A40144D784D00D66A0A /* Frameworks */,
+				76A29A41144D784D00D66A0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CourseManagement;
+			productName = CourseManagement;
+			productReference = 76A29A43144D784E00D66A0A /* CourseManagement.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		76A29A3A144D784D00D66A0A /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 76A29A3D144D784D00D66A0A /* Build configuration list for PBXProject "CourseManagement" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 76A29A38144D784D00D66A0A;
+			productRefGroup = 76A29A44144D784E00D66A0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				76A29A42144D784D00D66A0A /* CourseManagement */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		76A29A41144D784D00D66A0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76A29A52144D784E00D66A0A /* InfoPlist.strings in Resources */,
+				76A29A5B144D784E00D66A0A /* MainWindow.xib in Resources */,
+				76A29A76144D7AC600D66A0A /* CourseViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		76A29A3F144D784D00D66A0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76A29A55144D784E00D66A0A /* main.m in Sources */,
+				76A29A58144D784E00D66A0A /* CourseManagementAppDelegate.m in Sources */,
+				76A29A66144D790C00D66A0A /* Course.m in Sources */,
+				76A29A69144D793C00D66A0A /* Person.m in Sources */,
+				76A29A6C144D795E00D66A0A /* Student.m in Sources */,
+				76A29A6F144D798F00D66A0A /* Instructor.m in Sources */,
+				76A29A75144D7AC600D66A0A /* CourseViewController.m in Sources */,
+				76A29A7E144D860300D66A0A /* Common.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		76A29A50144D784E00D66A0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				76A29A51144D784E00D66A0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		76A29A59144D784E00D66A0A /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				76A29A5A144D784E00D66A0A /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		76A29A5C144D784E00D66A0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		76A29A5D144D784E00D66A0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		76A29A5F144D784E00D66A0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CourseManagement/CourseManagement-Prefix.pch";
+				INFOPLIST_FILE = "CourseManagement/CourseManagement-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		76A29A60144D784E00D66A0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CourseManagement/CourseManagement-Prefix.pch";
+				INFOPLIST_FILE = "CourseManagement/CourseManagement-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		76A29A3D144D784D00D66A0A /* Build configuration list for PBXProject "CourseManagement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76A29A5C144D784E00D66A0A /* Debug */,
+				76A29A5D144D784E00D66A0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76A29A5E144D784E00D66A0A /* Build configuration list for PBXNativeTarget "CourseManagement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76A29A5F144D784E00D66A0A /* Debug */,
+				76A29A60144D784E00D66A0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 76A29A3A144D784D00D66A0A /* Project object */;
+}
