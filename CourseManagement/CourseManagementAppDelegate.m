@@ -15,15 +15,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    CourseViewController *courseViewController = [[CourseViewController alloc] initWithNibName:@"CourseViewController" bundle:[NSBundle mainBundle]];
-    
     // Initialize view controller map
     m_viewControllerMap = [[NSMutableDictionary alloc] init];
-    [m_viewControllerMap setObject:courseViewController forKey:CourseViewControllerIdString];
     
-    [self.window addSubview:[courseViewController view]];
-
-    [courseViewController release];
+    id mainViewController = [self getViewControllerByIdString:(id)CourseViewControllerIdString];
+    if (mainViewController)
+        [self.window addSubview:[mainViewController view]];    
     
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
@@ -74,11 +71,35 @@
      */
 }
 
+- (id)createViewControllerByIdString:(NSString *)viewControllerIdString
+{
+    id viewController = nil;
+    if (viewControllerIdString == CourseViewControllerIdString) {
+        viewController = [[CourseViewController alloc] initWithNibName:@"CourseViewController" bundle:[NSBundle mainBundle]];
+    } else if (viewControllerIdString == StudentViewControllerIdString) {
+        viewController = [[CourseViewController alloc] initWithNibName:@"StudentViewController" bundle:[NSBundle mainBundle]];
+    } else if (viewControllerIdString == InstructorViewControllerIdString) {
+        viewController = [[CourseViewController alloc] initWithNibName:@"" bundle:[NSBundle mainBundle]];
+    } else
+        return nil;
+    
+    return [viewController autorelease];
+}
+
 - (id)getViewControllerByIdString:(NSString *)viewControllerIdString
 {
     if (!m_viewControllerMap)
         return nil;
-    return [m_viewControllerMap objectForKey:viewControllerIdString];
+    
+    id viewController = [m_viewControllerMap objectForKey:viewControllerIdString];
+    if (!viewController) {
+        // Create the view controller
+        viewController = [self createViewControllerByIdString:viewControllerIdString];
+        // Map the view controller
+        [m_viewControllerMap setObject:viewController forKey:viewControllerIdString];        
+    }
+    
+    return viewController;
 }
 
 - (void)releaseMemory
