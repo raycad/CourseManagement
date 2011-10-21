@@ -54,4 +54,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)test
+{
+    NSLog(@"Test");
+}
+
 @end

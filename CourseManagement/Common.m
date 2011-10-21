@@ -8,4 +8,6 @@
 
 #import "Common.h"
 
-const NSString *ID_COURSE_STRING = @"COURSE_STRING";
+const NSString *CourseViewControllerIdString       = @"CourseViewControllerId";
+const NSString *StudentViewControllerIdString      = @"StudentViewControllerId";
+const NSString *InstructorViewControllerIdString   = @"InstructorViewControllerId";

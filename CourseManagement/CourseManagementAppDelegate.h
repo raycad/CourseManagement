@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CourseViewController.h"
+#import "Common.h"
 
 @interface CourseManagementAppDelegate : NSObject <UIApplicationDelegate> {
-@private
-    CourseViewController *m_courseViewController;
+    NSMutableDictionary *m_viewControllerMap;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) CourseViewController *courseViewController;
 
+- (id)getViewControllerByIdString:(NSString *)viewControllerIdString;
 @end

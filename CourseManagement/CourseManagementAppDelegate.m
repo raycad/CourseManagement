@@ -17,13 +17,21 @@
 {
     CourseViewController *courseViewController = [[CourseViewController alloc] initWithNibName:@"CourseViewController" bundle:[NSBundle mainBundle]];
     
-    self.courseViewController = courseViewController;
-    [courseViewController release];
+    // Initialize view controller map
+    m_viewControllerMap = [[NSMutableDictionary alloc] init];
+    [m_viewControllerMap setObject:courseViewController forKey:CourseViewControllerIdString];
     
     [self.window addSubview:[courseViewController view]];
+
+    [courseViewController release];
     
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
+    
+    id viewController = [self getViewControllerByIdString:(id)CourseViewControllerIdString];
+    if (viewController)
+        [viewController test];
+    
     return YES;
 }
 
@@ -66,10 +74,22 @@
      */
 }
 
-- (void)dealloc
+- (id)getViewControllerByIdString:(NSString *)viewControllerIdString
+{
+    if (!m_viewControllerMap)
+        return nil;
+    return [m_viewControllerMap objectForKey:viewControllerIdString];
+}
+
+- (void)releaseMemory
 {
     [m_window release];
-    [m_courseViewController release];
+    [m_viewControllerMap release];
+}
+
+- (void)dealloc
+{
+    [self releaseMemory];
     [super dealloc];
 }
 

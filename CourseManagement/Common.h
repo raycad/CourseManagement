@@ -5,4 +5,6 @@
 //  Created by raycad on 10/18/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-extern const NSString *ID_COURSE_STRING;
+extern const NSString *CourseViewControllerIdString;
+extern const NSString *StudentViewControllerIdString;
+extern const NSString *InstructorViewControllerIdString;

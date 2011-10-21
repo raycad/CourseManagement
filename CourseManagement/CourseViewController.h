@@ -15,4 +15,6 @@
     NSMutableArray *m_courseList;
 }
 
+- (void)test;
+
 @end
