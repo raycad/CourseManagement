@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		768123701451887200344F14 /* StudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7681236E1451887200344F14 /* StudentViewController.m */; };
 		768123711451887200344F14 /* StudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7681236F1451887200344F14 /* StudentViewController.xib */; };
+		7682B49D14541AAD008AF921 /* CourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7682B49C14541AAD008AF921 /* CourseListViewController.m */; };
 		76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A47144D784E00D66A0A /* UIKit.framework */; };
 		76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A49144D784E00D66A0A /* Foundation.framework */; };
 		76A29A4C144D784E00D66A0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A4B144D784E00D66A0A /* CoreGraphics.framework */; };
@@ -19,8 +20,6 @@
 		76A29A69144D793C00D66A0A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A68144D793C00D66A0A /* Person.m */; };
 		76A29A6C144D795E00D66A0A /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A6B144D795E00D66A0A /* Student.m */; };
 		76A29A6F144D798F00D66A0A /* Instructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A6E144D798F00D66A0A /* Instructor.m */; };
-		76A29A75144D7AC600D66A0A /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A73144D7AC500D66A0A /* CourseViewController.m */; };
-		76A29A76144D7AC600D66A0A /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76A29A74144D7AC500D66A0A /* CourseViewController.xib */; };
 		76A29A7E144D860300D66A0A /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A29A7D144D860300D66A0A /* Common.m */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +27,8 @@
 		7681236D1451887200344F14 /* StudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentViewController.h; path = ../StudentViewController.h; sourceTree = "<group>"; };
 		7681236E1451887200344F14 /* StudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentViewController.m; path = ../StudentViewController.m; sourceTree = "<group>"; };
 		7681236F1451887200344F14 /* StudentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StudentViewController.xib; path = ../StudentViewController.xib; sourceTree = "<group>"; };
+		7682B49B14541AAD008AF921 /* CourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListViewController.h; sourceTree = "<group>"; };
+		7682B49C14541AAD008AF921 /* CourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListViewController.m; sourceTree = "<group>"; };
 		76A29A43144D784E00D66A0A /* CourseManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A29A47144D784E00D66A0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		76A29A49144D784E00D66A0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,9 +47,6 @@
 		76A29A6B144D795E00D66A0A /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		76A29A6D144D798F00D66A0A /* Instructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instructor.h; sourceTree = "<group>"; };
 		76A29A6E144D798F00D66A0A /* Instructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instructor.m; sourceTree = "<group>"; };
-		76A29A72144D7AC500D66A0A /* CourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseViewController.h; sourceTree = "<group>"; };
-		76A29A73144D7AC500D66A0A /* CourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseViewController.m; sourceTree = "<group>"; };
-		76A29A74144D7AC500D66A0A /* CourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseViewController.xib; sourceTree = "<group>"; };
 		76A29A77144D7EE100D66A0A /* ModalViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewControllerDelegate.h; sourceTree = "<group>"; };
 		76A29A7C144D860300D66A0A /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		76A29A7D144D860300D66A0A /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
@@ -150,8 +148,8 @@
 			children = (
 				7681236D1451887200344F14 /* StudentViewController.h */,
 				7681236E1451887200344F14 /* StudentViewController.m */,
-				76A29A72144D7AC500D66A0A /* CourseViewController.h */,
-				76A29A73144D7AC500D66A0A /* CourseViewController.m */,
+				7682B49B14541AAD008AF921 /* CourseListViewController.h */,
+				7682B49C14541AAD008AF921 /* CourseListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -168,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				7681236F1451887200344F14 /* StudentViewController.xib */,
-				76A29A74144D7AC500D66A0A /* CourseViewController.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -230,7 +227,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A29A52144D784E00D66A0A /* InfoPlist.strings in Resources */,
-				76A29A76144D7AC600D66A0A /* CourseViewController.xib in Resources */,
 				768123711451887200344F14 /* StudentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,9 +244,9 @@
 				76A29A69144D793C00D66A0A /* Person.m in Sources */,
 				76A29A6C144D795E00D66A0A /* Student.m in Sources */,
 				76A29A6F144D798F00D66A0A /* Instructor.m in Sources */,
-				76A29A75144D7AC600D66A0A /* CourseViewController.m in Sources */,
 				76A29A7E144D860300D66A0A /* Common.m in Sources */,
 				768123701451887200344F14 /* StudentViewController.m in Sources */,
+				7682B49D14541AAD008AF921 /* CourseListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

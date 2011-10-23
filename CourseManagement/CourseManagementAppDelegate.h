@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CourseViewController.h"
 #import "Common.h"
 
 @interface CourseManagementAppDelegate : NSObject <UIApplicationDelegate> {
     NSMutableDictionary *m_viewControllerMap;
+    UINavigationController *m_navigationController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) CourseViewController *courseViewController;
+@property (nonatomic, retain) IBOutlet UINavigationController * navigationController;
 
 - (id)getViewControllerByIdString:(NSString *)viewControllerIdString;
 @end

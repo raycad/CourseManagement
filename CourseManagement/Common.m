@@ -8,6 +8,7 @@
 
 #import "Common.h"
 
+const NSString *CourseListViewControllerIdString   = @"CourseListViewControllerId";
 const NSString *CourseViewControllerIdString       = @"CourseViewControllerId";
 const NSString *StudentViewControllerIdString      = @"StudentViewControllerId";
 const NSString *InstructorViewControllerIdString   = @"InstructorViewControllerId";

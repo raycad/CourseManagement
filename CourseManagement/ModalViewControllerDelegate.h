@@ -10,5 +10,5 @@
 
 
 @protocol ModalViewControllerDelegate <NSObject>
-
+- (void)didDismissModalView;
 @end

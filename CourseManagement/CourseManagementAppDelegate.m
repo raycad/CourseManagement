@@ -7,27 +7,31 @@
 //
 
 #import "CourseManagementAppDelegate.h"
+#import "CourseListViewController.h"
 
 @implementation CourseManagementAppDelegate
 
 @synthesize window = m_window;
-@synthesize courseViewController = m_courseViewController;
+@synthesize navigationController = m_navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Initialize view controller map
     m_viewControllerMap = [[NSMutableDictionary alloc] init];
+    m_navigationController = [[UINavigationController alloc] init];
     
-    id mainViewController = [self getViewControllerByIdString:(id)CourseViewControllerIdString];
-    if (mainViewController)
-        [self.window addSubview:[mainViewController view]];    
+    id mainViewController = [self getViewControllerByIdString:(id)CourseListViewControllerIdString];
+    if (mainViewController) {
+        [self.navigationController pushViewController:mainViewController animated:NO];
+        [self.window addSubview:[self.navigationController view]];    
+    }
     
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     
-    id viewController = [self getViewControllerByIdString:(id)CourseViewControllerIdString];
+    /*id viewController = [self getViewControllerByIdString:(id)CourseViewControllerIdString];
     if (viewController)
-        [viewController test];
+        [viewController test];*/
     
     return YES;
 }
@@ -74,16 +78,18 @@
 - (id)createViewControllerByIdString:(NSString *)viewControllerIdString
 {
     id viewController = nil;
-    if (viewControllerIdString == CourseViewControllerIdString) {
+    if (viewControllerIdString == CourseListViewControllerIdString) {
+        viewController = [[CourseListViewController alloc] init];
+    } /*else if (viewControllerIdString == CourseViewControllerIdString) {
         viewController = [[CourseViewController alloc] initWithNibName:@"CourseViewController" bundle:[NSBundle mainBundle]];
     } else if (viewControllerIdString == StudentViewControllerIdString) {
         viewController = [[CourseViewController alloc] initWithNibName:@"StudentViewController" bundle:[NSBundle mainBundle]];
     } else if (viewControllerIdString == InstructorViewControllerIdString) {
         viewController = [[CourseViewController alloc] initWithNibName:@"" bundle:[NSBundle mainBundle]];
-    } else
+    }*/ else
         return nil;
     
-    return [viewController autorelease];
+    return viewController;
 }
 
 - (id)getViewControllerByIdString:(NSString *)viewControllerIdString
@@ -96,15 +102,27 @@
         // Create the view controller
         viewController = [self createViewControllerByIdString:viewControllerIdString];
         // Map the view controller
-        [m_viewControllerMap setObject:viewController forKey:viewControllerIdString];        
+        [m_viewControllerMap setObject:viewController forKey:viewControllerIdString];    
+        [viewController release];
     }
     
     return viewController;
 }
 
 - (void)releaseMemory
-{
+{       
+    // Free momery of view controllers
+    id viewController;
+    NSArray *keys = [m_viewControllerMap allKeys];
+    for (NSString *key in keys) {
+        viewController = [m_viewControllerMap objectForKey:key];
+        if (viewController) 
+            [viewController release];
+    }
+    [m_viewControllerMap removeAllObjects];
+    
     [m_window release];
+    [m_navigationController release];
     [m_viewControllerMap release];
 }
 
