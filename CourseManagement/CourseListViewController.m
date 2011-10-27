@@ -21,8 +21,13 @@
         // Set up our navigation bar.
         
         self.title = @"Course List";
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Options" style:UIBarButtonItemStyleBordered target:self action:@selector(optionsAction:)        ] autorelease];
+        
         self.navigationItem.leftBarButtonItem  = [[[UIBarButtonItem alloc] initWithTitle:@"Minimum" style:UIBarButtonItemStyleBordered target:self action:@selector(defaultsMinimumAction:)] autorelease];
+        
+        /*self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Options" style:UIBarButtonItemStyleBordered target:self action:@selector(optionsAction:)        ] autorelease];*/
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCourse)];
+        
         self.navigationItem.leftBarButtonItem.possibleTitles = [NSSet setWithObjects:@"Defaults", @"Minimum", nil];
     }
     return self;
@@ -39,6 +44,7 @@
 
 - (void)dealloc
 {
+    [m_listOfItems release];
     [super dealloc];
 }
 
@@ -50,25 +56,38 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     // Configure our table view.
     
-    self.tableView.editing = YES;
-    self.tableView.allowsSelectionDuringEditing = YES;
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //Initialize the array.
+	m_listOfItems = [[NSMutableArray alloc] init];
+    
+    //Add items
+    [m_listOfItems addObject:@"Iceland"];
+    [m_listOfItems addObject:@"Greenland"];
+    [m_listOfItems addObject:@"Switzerland"];
+    [m_listOfItems addObject:@"Norway"];
+    [m_listOfItems addObject:@"New Zealand"];
+    [m_listOfItems addObject:@"Greece"];
+    [m_listOfItems addObject:@"Rome"];
+    [m_listOfItems addObject:@"Ireland"];
+    
+    //Set the title
+    //self.navigationItem.title = @"Countries";
+    
+    [self addObserver:self forKeyPath:@"recalculating" options:0 context:&self->m_listOfItems];
 }
 
-- (void)viewDidUnload
+/*- (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -99,22 +118,20 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - Table view data source
+}*/
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [m_listOfItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,10 +140,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    // Set up the cell...
+	NSString *cellValue = [m_listOfItems objectAtIndex:indexPath.row];
+	cell.text = cellValue;
     
     return cell;
 }
@@ -179,9 +198,15 @@
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
+     [self.navigationController pushViewController:detailViewController animated:Y	ES];
      [detailViewController release];
      */
+}
+
+- (void)addCourse
+{
+    [m_listOfItems addObject:@"addCourse"];
+    NSLog(@"Add course button was clicked");
 }
 
 @end

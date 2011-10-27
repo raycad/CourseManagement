@@ -10,7 +10,7 @@
 
 
 @interface CourseListViewController : UITableViewController {
-    
+    NSMutableArray *m_listOfItems;
 }
 
 @end
