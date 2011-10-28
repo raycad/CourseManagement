@@ -3,14 +3,14 @@
 //  CourseManagement
 //
 //  Created by raycad on 10/23/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 seedotech. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CourseModel.h"
 
 @interface CourseListViewController : UITableViewController {
-    NSMutableArray *m_listOfItems;
+    CourseModel *m_courseModel;
 }
 
 @end

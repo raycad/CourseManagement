@@ -3,7 +3,7 @@
 //  CourseManagement
 //
 //  Created by raycad on 10/23/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 seedotech. All rights reserved.
 //
 
 #import "CourseListViewController.h"
@@ -16,20 +16,19 @@
     //self = [super initWithStyle:UITableViewStyleGrouped];
     self = [super init];
     if (self != nil) {
-        // Set up some private properties.
-        
+        // Initialize the course model
+        m_courseModel = [CourseModel instance];
+
         // Set up our navigation bar.
-        
         self.title = @"Course List";
         
-        self.navigationItem.leftBarButtonItem  = [[[UIBarButtonItem alloc] initWithTitle:@"Minimum" style:UIBarButtonItemStyleBordered target:self action:@selector(defaultsMinimumAction:)] autorelease];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeCourse)];
         
         /*self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Options" style:UIBarButtonItemStyleBordered target:self action:@selector(optionsAction:)        ] autorelease];*/
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCourse)];
-        
-        self.navigationItem.leftBarButtonItem.possibleTitles = [NSSet setWithObjects:@"Defaults", @"Minimum", nil];
     }
+    
     return self;
 }
 
@@ -44,7 +43,8 @@
 
 - (void)dealloc
 {
-    [m_listOfItems release];
+    [m_courseModel release];
+    
     [super dealloc];
 }
 
@@ -67,38 +67,24 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    //Initialize the array.
-	m_listOfItems = [[NSMutableArray alloc] init];
-    
-    //Add items
-    [m_listOfItems addObject:@"Iceland"];
-    [m_listOfItems addObject:@"Greenland"];
-    [m_listOfItems addObject:@"Switzerland"];
-    [m_listOfItems addObject:@"Norway"];
-    [m_listOfItems addObject:@"New Zealand"];
-    [m_listOfItems addObject:@"Greece"];
-    [m_listOfItems addObject:@"Rome"];
-    [m_listOfItems addObject:@"Ireland"];
-    
+      
     //Set the title
     //self.navigationItem.title = @"Countries";
     
-    [self addObserver:self forKeyPath:@"recalculating" options:0 context:&self->m_listOfItems];
-    
-    NSString *str = [[NSString alloc] init];
-    str = @"test";
-    CoursePK *pk1 = [[CoursePK alloc] initWithCode:@"pk1"];
-    CoursePK *pk2 = [[CoursePK alloc] initWithCode:@"pk2"];
-    
-    NSString *tmp = [pk1 courseCode];
-    BOOL b = [pk1 isEqual:pk2];
-    b = NO;
-    
-    Course *course = [[Course alloc] initWithCoursePK:pk1];
-    tmp = [course title];
-    CoursePK *pk3 = [course coursePK];
-    b = [pk3 isEqual:pk1];
+    // Add courses
+    for (int i = 0; i < 3; i++) {        
+        CoursePK *coursePK = [[CoursePK alloc] initWithCode:[NSString stringWithFormat:@"IOS %d", i]];
+        Course *course = [[Course alloc] initWithCoursePK:coursePK];
+        [course setTitle:[NSString stringWithFormat:@"IOS Course %d", i]];
+        [course setDescription:@"Course for developing IOS skill"];
+                
+        if ([m_courseModel addCourse:course]) {
+            NSLog(@"Added sucessfully");
+        }
+        
+        [coursePK release];
+        [course release];    
+    }
 }
 
 /*- (void)viewDidUnload
@@ -145,7 +131,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [m_listOfItems count];
+    return [m_courseModel count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,8 +144,8 @@
     }
     
     // Set up the cell...
-	NSString *cellValue = [m_listOfItems objectAtIndex:indexPath.row];
-	cell.text = cellValue;
+    Course *course = [m_courseModel courseAtIndex:indexPath.row];
+	cell.text = [course title];
     
     return cell;
 }
@@ -219,10 +205,30 @@
 
 - (void)addCourse
 {
-    [m_listOfItems addObject:@"addCourse"];
-    NSLog(@"Add course button was clicked");
+    // Create a new one
+    CoursePK *coursePK = [[CoursePK alloc] initWithCode:[NSString stringWithFormat:@"IOS %d", [m_courseModel count]]];
+    Course *course = [[Course alloc] initWithCoursePK:coursePK];
+    [course setTitle:[NSString stringWithFormat:@"IOS Course %d", [m_courseModel count]]];
+    [course setDescription:@"Course for developing IOS skill"];
+
     
-    [self.tableView reloadData];
+    if ([m_courseModel addCourse:course]) {
+        [self.tableView reloadData];
+        
+        NSLog(@"Add course button was clicked");
+    }
+}
+
+- (void)removeCourse 
+{
+    // Get selected row
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    
+    if ([m_courseModel removeCourseByIndex:selectedIndexPath.row]) {
+        [self.tableView reloadData];
+        
+        NSLog(@"Remove course button was clicked");
+    }
 }
 
 @end
