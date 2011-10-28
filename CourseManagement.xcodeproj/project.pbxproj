@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760B309A145B1044003AF889 /* Xcode-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 760B3099145B1044003AF889 /* Xcode-48.png */; };
 		768123701451887200344F14 /* StudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7681236E1451887200344F14 /* StudentViewController.m */; };
 		768123711451887200344F14 /* StudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7681236F1451887200344F14 /* StudentViewController.xib */; };
 		7682B49D14541AAD008AF921 /* CourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7682B49C14541AAD008AF921 /* CourseListViewController.m */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		760B3099145B1044003AF889 /* Xcode-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Xcode-48.png"; path = "../../../../Downloads/Xcode-48.png"; sourceTree = "<group>"; };
 		7681236D1451887200344F14 /* StudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentViewController.h; path = ../StudentViewController.h; sourceTree = "<group>"; };
 		7681236E1451887200344F14 /* StudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentViewController.m; path = ../StudentViewController.m; sourceTree = "<group>"; };
 		7681236F1451887200344F14 /* StudentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StudentViewController.xib; path = ../StudentViewController.xib; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		760B3098145B0FAD003AF889 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				760B3099145B1044003AF889 /* Xcode-48.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		76A29A38144D784D00D66A0A = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		76A29A4D144D784E00D66A0A /* CourseManagement */ = {
 			isa = PBXGroup;
 			children = (
+				760B3098145B0FAD003AF889 /* Images */,
 				76A29A78144D84EC00D66A0A /* Common */,
 				76A29A71144D7A3600D66A0A /* XIBs */,
 				76A29A70144D79B600D66A0A /* Main */,
@@ -233,6 +244,7 @@
 			files = (
 				76A29A52144D784E00D66A0A /* InfoPlist.strings in Resources */,
 				768123711451887200344F14 /* StudentViewController.xib in Resources */,
+				760B309A145B1044003AF889 /* Xcode-48.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
