@@ -7,7 +7,7 @@
 //
 
 #import "CourseListViewController.h"
-
+#import "Course.h"
 
 @implementation CourseListViewController
 
@@ -85,6 +85,20 @@
     //self.navigationItem.title = @"Countries";
     
     [self addObserver:self forKeyPath:@"recalculating" options:0 context:&self->m_listOfItems];
+    
+    NSString *str = [[NSString alloc] init];
+    str = @"test";
+    CoursePK *pk1 = [[CoursePK alloc] initWithCode:@"pk1"];
+    CoursePK *pk2 = [[CoursePK alloc] initWithCode:@"pk2"];
+    
+    NSString *tmp = [pk1 courseCode];
+    BOOL b = [pk1 isEqual:pk2];
+    b = NO;
+    
+    Course *course = [[Course alloc] initWithCoursePK:pk1];
+    tmp = [course title];
+    CoursePK *pk3 = [course coursePK];
+    b = [pk3 isEqual:pk1];
 }
 
 /*- (void)viewDidUnload
@@ -207,6 +221,8 @@
 {
     [m_listOfItems addObject:@"addCourse"];
     NSLog(@"Add course button was clicked");
+    
+    [self.tableView reloadData];
 }
 
 @end
