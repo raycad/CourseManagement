@@ -12,6 +12,8 @@
 		768123711451887200344F14 /* StudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7681236F1451887200344F14 /* StudentViewController.xib */; };
 		7682B49D14541AAD008AF921 /* CourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7682B49C14541AAD008AF921 /* CourseListViewController.m */; };
 		7682B7DF1459A1930064CE20 /* CourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7682B7DE1459A1930064CE20 /* CourseModel.m */; };
+		7686A616145C22DF008137A8 /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7686A614145C22DF008137A8 /* CourseViewController.m */; };
+		7686A617145C22DF008137A8 /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7686A615145C22DF008137A8 /* CourseViewController.xib */; };
 		76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A47144D784E00D66A0A /* UIKit.framework */; };
 		76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A49144D784E00D66A0A /* Foundation.framework */; };
 		76A29A4C144D784E00D66A0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A4B144D784E00D66A0A /* CoreGraphics.framework */; };
@@ -34,6 +36,9 @@
 		7682B49C14541AAD008AF921 /* CourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListViewController.m; sourceTree = "<group>"; };
 		7682B7DD1459A1930064CE20 /* CourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseModel.h; sourceTree = "<group>"; };
 		7682B7DE1459A1930064CE20 /* CourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseModel.m; sourceTree = "<group>"; };
+		7686A613145C22DF008137A8 /* CourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseViewController.h; sourceTree = "<group>"; };
+		7686A614145C22DF008137A8 /* CourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseViewController.m; sourceTree = "<group>"; };
+		7686A615145C22DF008137A8 /* CourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseViewController.xib; sourceTree = "<group>"; };
 		76A29A43144D784E00D66A0A /* CourseManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A29A47144D784E00D66A0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		76A29A49144D784E00D66A0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -166,6 +171,8 @@
 				7681236E1451887200344F14 /* StudentViewController.m */,
 				7682B49B14541AAD008AF921 /* CourseListViewController.h */,
 				7682B49C14541AAD008AF921 /* CourseListViewController.m */,
+				7686A613145C22DF008137A8 /* CourseViewController.h */,
+				7686A614145C22DF008137A8 /* CourseViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 		76A29A71144D7A3600D66A0A /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				7686A615145C22DF008137A8 /* CourseViewController.xib */,
 				7681236F1451887200344F14 /* StudentViewController.xib */,
 			);
 			name = XIBs;
@@ -245,6 +253,7 @@
 				76A29A52144D784E00D66A0A /* InfoPlist.strings in Resources */,
 				768123711451887200344F14 /* StudentViewController.xib in Resources */,
 				760B309A145B1044003AF889 /* Xcode-48.png in Resources */,
+				7686A617145C22DF008137A8 /* CourseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +274,7 @@
 				768123701451887200344F14 /* StudentViewController.m in Sources */,
 				7682B49D14541AAD008AF921 /* CourseListViewController.m in Sources */,
 				7682B7DF1459A1930064CE20 /* CourseModel.m in Sources */,
+				7686A616145C22DF008137A8 /* CourseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

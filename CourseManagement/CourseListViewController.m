@@ -8,6 +8,7 @@
 
 #import "CourseListViewController.h"
 #import "Course.h"
+#import "CourseViewController.h"
 
 @implementation CourseViewCell
 
@@ -26,7 +27,7 @@
         m_categoryLabel.textAlignment = UITextAlignmentLeft;
         //m_categoryLabel.font = [UIFont systemFontOfSize:10];
         m_categoryLabel.font = [UIFont fontWithMarkupDescription:@"font-family: Arial; font-size: 11px; font-weight: bold; font-style : italic;"];
-        m_categoryLabel.textColor = [UIColor colorWithRed:255 green:0 blue:255 alpha:1.0];
+        m_categoryLabel.textColor = [UIColor orangeColor];
         m_thumbnailImageView = [[UIImageView alloc]init];
         [self.contentView addSubview:m_titleLabel];
         [self.contentView addSubview:m_categoryLabel];
@@ -127,14 +128,8 @@
 
     // Configure our table view.
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-      
-    //Set the title
-    //self.navigationItem.title = @"Countries";
+    //self.tableView.editing = YES;
+    //self.tableView.allowsSelectionDuringEditing = YES;
     
     // Add courses
     for (int i = 0; i < 3; i++) {        
@@ -276,6 +271,9 @@
 
 - (void)addCourse
 {
+    [self presentCourseViewModally];
+    
+    /*
     // Create a new one
     CoursePK *coursePK = [[CoursePK alloc] initWithCode:[NSString stringWithFormat:@"IOS %d", [m_courseModel count]]];
     Course *course = [[Course alloc] initWithCoursePK:coursePK];
@@ -288,6 +286,7 @@
         
         NSLog(@"Add course button was clicked");
     }
+     */
 }
 
 - (void)removeCourse 
@@ -300,6 +299,38 @@
         
         NSLog(@"Remove course button was clicked");
     }
+}
+
+- (void)presentCourseViewModally
+// Displays the options view so that the user can add a new number to the 
+// list of numbers to add up.
+{
+    CourseViewController * vc;
+    
+    vc = [[[CourseViewController alloc] init] autorelease];
+    assert(vc != nil);
+    
+    vc.delegate = self;
+    
+    [vc presentModallyOn:self];
+}
+
+- (void)didSaveCourse:(CourseViewController *)controller
+// Called when the user taps Save in the options view.  The options 
+// view has already saved the options, so we have nothing to do other 
+// than to tear down the view.
+{
+#pragma unused(controller)
+    assert(controller != nil);
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)didCancelCourse:(CourseViewController *)controller
+// Called when the user taps Cancel in the options view.
+{
+#pragma unused(controller)
+    assert(controller != nil);
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end
