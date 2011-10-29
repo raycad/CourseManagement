@@ -10,8 +10,19 @@
 
 @protocol CourseViewControllerDelegate;
 @interface CourseViewController : UIViewController {
-    id<CourseViewControllerDelegate>   m_delegate;
+    id<CourseViewControllerDelegate> m_delegate;
+    UITextField *m_titleTextField;
+    UITextView *m_descriptionTextView;
+    UIImageView *m_thumbnailImageView;
+    UITextField *m_categoryTextField;    
 }
+@property (nonatomic, retain) IBOutlet UITextField *titleTextField;
+
+@property (nonatomic, retain) IBOutlet UITextField *categoryTextField;
+
+@property (nonatomic, retain) IBOutlet UIImageView *thumbnailImageView;
+
+@property (nonatomic, retain) IBOutlet UITextView *descriptionTextView;
 
 @property (nonatomic, assign, readwrite) id<CourseViewControllerDelegate> delegate;
 

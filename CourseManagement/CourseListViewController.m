@@ -132,10 +132,12 @@
     //self.tableView.allowsSelectionDuringEditing = YES;
     
     // Add courses
-    for (int i = 0; i < 3; i++) {        
-        CoursePK *coursePK = [[CoursePK alloc] initWithCode:[NSString stringWithFormat:@"IOS %d", i]];
+    for (int i = 0; i < 3; i++) {     
+        NSString *title = [NSString stringWithFormat:@"IOS %d", i];
+        CoursePK *coursePK = [[CoursePK alloc] initWithCourseTitle:title];
         Course *course = [[Course alloc] initWithCoursePK:coursePK];
-        [course setTitle:[NSString stringWithFormat:@"IOS Course %d", i]];
+        [course setTitle:title];
+        [course setCategory:@"IOS"];
         [course setDescription:@"Course for developing IOS skill"];
                 
         if ([m_courseModel addCourse:course]) {
@@ -210,7 +212,7 @@
 	
     // Set up the cell…
     cell.titleLabel.text = [course title];
-    cell.categoryLabel.text = [[course coursePK] courseCode];
+    cell.categoryLabel.text = [course category];
     cell.thumbnailImageView.image = [UIImage imageNamed:@"Xcode-48.png"];
     
     return cell;
@@ -322,7 +324,24 @@
 {
 #pragma unused(controller)
     assert(controller != nil);
+    
+    NSString *title = [controller.titleTextField text];
+    NSString *category = [controller.categoryTextField text];
+    NSString *description = [controller.descriptionTextView text];
+    if (title == @"")
+        return;
+    
+    CoursePK *coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+    Course *course = [[Course alloc] initWithCoursePK:coursePK];
+    [course setTitle:title];
+    [course setCategory:category];
+    [course setDescription:description];
+    
+    if (![m_courseModel addCourse:course])
+        return;
+        
     [self dismissModalViewControllerAnimated:YES];
+    [self.tableView reloadData];
 }
 
 - (void)didCancelCourse:(CourseViewController *)controller

@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface CoursePK : NSObject {
-    NSString *m_courseCode;
+    NSString *m_courseTitle;
 }
 
--(id)initWithCode:(NSString *)courseCode;
--(NSString *)courseCode;
+-(id)initWithCourseTitle:(NSString *)courseTitle;
+-(NSString *)courseTitle;
 
 @end
 
@@ -22,6 +22,7 @@
 }
 
 @property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *category;
 @property (nonatomic, retain) NSString *description;
 
 -(id)initWithCoursePK:(CoursePK *)coursePK;

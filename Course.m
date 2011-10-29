@@ -10,24 +10,24 @@
 
 @implementation CoursePK
 
--(id)initWithCode:(NSString *)courseCode
+-(id)initWithCourseTitle:(NSString *)courseTitle
 {
     if ((self = [super init])) {
         // Initialize parameters
-        [m_courseCode autorelease]; // Use this to avoid releasing itself
-        m_courseCode = [courseCode retain];
+        [m_courseTitle autorelease]; // Use this to avoid releasing itself
+        m_courseTitle = [courseTitle retain];
     }
     return self;   
 }
 
--(NSString *)courseCode
+-(NSString *)courseTitle
 {
-    return m_courseCode;
+    return m_courseTitle;
 }
 
 -(void)dealloc 
 {
-    [m_courseCode release];
+    [m_courseTitle release];
 }
 
 -(BOOL)isEqual:(id)object
@@ -38,7 +38,7 @@
     if (!object || ![object isKindOfClass:[self class]])
         return NO;
     
-    if ([self.courseCode isEqual:[object courseCode]])
+    if ([self.courseTitle isEqual:[object courseTitle]])
         return YES;
 
     return NO;
@@ -48,6 +48,7 @@
 @implementation Course
 
 @synthesize title = m_title;
+@synthesize category = m_category;
 @synthesize description = m_description;
 
 -(id)initWithCoursePK:(CoursePK *)coursePK
@@ -55,6 +56,7 @@
     if ((self = [super init])) {
         // Initialize parameters
         m_title = @"iOS";
+        m_category = @"IOS";
         m_description = @"iOS";
         
         [m_coursePK autorelease]; // Use this to avoid releasing itself
@@ -70,8 +72,8 @@
 }
 
 - (void)dealloc {
-    NSLog(@"Title = %@", m_title);
     [m_title release];
+    [m_category release];
     [m_description release];
     [m_coursePK release];
 }

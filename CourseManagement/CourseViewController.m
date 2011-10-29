@@ -10,13 +10,17 @@
 
 @implementation CourseViewController
 
+@synthesize titleTextField = m_titleTextField;
+@synthesize categoryTextField = m_categoryTextField;
+@synthesize thumbnailImageView = m_thumbnailImageView;
+@synthesize descriptionTextView = m_descriptionTextView;
 @synthesize delegate = m_delegate;
 
 - (id)init
 {
     self = [super init];
     if (self != nil) {
-        self.title = @"Add Course";
+        self.title = @"Add Course";       
     }
     return self;
 }
@@ -73,6 +77,10 @@
 
 - (void)dealloc
 {
+    [m_titleTextField release];
+    [m_descriptionTextView release];
+    [m_categoryTextField release];
+    [m_thumbnailImageView release];
     [super dealloc];
 }
 
@@ -88,12 +96,18 @@
 
 - (void)viewDidLoad
 {
+    m_thumbnailImageView.image = [UIImage imageNamed:@"Xcode-48.png"];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
+    [self setTitleTextField:nil];
+    [self setDescriptionTextView:nil];
+    [self setCategoryTextField:nil];
+    [self setThumbnailImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -103,6 +117,12 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return TRUE;
 }
 
 @end
