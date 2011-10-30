@@ -12,7 +12,7 @@
 
 @synthesize titleTextField = m_titleTextField;
 @synthesize categoryTextField = m_categoryTextField;
-@synthesize thumbnailImageView = m_thumbnailImageView;
+@synthesize thumbnailImageButton = m_thumbnailImageButton;
 @synthesize descriptionTextView = m_descriptionTextView;
 @synthesize delegate = m_delegate;
 
@@ -66,6 +66,10 @@
     [parent presentModalViewController:nav animated:YES];
 }
 
+- (IBAction)selectImage:(id)sender 
+{
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -80,7 +84,7 @@
     [m_titleTextField release];
     [m_descriptionTextView release];
     [m_categoryTextField release];
-    [m_thumbnailImageView release];
+    [m_thumbnailImageButton release];
     [super dealloc];
 }
 
@@ -96,7 +100,9 @@
 
 - (void)viewDidLoad
 {
-    m_thumbnailImageView.image = [UIImage imageNamed:@"Xcode-48.png"];
+    // Set default parameters
+    UIImage *thumbnailImage = [UIImage imageNamed:@"Xcode-48.png"];
+    [m_thumbnailImageButton setImage:thumbnailImage forState:UIControlStateNormal];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -107,7 +113,7 @@
     [self setTitleTextField:nil];
     [self setDescriptionTextView:nil];
     [self setCategoryTextField:nil];
-    [self setThumbnailImageView:nil];
+    [self setThumbnailImageButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
