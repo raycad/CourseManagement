@@ -10,7 +10,7 @@
 
 @implementation CoursePK
 
--(id)initWithCourseTitle:(NSString *)courseTitle
+- (id)initWithCourseTitle:(NSString *)courseTitle
 {
     if ((self = [super init])) {
         // Initialize parameters
@@ -20,17 +20,17 @@
     return self;   
 }
 
--(NSString *)courseTitle
+- (NSString *)courseTitle
 {
     return m_courseTitle;
 }
 
--(void)dealloc 
+- (void)dealloc 
 {
     [m_courseTitle release];
 }
 
--(BOOL)isEqual:(id)object
+- (BOOL)isEqual:(id)object
 {
     if (object == self)
         return YES;
@@ -51,7 +51,7 @@
 @synthesize category = m_category;
 @synthesize description = m_description;
 
--(id)initWithCoursePK:(CoursePK *)coursePK
+- (id)initWithCoursePK:(CoursePK *)coursePK
 {
     if ((self = [super init])) {
         // Initialize parameters
@@ -66,7 +66,7 @@
     return self;
 }
 
--(CoursePK *)coursePK
+- (CoursePK *)coursePK
 {
     return m_coursePK;
 }

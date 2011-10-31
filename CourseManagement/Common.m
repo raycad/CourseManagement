@@ -10,5 +10,9 @@
 
 const NSString *CourseListViewControllerIdString   = @"CourseListViewControllerId";
 const NSString *CourseViewControllerIdString       = @"CourseViewControllerId";
+const NSString *StudentListViewControllerIdString  = @"StudentListViewControllerId";
 const NSString *StudentViewControllerIdString      = @"StudentViewControllerId";
 const NSString *InstructorViewControllerIdString   = @"InstructorViewControllerId";
+
+const NSString *CourseListViewTitle     = @"Course View";
+const NSString *StudentListViewTitle     = @"Student View";

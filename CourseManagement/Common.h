@@ -7,5 +7,10 @@
 //
 extern const NSString *CourseListViewControllerIdString;
 extern const NSString *CourseViewControllerIdString;
+extern const NSString *StudentListViewControllerIdString;
 extern const NSString *StudentViewControllerIdString;
 extern const NSString *InstructorViewControllerIdString;
+
+// Default global strings
+extern const NSString *CourseListViewTitle;
+extern const NSString *StudentListViewTitle;

@@ -8,9 +8,32 @@
 
 #import <Foundation/Foundation.h>
 
+@interface PersonPK : NSObject {
+    NSString *m_idNumber;
+}
+
+-(id)initWithIdNumber:(NSString *)idNumber;
+-(NSString *)idNumber;
+
+@end
 
 @interface Person : NSObject {
+    NSString *m_fullName;
+    NSString *m_idNumber;
+    NSString *m_dateOfBirth;
+    NSString *m_address;
+    NSString *m_mobilePhoneNumber;
     
+    PersonPK *m_personPK;
 }
+
+@property (nonatomic, retain) NSString *fullName;
+@property (nonatomic, retain) NSString *idNumber;
+@property (nonatomic, retain) NSString *dateOfBirth;
+@property (nonatomic, retain) NSString *address;
+@property (nonatomic, retain) NSString *mobilePhoneNumber;
+
+-(id)initWithPersonPK:(PersonPK *)personPK;
+-(PersonPK *)personPK;
 
 @end

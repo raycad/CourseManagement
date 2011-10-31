@@ -8,26 +8,48 @@
 
 #import "CourseManagementAppDelegate.h"
 #import "CourseListViewController.h"
+#import "StudentListViewController.h"
 
 @implementation CourseManagementAppDelegate
 
 @synthesize window = m_window;
 @synthesize navigationController = m_navigationController;
+@synthesize tabBarController = m_tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Initialize view controller map
     m_viewControllerMap = [[NSMutableDictionary alloc] init];
+    
+    m_tabBarController = [[UITabBarController alloc] init];
     m_navigationController = [[UINavigationController alloc] init];
     
-    id mainViewController = [self getViewControllerByIdString:(id)CourseListViewControllerIdString];
-    if (mainViewController) {
-        [self.navigationController pushViewController:mainViewController animated:NO];
-        [self.window addSubview:[self.navigationController view]];    
+    UINavigationController *studentNavigationController = [[UINavigationController alloc] init];
+    id studentListViewController = [self getViewControllerByIdString:(id)StudentListViewControllerIdString];
+    if (studentListViewController) {
+        [studentNavigationController pushViewController:studentListViewController animated:NO]; 
+        ((StudentListViewController *)studentListViewController).title = StudentListViewTitle;        
     }
+
+    UINavigationController *courseNavigationController = [[UINavigationController alloc] init];
+    id courseListViewController = [self getViewControllerByIdString:(id)CourseListViewControllerIdString];
+    if (courseListViewController) {
+        [courseNavigationController pushViewController:courseListViewController animated:NO]; 
+        ((CourseListViewController *)courseListViewController).title = CourseListViewTitle;
+    }    
+        
+    m_tabBarController.viewControllers = [NSArray arrayWithObjects:courseNavigationController, studentNavigationController, nil];
+    
+    [self.window addSubview:[self.tabBarController view]];
     
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
+    
+    [studentListViewController release];
+    [courseListViewController release];
+    
+    [studentNavigationController release];
+    [courseNavigationController release];
     
     /*id viewController = [self getViewControllerByIdString:(id)CourseViewControllerIdString];
     if (viewController)
@@ -80,6 +102,8 @@
     id viewController = nil;
     if (viewControllerIdString == CourseListViewControllerIdString) {
         viewController = [[CourseListViewController alloc] init];
+    } else if (viewControllerIdString == StudentListViewControllerIdString) {
+        viewController = [[StudentListViewController alloc] init];
     } /*else if (viewControllerIdString == CourseViewControllerIdString) {
         viewController = [[CourseViewController alloc] initWithNibName:@"CourseViewController" bundle:[NSBundle mainBundle]];
     } else if (viewControllerIdString == StudentViewControllerIdString) {
@@ -124,6 +148,7 @@
     [m_window release];
     [m_navigationController release];
     [m_viewControllerMap release];
+    [m_tabBarController release];
 }
 
 - (void)dealloc

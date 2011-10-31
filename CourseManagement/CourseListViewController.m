@@ -9,6 +9,7 @@
 #import "CourseListViewController.h"
 #import "Course.h"
 #import "CourseViewController.h"
+#import "Common.h"
 
 @implementation CourseViewCell
 
@@ -81,7 +82,7 @@
         m_courseModel = [CourseModel instance];
 
         // Set up our navigation bar.
-        self.title = @"Course List";
+        self.title = CourseListViewTitle;
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeCourse)];
         
@@ -326,6 +327,17 @@
     assert(controller != nil);
     
     NSString *title = [controller.titleTextField text];
+    
+    if ([title isEqualToString:@""]) {
+        // Open a alert with an OK button
+        NSString *alertString = [NSString stringWithFormat:@"Title must not be empty"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
+        return;
+    }
+
     NSString *category = [controller.categoryTextField text];
     NSString *description = [controller.descriptionTextView text];
     if (title == @"")
@@ -337,8 +349,15 @@
     [course setCategory:category];
     [course setDescription:description];
     
-    if (![m_courseModel addCourse:course])
+    if (![m_courseModel addCourse:course]) {
+        // Open a alert with an OK button
+        NSString *alertString = [NSString stringWithFormat:@"The course is existing"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
         return;
+    }
         
     [self dismissModalViewControllerAnimated:YES];
     [self.tableView reloadData];
