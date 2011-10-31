@@ -13,7 +13,6 @@
 @implementation CourseManagementAppDelegate
 
 @synthesize window = m_window;
-@synthesize navigationController = m_navigationController;
 @synthesize tabBarController = m_tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -22,20 +21,17 @@
     m_viewControllerMap = [[NSMutableDictionary alloc] init];
     
     m_tabBarController = [[UITabBarController alloc] init];
-    m_navigationController = [[UINavigationController alloc] init];
     
     UINavigationController *studentNavigationController = [[UINavigationController alloc] init];
     id studentListViewController = [self getViewControllerByIdString:(id)StudentListViewControllerIdString];
     if (studentListViewController) {
         [studentNavigationController pushViewController:studentListViewController animated:NO]; 
-        ((StudentListViewController *)studentListViewController).title = StudentListViewTitle;        
     }
 
     UINavigationController *courseNavigationController = [[UINavigationController alloc] init];
     id courseListViewController = [self getViewControllerByIdString:(id)CourseListViewControllerIdString];
     if (courseListViewController) {
         [courseNavigationController pushViewController:courseListViewController animated:NO]; 
-        ((CourseListViewController *)courseListViewController).title = CourseListViewTitle;
     }    
         
     m_tabBarController.viewControllers = [NSArray arrayWithObjects:courseNavigationController, studentNavigationController, nil];
@@ -146,7 +142,6 @@
     [m_viewControllerMap removeAllObjects];
     
     [m_window release];
-    [m_navigationController release];
     [m_viewControllerMap release];
     [m_tabBarController release];
 }

@@ -11,12 +11,10 @@
 
 @interface CourseManagementAppDelegate : NSObject <UIApplicationDelegate> {
     NSMutableDictionary *m_viewControllerMap;
-    UINavigationController *m_navigationController;
     UITabBarController *m_tabBarController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
 - (id)getViewControllerByIdString:(NSString *)viewControllerIdString;

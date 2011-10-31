@@ -15,6 +15,8 @@
 		7685B8C5145E88A5008F8FA2 /* StudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7685B8C3145E88A5008F8FA2 /* StudentListViewController.m */; };
 		7685B8C6145E88A5008F8FA2 /* StudentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7685B8C4145E88A5008F8FA2 /* StudentListViewController.xib */; };
 		7685B8CA145E8B86008F8FA2 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7685B8C9145E8B86008F8FA2 /* StudentModel.m */; };
+		7685B8DD145EBA7D008F8FA2 /* student.png in Resources */ = {isa = PBXBuildFile; fileRef = 7685B8DB145EBA7D008F8FA2 /* student.png */; };
+		7685B8DE145EBA7D008F8FA2 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = 7685B8DC145EBA7D008F8FA2 /* course.png */; };
 		7686A616145C22DF008137A8 /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7686A614145C22DF008137A8 /* CourseViewController.m */; };
 		7686A617145C22DF008137A8 /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7686A615145C22DF008137A8 /* CourseViewController.xib */; };
 		76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A47144D784E00D66A0A /* UIKit.framework */; };
@@ -44,6 +46,8 @@
 		7685B8C4145E88A5008F8FA2 /* StudentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentListViewController.xib; sourceTree = "<group>"; };
 		7685B8C8145E8B86008F8FA2 /* StudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentModel.h; sourceTree = "<group>"; };
 		7685B8C9145E8B86008F8FA2 /* StudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentModel.m; sourceTree = "<group>"; };
+		7685B8DB145EBA7D008F8FA2 /* student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = student.png; path = Images/student.png; sourceTree = SOURCE_ROOT; };
+		7685B8DC145EBA7D008F8FA2 /* course.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = course.png; path = Images/course.png; sourceTree = SOURCE_ROOT; };
 		7686A613145C22DF008137A8 /* CourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseViewController.h; sourceTree = "<group>"; };
 		7686A614145C22DF008137A8 /* CourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseViewController.m; sourceTree = "<group>"; };
 		7686A615145C22DF008137A8 /* CourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseViewController.xib; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				760B3099145B1044003AF889 /* Xcode-48.png */,
+				7685B8DB145EBA7D008F8FA2 /* student.png */,
+				7685B8DC145EBA7D008F8FA2 /* course.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 				760B309A145B1044003AF889 /* Xcode-48.png in Resources */,
 				7686A617145C22DF008137A8 /* CourseViewController.xib in Resources */,
 				7685B8C6145E88A5008F8FA2 /* StudentListViewController.xib in Resources */,
+				7685B8DD145EBA7D008F8FA2 /* student.png in Resources */,
+				7685B8DE145EBA7D008F8FA2 /* course.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

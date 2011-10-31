@@ -22,6 +22,7 @@
         
         // Set up our navigation bar.
         self.title = StudentListViewTitle;
+        self.tabBarItem.image = [UIImage imageNamed:@"student.png"];
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeStudent)];
         

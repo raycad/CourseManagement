@@ -82,7 +82,8 @@
         m_courseModel = [CourseModel instance];
 
         // Set up our navigation bar.
-        self.title = CourseListViewTitle;
+        self.title = CourseListViewTitle;        
+        self.tabBarItem.image = [UIImage imageNamed:@"course.png"];
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeCourse)];
         
