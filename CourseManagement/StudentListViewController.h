@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "StudentModel.h"
 
-@interface StudentListViewController : UITableViewController {
+@interface StudentListViewController : UIViewController {
     StudentModel *m_studentModel;    
+    UISearchBar *m_searchBar;
+    UITableView *m_studentTableView;
 }
+
+@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, retain) IBOutlet UITableView *studentTableView;
 
 @end

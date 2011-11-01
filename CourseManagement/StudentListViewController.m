@@ -12,6 +12,9 @@
 
 @implementation StudentListViewController
 
+@synthesize searchBar = m_searchBar;
+@synthesize studentTableView = m_studentTableView;
+
 - (id)init
 {
     //self = [super initWithStyle:UITableViewStyleGrouped];
@@ -24,83 +27,28 @@
         self.title = StudentListViewTitle;
         self.tabBarItem.image = [UIImage imageNamed:@"student.png"];
         
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeStudent)];
-        
-        /*self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Options" style:UIBarButtonItemStyleBordered target:self action:@selector(optionsAction:)        ] autorelease];*/
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeStudent)];        
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addStudent)];
-    }
-    
+    }    
+        
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	
+    [self.studentTableView reloadData];
+	self.studentTableView.scrollEnabled = YES;
 }
 
 - (void)dealloc
 {
     [m_studentModel release];
+    [m_searchBar release];
+    [m_studentTableView release];
     [super dealloc];
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 - (void)addStudent
@@ -135,7 +83,6 @@
     assert(controller != nil);
     
     [self dismissModalViewControllerAnimated:YES];
-    [self.tableView reloadData];
 }
 
 - (void)didCancelStudent:(StudentViewController *)controller
@@ -145,5 +92,101 @@
     assert(controller != nil);
     [self dismissModalViewControllerAnimated:YES];
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    //NSLog(@”contacts error in num of row”);
+    return 2;//[m_studentModel count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    cell.text = @"TTTT"; 
+    return cell;
+}
+
+- (void)viewDidUnload {
+    [self setSearchBar:nil];
+    [self setStudentTableView:nil];
+    [super viewDidUnload];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIViewController *detailsViewController = [[UIViewController alloc] init];
+    
+    detailsViewController.title = @"raycad";
+    
+    [[self navigationController] pushViewController:detailsViewController animated:YES];
+    [detailsViewController release];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    // only show the status bar’s cancel button while in edit mode
+    m_searchBar.showsCancelButton = YES;
+    m_searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    // flush the previous search content
+    [m_studentTableView removeAllObjects];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    m_searchBar.showsCancelButton = NO;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [m_studentTableView removeAllObjects];// remove all data that belongs to previous search
+    if([searchText isEqualToString:@""] || (searchText == nil)){
+        [m_studentTableView reloadData];
+        return;
+    }
+    NSInteger counter = 0;
+    /*for(NSString *name in dataSource) {
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
+        NSRange r = [name rangeOfString:searchText];
+        if(r.location != NSNotFound)
+        {
+            if(r.location== 0)//that is we are checking only the start of the names.
+            {
+                [tableData addObject:name];
+            }
+        }
+        counter++;
+        [pool release];
+    }*/	
+    [m_studentTableView reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    // if a valid search was entered but the user wanted to cancel, bring back the main list content
+    [m_studentTableView removeAllObjects];
+    //[m_studentTableView addObjectsFromArray:dataSource];
+    @try{
+        [m_studentTableView reloadData];
+    }
+    @catch(NSException *e){
+    }
+    [m_searchBar resignFirstResponder];
+    m_searchBar.text = @"";
+}
+
+// called when Search (in our case “Done”) button pressed
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
 
 @end
