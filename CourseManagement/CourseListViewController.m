@@ -163,7 +163,7 @@
     if (cell == nil) {
 		cell = [[[CourseViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
         // Show row with the AccessoryDisclosureIndicator
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		/*cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;*/
 	}
     
     // Set up the cell...
@@ -179,17 +179,29 @@
     return cell;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCellEditingStyle result;
+    
+#pragma unused(tv)
+    assert(tv == self.tableView);   
+    
+    result = UITableViewCellEditingStyleDelete;
+    return result;
+}
+
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    CourseViewController *courseViewController = [[CourseViewController alloc] init];
+    /*CourseViewController *courseViewController = [[CourseViewController alloc] init];
     
     //studentViewController.title = @"raycad";
     
     [[self navigationController] pushViewController:courseViewController animated:YES];
-    [courseViewController release];
+    [courseViewController release];*/
 }
 
 - (void)addCourse
@@ -202,8 +214,19 @@
     // Get selected row
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     
+    if (selectedIndexPath == nil) {
+        // Open a alert with an OK button
+        NSString *alertString = [NSString stringWithFormat:@"You must select a course"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+    
     if ([m_courseModel removeCourseByIndex:selectedIndexPath.row]) {
-        [self.tableView reloadData];
+        //[self.tableView reloadData];
+        
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         NSLog(@"Remove course button was clicked");
     }
