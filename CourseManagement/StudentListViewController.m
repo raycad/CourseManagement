@@ -107,8 +107,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-    }
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
     
     cell.text = @"TTTT"; 
     return cell;
@@ -122,12 +123,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *detailsViewController = [[UIViewController alloc] init];
+    StudentViewController *studentViewController = [[StudentViewController alloc] init];
     
-    detailsViewController.title = @"raycad";
+    //studentViewController.title = @"raycad";
     
-    [[self navigationController] pushViewController:detailsViewController animated:YES];
-    [detailsViewController release];
+    [[self navigationController] pushViewController:studentViewController animated:YES];
+    [studentViewController release];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
@@ -136,7 +137,7 @@
     m_searchBar.showsCancelButton = YES;
     m_searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     // flush the previous search content
-    [m_studentTableView removeAllObjects];
+    [m_studentTableView reloadData];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
@@ -171,7 +172,7 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     // if a valid search was entered but the user wanted to cancel, bring back the main list content
-    [m_studentTableView removeAllObjects];
+    //[m_studentTableView removeAllObjects];
     //[m_studentTableView addObjectsFromArray:dataSource];
     @try{
         [m_studentTableView reloadData];
