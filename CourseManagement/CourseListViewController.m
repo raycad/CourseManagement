@@ -53,16 +53,6 @@
     m_categoryLabel.frame = frame;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
-}
-
 - (void)dealloc
 {
     [m_titleLabel release];
@@ -109,10 +99,9 @@
 {
     [super viewDidLoad];
 
-    // Configure our table view.
-    
-    //self.tableView.editing = YES;
-    //self.tableView.allowsSelectionDuringEditing = YES;
+    // Configure the table view    
+    self.tableView.editing = YES;
+    self.tableView.allowsSelectionDuringEditing = YES;
     
     // Add courses
     for (int i = 0; i < 3; i++) {     
@@ -130,6 +119,9 @@
         [coursePK release];
         [course release];    
     }
+    
+    // Reload data
+    [self.tableView reloadData];
 }
 
 /*- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -163,7 +155,7 @@
     if (cell == nil) {
 		cell = [[[CourseViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
         // Show row with the AccessoryDisclosureIndicator
-		/*cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;*/
+		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	}
     
     // Set up the cell...
@@ -171,6 +163,13 @@
     if (!course)
         return nil;
 	
+    // Reset it to default values.
+    
+    cell.editingAccessoryView = nil;
+    cell.detailTextLabel.text = nil;
+    // Set cell selection is blue style
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+
     // Set up the cell…
     cell.titleLabel.text = [course title];
     cell.categoryLabel.text = [course category];
@@ -179,29 +178,43 @@
     return cell;
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCellEditingStyle result;
-    
-#pragma unused(tv)
-    assert(tv == self.tableView);   
-    
-    result = UITableViewCellEditingStyleDelete;
-    return result;
+//This defines for each row its editing style, i.e. whether it shows a remove sign (Red circle with subtract sign) or 
+//and add sign (Green circle with addition sign). I have hard coded the first row (the one that says "New Item") to display the add sign and all others to display the subtract sign. 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
 }
 
+//This method is invoked when the user has finished editing one of the rows of the table. The three parameters
+//respectivly proivide, the table being edited, the style of the row being edited (Add or Delete) and the row being 
+//edited. If the style is delete we remove the corresponding item from the data source and then delete the row from 
+///the view. If the style was add we add another element to the data source and relode the data into the table view.
+//In reality add item will probably load a new view which allows the user to enter text but that is left to another 
+//tutorial for now we are hard coding the text to be added.   
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // If row is deleted, remove it from the list.
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        if ([m_courseModel removeCourseByIndex:indexPath.row]) {
+            //[self.tableView reloadData];
+            
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+            NSLog(@"Remove course button was clicked");
+        }
+    }
+}
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*CourseViewController *courseViewController = [[CourseViewController alloc] init];
+    CourseViewController *courseViewController = [[CourseViewController alloc] init];
     
-    //studentViewController.title = @"raycad";
+    //courseViewController.title = @"raycad";
     
     [[self navigationController] pushViewController:courseViewController animated:YES];
-    [courseViewController release];*/
+    [courseViewController release];
 }
 
 - (void)addCourse
