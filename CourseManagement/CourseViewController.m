@@ -15,6 +15,7 @@
 @synthesize thumbnailImageButton = m_thumbnailImageButton;
 @synthesize descriptionTextView = m_descriptionTextView;
 @synthesize delegate = m_delegate;
+@synthesize course = m_course;
 
 - (id)init
 {
@@ -85,6 +86,8 @@
     [m_descriptionTextView release];
     [m_categoryTextField release];
     [m_thumbnailImageButton release];
+    [m_course release];
+    
     [super dealloc];
 }
 
@@ -100,12 +103,18 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     // Set default parameters
     UIImage *thumbnailImage = [UIImage imageNamed:@"Xcode-48.png"];
     [m_thumbnailImageButton setImage:thumbnailImage forState:UIControlStateNormal];
     
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    if (m_course){
+        m_titleTextField.text = m_course.title;
+        m_descriptionTextView.text = m_course.description;
+        m_categoryTextField.text = m_course.category;
+        
+        self.title = m_course.title;
+    }
 }
 
 - (void)viewDidUnload

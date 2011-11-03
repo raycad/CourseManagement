@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Course.h"
 
 @protocol CourseViewControllerDelegate;
 @interface CourseViewController : UIViewController {
@@ -14,8 +15,11 @@
     UITextField *m_titleTextField;
     UITextView *m_descriptionTextView;
     UIButton *m_thumbnailImageButton;
-    UITextField *m_categoryTextField;    
+    UITextField *m_categoryTextField;   
+    
+    Course *m_course;
 }
+
 @property (nonatomic, retain) IBOutlet UITextField *titleTextField;
 
 @property (nonatomic, retain) IBOutlet UITextField *categoryTextField;
@@ -23,6 +27,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *thumbnailImageButton;
 
 @property (nonatomic, retain) IBOutlet UITextView *descriptionTextView;
+
+@property (nonatomic, retain) Course *course;
 
 @property (nonatomic, assign, readwrite) id<CourseViewControllerDelegate> delegate;
 

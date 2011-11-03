@@ -75,7 +75,7 @@
         self.title = CourseListViewTitle;        
         self.tabBarItem.image = [UIImage imageNamed:@"course.png"];
         
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeCourse)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
           
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCourse)];
     }
@@ -95,6 +95,90 @@
     [super dealloc];
 }
 
+- (void)createDefaultData
+{
+    NSString *title = nil;
+    CoursePK *coursePK = nil;
+    Course *course = nil;
+    
+    title = [NSString stringWithFormat:@"iOS Programming"];
+    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+    course = [[Course alloc] initWithCoursePK:coursePK];
+    [course setTitle:title];
+    [course setCategory:@"IOS"];
+    [course setDescription:@"Course for developing IOS skill"];    
+    if ([m_courseModel addCourse:course]) {
+        NSLog(@"Added sucessfully");
+    }
+    [title release];
+    [coursePK release];
+    [course release];  
+    
+    title = [NSString stringWithFormat:@"Android Programming"];
+    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+    course = [[Course alloc] initWithCoursePK:coursePK];
+    [course setTitle:title];
+    [course setCategory:@"Android"];
+    [course setDescription:@"Course for developing Android skill"];    
+    if ([m_courseModel addCourse:course]) {
+        NSLog(@"Added sucessfully");
+    }
+    [title release];
+    [coursePK release];
+    [course release];  
+    
+    title = [NSString stringWithFormat:@"Windows Phone 12/12/2011"];
+    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+    course = [[Course alloc] initWithCoursePK:coursePK];
+    [course setTitle:title];
+    [course setCategory:@"Windows phone"];
+    [course setDescription:@"Course for developing IOS skill"];    
+    if ([m_courseModel addCourse:course]) {
+        NSLog(@"Added sucessfully");
+    }
+    [title release];
+    [coursePK release];
+    [course release];  
+    
+    title = [NSString stringWithFormat:@"Windows Phone 30/12/2011"];
+    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+    course = [[Course alloc] initWithCoursePK:coursePK];
+    [course setTitle:title];
+    [course setCategory:@"Windows phone"];
+    [course setDescription:@"Course for developing IOS skill"];    
+    if ([m_courseModel addCourse:course]) {
+        NSLog(@"Added sucessfully");
+    }
+    [title release];
+    [coursePK release];
+    [course release];  
+    
+    title = [NSString stringWithFormat:@"C++ Programming 01/11/2011"];
+    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+    course = [[Course alloc] initWithCoursePK:coursePK];
+    [course setTitle:title];
+    [course setCategory:@"C++"];
+    [course setDescription:@"Course for developing C++ skill"];    
+    if ([m_courseModel addCourse:course]) {
+        NSLog(@"Added sucessfully");
+    }
+    [title release];
+    [coursePK release];
+    [course release];  
+    
+    title = [NSString stringWithFormat:@"Java Programming 01/11/2011"];
+    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+    course = [[Course alloc] initWithCoursePK:coursePK];
+    [course setTitle:title];
+    [course setCategory:@"Java"];
+    [course setDescription:@"Course for developing Java skill"];    
+    if ([m_courseModel addCourse:course]) {
+        NSLog(@"Added sucessfully");
+    }
+    [title release];
+    [coursePK release];
+    [course release];  
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -103,22 +187,7 @@
     self.tableView.editing = YES;
     self.tableView.allowsSelectionDuringEditing = YES;
     
-    // Add courses
-    for (int i = 0; i < 3; i++) {     
-        NSString *title = [NSString stringWithFormat:@"IOS %d", i];
-        CoursePK *coursePK = [[CoursePK alloc] initWithCourseTitle:title];
-        Course *course = [[Course alloc] initWithCoursePK:coursePK];
-        [course setTitle:title];
-        [course setCategory:@"IOS"];
-        [course setDescription:@"Course for developing IOS skill"];
-                
-        if ([m_courseModel addCourse:course]) {
-            NSLog(@"Added sucessfully");
-        }
-        
-        [coursePK release];
-        [course release];    
-    }
+    [self createDefaultData];
     
     // Reload data
     [self.tableView reloadData];
@@ -208,13 +277,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    CourseViewController *courseViewController = [[CourseViewController alloc] init];
-    
-    //courseViewController.title = @"raycad";
-    
-    [[self navigationController] pushViewController:courseViewController animated:YES];
-    [courseViewController release];
+    if (self.tableView == tableView) {
+        // Navigation logic may go here. Create and push another view controller.
+        CourseViewController *courseViewController = [[CourseViewController alloc] init];
+        
+        CourseViewCell *cell = (CourseViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        assert(cell != nil);
+        CoursePK *coursePK = [[CoursePK alloc] initWithCourseTitle:cell.titleLabel.text];
+        Course *course = [m_courseModel getCourseByPK:coursePK];
+        assert(course != nil);
+        
+        courseViewController.course = course;
+        
+        [[self navigationController] pushViewController:courseViewController animated:YES];
+        [courseViewController release];
+    }
 }
 
 - (void)addCourse
@@ -222,7 +299,7 @@
     [self presentCourseViewModally];  
 }
 
-- (void)removeCourse 
+/*- (void)removeCourse 
 {
     // Get selected row
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
@@ -243,6 +320,11 @@
         
         NSLog(@"Remove course button was clicked");
     }
+}*/
+
+- (void)refreshData
+{
+    [self.tableView reloadData];
 }
 
 - (void)presentCourseViewModally

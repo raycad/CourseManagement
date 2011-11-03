@@ -21,7 +21,7 @@
 - (BOOL)removeStudentByPK:(PersonPK *)studentPK;
 - (BOOL)removeStudentByIndex:(int)index;
 
-- (Student *)courseAtIndex:(int)index;
+- (Student *)studentAtIndex:(int)index;
 
 - (int)count;
 @end

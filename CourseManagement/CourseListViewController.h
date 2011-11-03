@@ -14,9 +14,9 @@
     UILabel *m_categoryLabel;
     UIImageView *m_thumbnailImageView;
 }
-@property(nonatomic,retain)UILabel *titleLabel;
-@property(nonatomic,retain)UILabel *categoryLabel;
-@property(nonatomic,retain)UIImageView *thumbnailImageView;
+@property(nonatomic, retain)UILabel *titleLabel;
+@property(nonatomic, retain)UILabel *categoryLabel;
+@property(nonatomic, retain)UIImageView *thumbnailImageView;
 @end
 
 @interface CourseListViewController : UITableViewController {
