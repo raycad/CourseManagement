@@ -18,13 +18,14 @@
 @end
 
 @interface Person : NSObject {
-    NSString *m_fullName;
-    NSString *m_idNumber;
-    NSString *m_dateOfBirth;
-    NSString *m_address;
-    NSString *m_mobilePhoneNumber;
+    NSString    *m_fullName;
+    NSString    *m_idNumber;
+    NSString    *m_dateOfBirth;
+    NSString    *m_address;
+    NSString    *m_mobilePhoneNumber;
+    int         m_sex; // Male = 0; Female = 1
     
-    PersonPK *m_personPK;
+    PersonPK    *m_personPK;
 }
 
 @property (nonatomic, retain) NSString *fullName;
@@ -32,6 +33,7 @@
 @property (nonatomic, retain) NSString *dateOfBirth;
 @property (nonatomic, retain) NSString *address;
 @property (nonatomic, retain) NSString *mobilePhoneNumber;
+@property int sex;
 
 -(id)initWithPersonPK:(PersonPK *)personPK;
 -(PersonPK *)personPK;

@@ -47,11 +47,12 @@
 
 @implementation Person
 
-@synthesize fullName = m_fullName;
-@synthesize idNumber = m_idNumber;
-@synthesize dateOfBirth = m_dateOfBirth;
-@synthesize address = m_address;
-@synthesize mobilePhoneNumber = m_mobilePhoneNumber;
+@synthesize fullName            = m_fullName;
+@synthesize idNumber            = m_idNumber;
+@synthesize dateOfBirth         = m_dateOfBirth;
+@synthesize address             = m_address;
+@synthesize mobilePhoneNumber   = m_mobilePhoneNumber;
+@synthesize sex                 = m_sex;
 
 - (id)initWithPersonPK:(PersonPK *)personPK
 {

@@ -81,6 +81,7 @@
     student.fullName = @"Raycad";  
     student.mobilePhoneNumber = @"0989641245";
     student.idNumber = idNumber;
+    student.sex = 0;
     if ([m_studentModel addStudent:student]) {
         NSLog(@"Added sucessfully");
     }
@@ -96,6 +97,7 @@
     student.fullName = @"Hamman";  
     student.mobilePhoneNumber = @"0975641245";
     student.idNumber = idNumber;
+    student.sex = 0;
     if ([m_studentModel addStudent:student]) {
         NSLog(@"Added sucessfully");
     }
@@ -111,6 +113,7 @@
     student.fullName = @"Marry";  
     student.mobilePhoneNumber = @"0989641245";
     student.idNumber = idNumber;
+    student.sex = 1;
     if ([m_studentModel addStudent:student]) {
         NSLog(@"Added sucessfully");
     }
@@ -123,9 +126,10 @@
     student = [[Student alloc] initWithPersonPK:personPK];
     [student setAddress:@"55 Kim Ma street"];
     student.dateOfBirth = @"23/8/1983";
-    student.fullName = @"Peter";  
+    student.fullName = @"Linda";  
     student.mobilePhoneNumber = @"0985504455";
     student.idNumber = idNumber;
+    student.sex = 1;
     if ([m_studentModel addStudent:student]) {
         NSLog(@"Added sucessfully");
     }
@@ -144,7 +148,7 @@
         
         // Set up our navigation bar.
         self.title = StudentListViewTitle;
-        self.tabBarItem.image = [UIImage imageNamed:@"student.png"];
+        self.tabBarItem.image = [UIImage imageNamed:@"student_male.png"];
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];        
         
@@ -261,7 +265,10 @@
     // Set up the cell…
     cell.fullNameLabel.text = [student fullName];
     cell.idNumberLabel.text = [student idNumber];
-    cell.thumbnailImageView.image = [UIImage imageNamed:@"student.png"];
+    if (student.sex == 0)
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"student_male.png"];
+    else
+        cell.thumbnailImageView.image = [UIImage imageNamed:@"student_female.png"];
     
     // Set data for cell
     cell.student = student;

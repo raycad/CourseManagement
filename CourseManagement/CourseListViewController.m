@@ -242,7 +242,7 @@
     // Set up the cell…
     cell.titleLabel.text = [course title];
     cell.categoryLabel.text = [course category];
-    cell.thumbnailImageView.image = [UIImage imageNamed:@"Xcode-48.png"];
+    cell.thumbnailImageView.image = [UIImage imageNamed:@"xcode.png"];
     
     return cell;
 }
