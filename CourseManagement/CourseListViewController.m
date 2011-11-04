@@ -16,6 +16,7 @@
 @synthesize titleLabel = m_titleLabel;
 @synthesize categoryLabel = m_categoryLabel;
 @synthesize thumbnailImageView = m_thumbnailImageView;
+@synthesize course = m_course;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier 
 {
@@ -58,6 +59,7 @@
     [m_titleLabel release];
     [m_categoryLabel release];
     [m_thumbnailImageView release];
+    [m_course retain];
 }
 @end
 
@@ -244,6 +246,9 @@
     cell.categoryLabel.text = [course category];
     cell.thumbnailImageView.image = [UIImage imageNamed:@"xcode.png"];
     
+    // Set data for cell
+    cell.course = course;
+    
     return cell;
 }
 
@@ -283,8 +288,7 @@
         
         CourseViewCell *cell = (CourseViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         assert(cell != nil);
-        CoursePK *coursePK = [[CoursePK alloc] initWithCourseTitle:cell.titleLabel.text];
-        Course *course = [m_courseModel getCourseByPK:coursePK];
+        Course *course = cell.course;
         assert(course != nil);
         
         courseViewController.course = course;

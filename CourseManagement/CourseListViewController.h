@@ -13,10 +13,13 @@
     UILabel *m_titleLabel;
     UILabel *m_categoryLabel;
     UIImageView *m_thumbnailImageView;
+    
+    Course *m_course;
 }
 @property(nonatomic, retain)UILabel *titleLabel;
 @property(nonatomic, retain)UILabel *categoryLabel;
 @property(nonatomic, retain)UIImageView *thumbnailImageView;
+@property(nonatomic, retain)Course *course;
 @end
 
 @interface CourseListViewController : UITableViewController {
