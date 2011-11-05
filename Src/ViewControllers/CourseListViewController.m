@@ -195,6 +195,10 @@
     [self.tableView reloadData];
 }
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+}
+
 /*- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

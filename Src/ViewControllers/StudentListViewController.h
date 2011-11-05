@@ -13,13 +13,13 @@
 @interface StudentViewCell : UITableViewCell {
     UILabel *m_fullNameLabel;
     UILabel *m_idNumberLabel;
-    UIImageView *m_thumbnailImageView;
+    UIImageView *m_avatarImageView;
     Student *m_student;
 }
 
 @property(nonatomic, retain)UILabel *fullNameLabel;
 @property(nonatomic, retain)UILabel *idNumberLabel;
-@property(nonatomic, retain)UIImageView *thumbnailImageView;
+@property(nonatomic, retain)UIImageView *avatarImageView;
 @property(nonatomic, retain)Student *student;
 
 @end

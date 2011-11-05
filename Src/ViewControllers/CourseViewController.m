@@ -140,4 +140,13 @@
     return TRUE;
 }
 
+- (BOOL)textView:(UITextView *)txtView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if( [text rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]].location == NSNotFound ) {
+        return YES;
+    }
+    
+    [txtView resignFirstResponder];
+    return NO;
+}
+
 @end

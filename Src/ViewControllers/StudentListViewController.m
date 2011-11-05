@@ -14,7 +14,7 @@
 
 @synthesize fullNameLabel = m_fullNameLabel;
 @synthesize idNumberLabel = m_idNumberLabel;
-@synthesize thumbnailImageView = m_thumbnailImageView;
+@synthesize avatarImageView = m_avatarImageView;
 @synthesize student = m_student;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier 
@@ -29,10 +29,10 @@
         //m_categoryLabel.font = [UIFont systemFontOfSize:10];
         m_idNumberLabel.font = [UIFont fontWithMarkupDescription:@"font-family: Arial; font-size: 11px; font-weight: bold; font-style : italic;"];
         m_idNumberLabel.textColor = [UIColor orangeColor];
-        m_thumbnailImageView = [[UIImageView alloc]init];
+        m_avatarImageView = [[UIImageView alloc]init];
         [self.contentView addSubview:m_fullNameLabel];
         [self.contentView addSubview:m_idNumberLabel];
-        [self.contentView addSubview:m_thumbnailImageView];
+        [self.contentView addSubview:m_avatarImageView];
         
     }
     return self;
@@ -44,7 +44,7 @@
     CGFloat boundsX = contentRect.origin.x;
     CGRect frame;
     frame = CGRectMake(boundsX+10 ,0, 50, 50);
-    m_thumbnailImageView.frame = frame;
+    m_avatarImageView.frame = frame;
     
     frame = CGRectMake(boundsX+70 ,5, 200, 25);
     m_fullNameLabel.frame = frame;
@@ -57,7 +57,7 @@
 {
     [m_fullNameLabel release];
     [m_idNumberLabel release];
-    [m_thumbnailImageView release];
+    [m_avatarImageView release];
     [m_student release];
 }
 @end
@@ -266,9 +266,9 @@
     cell.fullNameLabel.text = [student fullName];
     cell.idNumberLabel.text = [student idNumber];
     if (student.sex == 0)
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"student_male.png"];
+        cell.avatarImageView.image = [UIImage imageNamed:@"student_male.png"];
     else
-        cell.thumbnailImageView.image = [UIImage imageNamed:@"student_female.png"];
+        cell.avatarImageView.image = [UIImage imageNamed:@"student_female.png"];
     
     // Set data for cell
     cell.student = student;
