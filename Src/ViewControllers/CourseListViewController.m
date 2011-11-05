@@ -64,6 +64,8 @@
 @end
 
 @implementation CourseListViewController
+@synthesize courseTableView = m_courseTableView;
+@synthesize searchBar = m_searchBar;
 
 - (id)init
 {
@@ -92,8 +94,9 @@
 
 - (void)dealloc
 {
-    [m_courseModel release];
-    
+    [m_courseModel release];    
+    [m_courseTableView release];
+    [m_searchBar release];
     [super dealloc];
 }
 
@@ -186,16 +189,18 @@
     [super viewDidLoad];
 
     // Configure the table view    
-    self.tableView.editing = YES;
-    self.tableView.allowsSelectionDuringEditing = YES;
+    m_courseTableView.editing = YES;
+    m_courseTableView.allowsSelectionDuringEditing = YES;
     
     [self createDefaultData];
     
     // Reload data
-    [self.tableView reloadData];
+    [m_courseTableView reloadData];
 }
 
 - (void)viewDidUnload {
+    [self setCourseTableView:nil];
+    [self setSearchBar:nil];
     [super viewDidUnload];
 }
 
@@ -273,9 +278,9 @@
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if ([m_courseModel removeCourseByIndex:indexPath.row]) {
-            //[self.tableView reloadData];
+            //[m_courseTableView reloadData];
             
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [m_courseTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             
             NSLog(@"Remove course button was clicked");
         }
@@ -286,7 +291,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.tableView == tableView) {
+    if (m_courseTableView == tableView) {
         // Navigation logic may go here. Create and push another view controller.
         CourseViewController *courseViewController = [[CourseViewController alloc] init];
         
@@ -310,7 +315,7 @@
 /*- (void)removeCourse 
 {
     // Get selected row
-    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    NSIndexPath *selectedIndexPath = [m_courseTableView indexPathForSelectedRow];
     
     if (selectedIndexPath == nil) {
         // Open a alert with an OK button
@@ -322,9 +327,9 @@
     }
     
     if ([m_courseModel removeCourseByIndex:selectedIndexPath.row]) {
-        //[self.tableView reloadData];
+        //[m_courseTableView reloadData];
         
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [m_courseTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         NSLog(@"Remove course button was clicked");
     }
@@ -332,7 +337,7 @@
 
 - (void)refreshData
 {
-    [self.tableView reloadData];
+    [m_courseTableView reloadData];
 }
 
 - (void)presentCourseViewModally
@@ -391,7 +396,7 @@
     }
         
     [self dismissModalViewControllerAnimated:YES];
-    [self.tableView reloadData];
+    [m_courseTableView reloadData];
 }
 
 - (void)didCancelCourse:(CourseViewController *)controller
@@ -400,6 +405,64 @@
 #pragma unused(controller)
     assert(controller != nil);
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    // only show the status bar’s cancel button while in edit mode
+    m_searchBar.showsCancelButton = YES;
+    m_searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    // flush the previous search content
+    [m_courseTableView reloadData];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    m_searchBar.showsCancelButton = NO;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    //[m_courseTableView removeAllObjects];// remove all data that belongs to previous search
+    if([searchText isEqualToString:@""] || (searchText == nil)){
+        [m_courseTableView reloadData];
+        return;
+    }
+    NSInteger counter = 0;
+    /*for(NSString *name in dataSource) {
+     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
+     NSRange r = [name rangeOfString:searchText];
+     if(r.location != NSNotFound)
+     {
+     if(r.location== 0)//that is we are checking only the start of the names.
+     {
+     [tableData addObject:name];
+     }
+     }
+     counter++;
+     [pool release];
+     }*/	
+    [m_courseTableView reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    // if a valid search was entered but the user wanted to cancel, bring back the main list content
+    //[m_studentTableView removeAllObjects];
+    //[m_studentTableView addObjectsFromArray:dataSource];
+    @try{
+        [m_courseTableView reloadData];
+    }
+    @catch(NSException *e){
+    }
+    [m_searchBar resignFirstResponder];
+    m_searchBar.text = @"";
+}
+
+// called when Search (in our case “Done”) button pressed
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
 }
 
 @end

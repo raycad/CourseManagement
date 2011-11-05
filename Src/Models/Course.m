@@ -27,7 +27,8 @@
 
 - (void)dealloc 
 {
-    [m_courseTitle release];
+    // Don't release or autorelease the m_courseTitle since it might cause the crash. m_courseTitle has been set autorelease in the initWithCourseTitle: function already.
+    //[m_courseTitle release];
 }
 
 - (BOOL)isEqual:(id)object

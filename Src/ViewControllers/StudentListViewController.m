@@ -342,7 +342,7 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    [m_studentTableView removeAllObjects];// remove all data that belongs to previous search
+    //[m_studentTableView removeAllObjects];// remove all data that belongs to previous search
     if([searchText isEqualToString:@""] || (searchText == nil)){
         [m_studentTableView reloadData];
         return;
@@ -383,6 +383,5 @@
 {
     [searchBar resignFirstResponder];
 }
-
 
 @end

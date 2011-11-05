@@ -11,26 +11,24 @@
 #import "Student.h"
 
 @interface StudentViewCell : UITableViewCell {
-    UILabel *m_fullNameLabel;
-    UILabel *m_idNumberLabel;
+    UILabel     *m_fullNameLabel;
+    UILabel     *m_idNumberLabel;
     UIImageView *m_avatarImageView;
-    Student *m_student;
+    Student     *m_student;
 }
 
-@property(nonatomic, retain)UILabel *fullNameLabel;
-@property(nonatomic, retain)UILabel *idNumberLabel;
-@property(nonatomic, retain)UIImageView *avatarImageView;
-@property(nonatomic, retain)Student *student;
-
+@property (nonatomic, retain) UILabel     *fullNameLabel;
+@property (nonatomic, retain) UILabel     *idNumberLabel;
+@property (nonatomic, retain) UIImageView *avatarImageView;
+@property (nonatomic, retain) Student     *student;
 @end
 
 @interface StudentListViewController : UIViewController {
-    StudentModel *m_studentModel;    
-    UISearchBar *m_searchBar;
-    UITableView *m_studentTableView;
+    StudentModel    *m_studentModel;    
+    UISearchBar     *m_searchBar;
+    UITableView     *m_studentTableView;
 }
 
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, retain) IBOutlet UITableView *studentTableView;
-
 @end
