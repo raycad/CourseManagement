@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "StudentModel.h"
 #import "Student.h"
+#import "CMModel.h"
 
 @interface StudentViewCell : UITableViewCell {
     UILabel     *m_fullNameLabel;
@@ -27,6 +28,8 @@
     StudentModel    *m_studentModel;    
     UISearchBar     *m_searchBar;
     UITableView     *m_studentTableView;
+    
+    CMModel         *m_cmModel; // Singleton CourseManagement model
 }
 
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;

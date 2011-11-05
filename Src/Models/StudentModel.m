@@ -72,6 +72,53 @@
     return [m_students objectAtIndex:index];
 }
 
+- (BOOL)copyDataFrom:(StudentModel *)other
+{
+    // Clear the current model
+    [self clear];
+    
+    for (int i = 0; i < [other count]; i++) {
+        [self addStudent:[other studentAtIndex:i]];
+    }
+    return YES;
+}
+
+- (StudentModel *)searchByIDNumber:(NSString *)searchText
+{
+    StudentModel *studentModel = [[StudentModel alloc] init];
+    Student *student = nil;
+    for (int i = 0; i < [self count]; i++) {
+        student = [self studentAtIndex:i];
+        NSComparisonResult result = [student.idNumber compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        if (result == NSOrderedSame) {
+            [studentModel addStudent:student];
+        }
+    }
+    
+    if ([studentModel count] == 0)
+        return nil;
+    
+    return [studentModel autorelease];
+}
+
+- (StudentModel *)searchByName:(NSString *)searchText
+{
+    StudentModel *studentModel = [[StudentModel alloc] init];
+    Student *student = nil;
+    for (int i = 0; i < [self count]; i++) {
+        student = [self studentAtIndex:i];
+        NSComparisonResult result = [student.fullName compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        if (result == NSOrderedSame) {
+            [studentModel addStudent:student];
+        }
+    }
+    
+    if ([studentModel count] == 0)
+        return nil;
+    
+    return [studentModel autorelease];
+}
+
 - (void)clear
 {
     [m_students removeAllObjects];

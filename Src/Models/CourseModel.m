@@ -73,6 +73,35 @@
     return [m_courses objectAtIndex:index];
 }
 
+- (BOOL)copyDataFrom:(CourseModel *)other
+{
+    // Clear the current model
+    [self clear];
+    
+    for (int i = 0; i < [other count]; i++) {
+        [self addCourse:[other courseAtIndex:i]];
+    }
+    return YES;
+}
+
+- (CourseModel *)searchByTitle:(NSString *)searchText
+{
+    CourseModel *courseModel = [[CourseModel alloc] init];
+    Course *course = nil;
+    for (int i = 0; i < [self count]; i++) {
+        course = [self courseAtIndex:i];
+        NSComparisonResult result = [course.title compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        if (result == NSOrderedSame) {
+            [courseModel addCourse:course];
+        }
+    }
+        
+    if ([courseModel count] == 0)
+        return nil;
+
+    return [courseModel autorelease];
+}
+
 - (void)clear
 {
     [m_courses removeAllObjects];

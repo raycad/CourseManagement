@@ -21,6 +21,12 @@
 
 - (Student *)studentAtIndex:(int)index;
 
+- (BOOL)copyDataFrom:(StudentModel *)other;
+
+- (StudentModel *)searchByIDNumber:(NSString *)searchText;
+
+- (StudentModel *)searchByName:(NSString *)searchText;
+
 - (void)clear;
 
 - (int)count;

@@ -10,7 +10,6 @@
 #import "Course.h"
 #import "CourseViewController.h"
 #import "Common.h"
-#import "CMModel.h"
 
 @implementation CourseViewCell
 
@@ -74,10 +73,8 @@
     self = [super init];
     if (self != nil) {
         // Initialize the course model
-        m_courseModel = [[CourseModel alloc] init];
-        // Set data model
-        CMModel *cmModel = [CMModel instance];
-        [cmModel setCourseModel:m_courseModel];
+        m_courseModel = [[CourseModel alloc] init];  
+        m_cmModel = [CMModel instance];
 
         // Set up our navigation bar.
         self.title = CourseListViewTitle;        
@@ -106,8 +103,7 @@
 
 - (void)loadDataFromDB
 {
-    // Empty the model
-    [m_courseModel clear];
+    CourseModel *courseModel = [[CourseModel alloc] init];
     
     NSString *title = nil;
     CoursePK *coursePK = nil;
@@ -119,7 +115,7 @@
     [course setTitle:title];
     [course setCategory:@"IOS"];
     [course setDescription:@"Course for developing IOS skill"];    
-    if ([m_courseModel addCourse:course]) {
+    if ([courseModel addCourse:course]) {
         NSLog(@"Added sucessfully");
     }
     [title release];
@@ -132,7 +128,7 @@
     [course setTitle:title];
     [course setCategory:@"Android"];
     [course setDescription:@"Course for developing Android skill"];    
-    if ([m_courseModel addCourse:course]) {
+    if ([courseModel addCourse:course]) {
         NSLog(@"Added sucessfully");
     }
     [title release];
@@ -145,7 +141,7 @@
     [course setTitle:title];
     [course setCategory:@"Windows phone"];
     [course setDescription:@"Course for developing IOS skill"];    
-    if ([m_courseModel addCourse:course]) {
+    if ([courseModel addCourse:course]) {
         NSLog(@"Added sucessfully");
     }
     [title release];
@@ -158,7 +154,7 @@
     [course setTitle:title];
     [course setCategory:@"Windows phone"];
     [course setDescription:@"Course for developing IOS skill"];    
-    if ([m_courseModel addCourse:course]) {
+    if ([courseModel addCourse:course]) {
         NSLog(@"Added sucessfully");
     }
     [title release];
@@ -171,7 +167,7 @@
     [course setTitle:title];
     [course setCategory:@"C++"];
     [course setDescription:@"Course for developing C++ skill"];    
-    if ([m_courseModel addCourse:course]) {
+    if ([courseModel addCourse:course]) {
         NSLog(@"Added sucessfully");
     }
     [title release];
@@ -184,12 +180,20 @@
     [course setTitle:title];
     [course setCategory:@"Java"];
     [course setDescription:@"Course for developing Java skill"];    
-    if ([m_courseModel addCourse:course]) {
+    if ([courseModel addCourse:course]) {
         NSLog(@"Added sucessfully");
     }
     [title release];
     [coursePK release];
     [course release];  
+    
+    // Set data model
+    [m_cmModel setCourseModel:courseModel];
+    
+    // Reset data model
+    [m_courseModel copyDataFrom:courseModel];
+    
+    [courseModel release];
 }
 - (void)viewDidLoad
 {
@@ -419,8 +423,6 @@
     // only show the status bar’s cancel button while in edit mode
     m_searchBar.showsCancelButton = YES;
     m_searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
-    // flush the previous search content
-    [m_courseTableView reloadData];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
@@ -430,34 +432,30 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    //[m_courseTableView removeAllObjects];// remove all data that belongs to previous search
     if([searchText isEqualToString:@""] || (searchText == nil)){
+        [m_courseModel copyDataFrom:m_cmModel.courseModel];
+        
         [m_courseTableView reloadData];
         return;
     }
-    NSInteger counter = 0;
-    /*for(NSString *name in dataSource) {
-     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
-     NSRange r = [name rangeOfString:searchText];
-     if(r.location != NSNotFound)
-     {
-     if(r.location== 0)//that is we are checking only the start of the names.
-     {
-     [tableData addObject:name];
-     }
-     }
-     counter++;
-     [pool release];
-     }*/	
+    
+    // Filter course by title
+    CourseModel *courseModel = [m_cmModel.courseModel searchByTitle:searchText];
+    if (courseModel == nil)
+        [m_courseModel clear];
+    else {
+        [m_courseModel copyDataFrom:courseModel];
+        //[courseModel release]; // Cause the crash
+    }
+    
     [m_courseTableView reloadData];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    // if a valid search was entered but the user wanted to cancel, bring back the main list content
-    //[m_studentTableView removeAllObjects];
-    //[m_studentTableView addObjectsFromArray:dataSource];
     @try{
+        [m_courseModel copyDataFrom:m_cmModel.courseModel];
+        
         [m_courseTableView reloadData];
     }
     @catch(NSException *e){

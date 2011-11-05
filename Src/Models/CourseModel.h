@@ -21,6 +21,10 @@
 
 - (Course *)courseAtIndex:(int)index;
 
+- (BOOL)copyDataFrom:(CourseModel *)other;
+
+- (CourseModel *)searchByTitle:(NSString *)searchText;
+
 - (void)clear;
 
 - (int)count;

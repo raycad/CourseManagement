@@ -9,7 +9,6 @@
 #import "StudentListViewController.h"
 #import "Common.h"
 #import "StudentViewController.h"
-#import "CMModel.h"
 
 @implementation StudentViewCell
 
@@ -70,8 +69,7 @@
 
 - (void)loadDataFromDB
 {
-    // Empty the model
-    [m_studentModel clear];
+    StudentModel *studentModel = [[StudentModel alloc] init];
     
     NSString *idNumber = nil;
     PersonPK *personPK = nil;
@@ -86,7 +84,7 @@
     student.mobilePhoneNumber = @"0989641245";
     student.idNumber = idNumber;
     student.sex = 0;
-    if ([m_studentModel addStudent:student]) {
+    if ([studentModel addStudent:student]) {
         NSLog(@"Added sucessfully");
     }
     [idNumber release];
@@ -102,7 +100,7 @@
     student.mobilePhoneNumber = @"0975641245";
     student.idNumber = idNumber;
     student.sex = 0;
-    if ([m_studentModel addStudent:student]) {
+    if ([studentModel addStudent:student]) {
         NSLog(@"Added sucessfully");
     }
     [idNumber release];
@@ -118,7 +116,7 @@
     student.mobilePhoneNumber = @"0989641245";
     student.idNumber = idNumber;
     student.sex = 1;
-    if ([m_studentModel addStudent:student]) {
+    if ([studentModel addStudent:student]) {
         NSLog(@"Added sucessfully");
     }
     [idNumber release];
@@ -134,12 +132,20 @@
     student.mobilePhoneNumber = @"0985504455";
     student.idNumber = idNumber;
     student.sex = 1;
-    if ([m_studentModel addStudent:student]) {
+    if ([studentModel addStudent:student]) {
         NSLog(@"Added sucessfully");
     }
     [idNumber release];
     [personPK release];
     [student release];  
+    
+    // Set data model
+    [m_cmModel setStudentModel:studentModel];
+    
+    // Reset data model
+    [m_studentModel copyDataFrom:studentModel];
+    
+    [studentModel release];
 }
 
 - (id)init
@@ -149,9 +155,7 @@
     if (self != nil) {
         // Initialize the student model
         m_studentModel = [[StudentModel alloc] init];
-        // Set data model
-        CMModel *cmModel = [CMModel instance];
-        [cmModel setStudentModel:m_studentModel];
+        m_cmModel = [CMModel instance];
         
         // Set up our navigation bar.
         self.title = StudentListViewTitle;
@@ -338,8 +342,6 @@
     // only show the status bar’s cancel button while in edit mode
     m_searchBar.showsCancelButton = YES;
     m_searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
-    // flush the previous search content
-    [m_studentTableView reloadData];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
@@ -349,34 +351,30 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    //[m_studentTableView removeAllObjects];// remove all data that belongs to previous search
     if([searchText isEqualToString:@""] || (searchText == nil)){
+        [m_studentModel copyDataFrom:m_cmModel.studentModel];
+        
         [m_studentTableView reloadData];
         return;
     }
-    NSInteger counter = 0;
-    /*for(NSString *name in dataSource) {
-        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc]init];
-        NSRange r = [name rangeOfString:searchText];
-        if(r.location != NSNotFound)
-        {
-            if(r.location== 0)//that is we are checking only the start of the names.
-            {
-                [tableData addObject:name];
-            }
-        }
-        counter++;
-        [pool release];
-    }*/	
+    
+    // Filter student by name
+    StudentModel *studentModel = [m_cmModel.studentModel searchByName:searchText];
+    if (studentModel == nil)
+        [m_studentModel clear];
+    else {
+        [m_studentModel copyDataFrom:studentModel];
+        //[studentModel release]; // Cause the crash
+    }
+    
     [m_studentTableView reloadData];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    // if a valid search was entered but the user wanted to cancel, bring back the main list content
-    //[m_studentTableView removeAllObjects];
-    //[m_studentTableView addObjectsFromArray:dataSource];
     @try{
+        [m_studentModel copyDataFrom:m_cmModel.studentModel];
+        
         [m_studentTableView reloadData];
     }
     @catch(NSException *e){
