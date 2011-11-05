@@ -14,6 +14,7 @@
 		76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A47144D784E00D66A0A /* UIKit.framework */; };
 		76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A49144D784E00D66A0A /* Foundation.framework */; };
 		76A29A4C144D784E00D66A0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A4B144D784E00D66A0A /* CoreGraphics.framework */; };
+		76AB6299146520BC009E9BEB /* CMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AB6298146520BC009E9BEB /* CMModel.m */; };
 		76E346401464D4D600FFE364 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3463F1464D4D600FFE364 /* main.m */; };
 		76E346421464D50800FFE364 /* xcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E346411464D50800FFE364 /* xcode.png */; };
 		76E346461464D51700FFE364 /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E346431464D51700FFE364 /* CourseViewController.xib */; };
@@ -44,6 +45,8 @@
 		76A29A47144D784E00D66A0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		76A29A49144D784E00D66A0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		76A29A4B144D784E00D66A0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		76AB6297146520BC009E9BEB /* CMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMModel.h; path = Src/Models/CMModel.h; sourceTree = "<group>"; };
+		76AB6298146520BC009E9BEB /* CMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMModel.m; path = Src/Models/CMModel.m; sourceTree = "<group>"; };
 		76E3463F1464D4D600FFE364 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		76E346411464D50800FFE364 /* xcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = xcode.png; path = Images/xcode.png; sourceTree = SOURCE_ROOT; };
 		76E346431464D51700FFE364 /* CourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseViewController.xib; path = XIBs/CourseViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -171,6 +174,8 @@
 				76E346621464D54400FFE364 /* Student.m */,
 				76E346631464D54400FFE364 /* StudentModel.h */,
 				76E346641464D54400FFE364 /* StudentModel.m */,
+				76AB6297146520BC009E9BEB /* CMModel.h */,
+				76AB6298146520BC009E9BEB /* CMModel.m */,
 			);
 			name = Models;
 			path = ..;
@@ -309,6 +314,7 @@
 				76E346691464D54400FFE364 /* Student.m in Sources */,
 				76E3466A1464D54400FFE364 /* StudentModel.m in Sources */,
 				76E3466D1464D55800FFE364 /* Common.m in Sources */,
+				76AB6299146520BC009E9BEB /* CMModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

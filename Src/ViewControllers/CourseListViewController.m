@@ -10,6 +10,7 @@
 #import "Course.h"
 #import "CourseViewController.h"
 #import "Common.h"
+#import "CMModel.h"
 
 @implementation CourseViewCell
 
@@ -73,7 +74,10 @@
     self = [super init];
     if (self != nil) {
         // Initialize the course model
-        m_courseModel = [CourseModel instance];
+        m_courseModel = [[CourseModel alloc] init];
+        // Set data model
+        CMModel *cmModel = [CMModel instance];
+        [cmModel setCourseModel:m_courseModel];
 
         // Set up our navigation bar.
         self.title = CourseListViewTitle;        
@@ -100,8 +104,11 @@
     [super dealloc];
 }
 
-- (void)createDefaultData
+- (void)loadDataFromDB
 {
+    // Empty the model
+    [m_courseModel clear];
+    
     NSString *title = nil;
     CoursePK *coursePK = nil;
     Course *course = nil;
@@ -192,7 +199,7 @@
     m_courseTableView.editing = YES;
     m_courseTableView.allowsSelectionDuringEditing = YES;
     
-    [self createDefaultData];
+    [self loadDataFromDB];
     
     // Reload data
     [m_courseTableView reloadData];

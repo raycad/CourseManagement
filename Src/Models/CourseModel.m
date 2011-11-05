@@ -11,39 +11,14 @@
 
 @implementation CourseModel
 
-static CourseModel *_instance = nil;
-
-+ (CourseModel *)instance
+- (id)init
 {
-	@synchronized([CourseModel class]) {
-		if (!_instance)
-			[[self alloc] init];
-        
-		return _instance;
-	}
-    
-	return nil;
-}
-
-+ (id)alloc
-{
-	@synchronized([CourseModel class]) {
-		NSAssert(_instance == nil, @"Attempted to allocate a second instance of a singleton.");
-		_instance = [super alloc];
-		return _instance;
-	}
-    
-	return nil;
-}
-
-- (id)init {
-	self = [super init];
-	if (self != nil) {
-		// Initialize parameters
+    self = [super init];
+    if (self != nil) {
+        // Initialize parameters
         m_courses = [[NSMutableArray alloc] init];
-	}
-    
-	return self;
+    }
+    return self;
 }
 
 - (BOOL)addCourse:(Course *)course
@@ -96,6 +71,11 @@ static CourseModel *_instance = nil;
 - (Course *)courseAtIndex:(int)index
 {
     return [m_courses objectAtIndex:index];
+}
+
+- (void)clear
+{
+    [m_courses removeAllObjects];
 }
 
 - (int)count

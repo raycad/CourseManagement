@@ -13,8 +13,6 @@
     NSMutableArray *m_students;
 }
 
-+ (StudentModel *)instance;
-
 - (BOOL)addStudent:(Student *)course;
 - (Student *)getStudentByPK:(PersonPK *)studentPK;
 
@@ -22,6 +20,8 @@
 - (BOOL)removeStudentByIndex:(int)index;
 
 - (Student *)studentAtIndex:(int)index;
+
+- (void)clear;
 
 - (int)count;
 @end

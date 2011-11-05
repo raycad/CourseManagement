@@ -9,6 +9,7 @@
 #import "StudentListViewController.h"
 #import "Common.h"
 #import "StudentViewController.h"
+#import "CMModel.h"
 
 @implementation StudentViewCell
 
@@ -67,8 +68,11 @@
 @synthesize searchBar = m_searchBar;
 @synthesize studentTableView = m_studentTableView;
 
-- (void)createDefaultData
+- (void)loadDataFromDB
 {
+    // Empty the model
+    [m_studentModel clear];
+    
     NSString *idNumber = nil;
     PersonPK *personPK = nil;
     Student *student = nil;    
@@ -143,8 +147,11 @@
     //self = [super initWithStyle:UITableViewStyleGrouped];
     self = [super init];
     if (self != nil) {
-        // Initialize the course model
-        m_studentModel = [StudentModel instance];
+        // Initialize the student model
+        m_studentModel = [[StudentModel alloc] init];
+        // Set data model
+        CMModel *cmModel = [CMModel instance];
+        [cmModel setStudentModel:m_studentModel];
         
         // Set up our navigation bar.
         self.title = StudentListViewTitle;
@@ -171,7 +178,7 @@
     self.studentTableView.editing = YES;
     self.studentTableView.allowsSelectionDuringEditing = YES;
     
-	[self createDefaultData];
+	[self loadDataFromDB];
     
     // Reload data
     [self.studentTableView reloadData];

@@ -8,42 +8,16 @@
 
 #import "StudentModel.h"
 
-
 @implementation StudentModel
 
-static StudentModel *_instance = nil;
-
-+ (StudentModel *)instance
+- (id)init
 {
-	@synchronized([StudentModel class]) {
-		if (!_instance)
-			[[self alloc] init];
-        
-		return _instance;
-	}
-    
-	return nil;
-}
-
-+ (id)alloc
-{
-	@synchronized([StudentModel class]) {
-		NSAssert(_instance == nil, @"Attempted to allocate a second instance of a singleton.");
-		_instance = [super alloc];
-		return _instance;
-	}
-    
-	return nil;
-}
-
-- (id)init {
-	self = [super init];
-	if (self != nil) {
-		// Initialize parameters
+    self = [super init];
+    if (self != nil) {
+        // Initialize parameters
         m_students = [[NSMutableArray alloc] init];
-	}
-    
-	return self;
+    }
+    return self;
 }
 
 - (BOOL)addStudent:(Student *)student
@@ -96,6 +70,11 @@ static StudentModel *_instance = nil;
 - (Student *)studentAtIndex:(int)index
 {
     return [m_students objectAtIndex:index];
+}
+
+- (void)clear
+{
+    [m_students removeAllObjects];
 }
 
 - (int)count

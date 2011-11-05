@@ -13,8 +13,6 @@
     NSMutableArray *m_courses;
 }
 
-+ (CourseModel *)instance;
-
 - (BOOL)addCourse:(Course *)course;
 - (Course *)getCourseByPK:(CoursePK *)coursePK;
 
@@ -22,6 +20,8 @@
 - (BOOL)removeCourseByIndex:(int)index;
 
 - (Course *)courseAtIndex:(int)index;
+
+- (void)clear;
 
 - (int)count;
 @end
