@@ -183,11 +183,11 @@
     [vc presentModallyOn:self];
 }
 
-- (void)didSave:(NSObject *)controller
+- (void)didSave:(NSObject *)object
 {
-    assert(controller != nil);
+    assert(object != nil);
     
-    StudentViewController *studentViewController = (StudentViewController *)controller;
+    StudentViewController *studentViewController = (StudentViewController *)object;
     NSString *idNumber = [studentViewController.idNumberTextField text];
     
     if ([idNumber isEqualToString:@""] || idNumber == nil) {
@@ -230,7 +230,7 @@
     [self refreshData];
 }
 
-- (void)didCancel:(NSObject *)controller
+- (void)didCancel:(NSObject *)object
 // Called when the user taps Cancel in the options view.
 {
     [self dismissModalViewControllerAnimated:YES];
@@ -336,6 +336,14 @@
             
             [[self navigationController] pushViewController:studentViewController animated:YES];
             [studentViewController release];
+        }
+    } else {
+        if ((self.delegate != nil) && [self.delegate respondsToSelector:@selector(didSelect:)] ) {
+            StudentViewCell *cell = (StudentViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+            assert(cell != nil);
+            Student *student = cell.student;
+            assert(student != nil);
+            [self.delegate didSelect:student];
         }
     }
 }

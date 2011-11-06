@@ -20,6 +20,8 @@
 
 @protocol ModelessViewControllerDelegate <NSObject>
 @required
-- (void)didSave:(NSObject *)controller;
-- (void)didCancel:(NSObject *)controller;
+- (void)didSave:(NSObject *)object;
+- (void)didCancel:(NSObject *)object;
+- (void)didSelect:(NSObject *)object;
+- (void)didUpdate:(NSObject *)object;
 @end

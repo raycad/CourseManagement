@@ -309,11 +309,11 @@
     [vc presentModallyOn:self];
 }
 
-- (void)didSave:(NSObject *)controller
+- (void)didSave:(NSObject *)object
 {
-#pragma unused(controller)
-    assert(controller != nil);
-    CourseViewController *courseViewController = (CourseViewController *)controller;
+#pragma unused(object)
+    assert(object != nil);
+    CourseViewController *courseViewController = (CourseViewController *)object;
     
     NSString *title = [courseViewController.titleTextField text];
     
@@ -355,11 +355,11 @@
     [self refreshData];
 }
 
-- (void)didCancel:(NSObject *)controller
+- (void)didCancel:(NSObject *)object
 // Called when the user taps Cancel in the options view.
 {
-#pragma unused(controller)
-    assert(controller != nil);
+#pragma unused(object)
+    assert(object != nil);
     [self dismissModalViewControllerAnimated:YES];
 }
 

@@ -25,7 +25,8 @@
 {
     self = [super init];
     if (self != nil) {
-        self.title = @"Add Course";       
+        self.title = @"Add Course";    
+        m_studentModel = [[StudentModel alloc] init];
     }
     return self;
 }
@@ -54,10 +55,17 @@
     [m_addStudentButton release];
     [m_searchBar release];
     [m_studentTableView release];
+    
+    [m_studentModel release];
     [super dealloc];
 }
 
 #pragma mark - View lifecycle
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
 
 - (void)viewDidLoad
 {
@@ -80,6 +88,13 @@
         
         self.title = m_course.title;
     }
+    
+    // Configure the table view    
+    self.studentTableView.editing = YES;
+    self.studentTableView.allowsSelectionDuringEditing = YES;
+    
+    // Reload data
+    [self refreshData];
 }
 
 - (void)viewDidUnload
@@ -155,7 +170,7 @@
         assert(cell != nil);
         Student *student = cell.student;
         assert(student != nil);
-        if ([m_studentModel removeStudent:student]) {
+        if ([m_course.studentModel removeStudent:student]) {
             [self refreshData];            
             NSLog(@"Remove course button was clicked");
         }
@@ -234,5 +249,48 @@
     return NO;
 }
 
+- (void)didSelect:(NSObject *)object
+// Called when the user taps Cancel in the options view.
+{
+    assert(object != nil);
+    
+    Student *student = (Student *)object;    
+    StudentModel *studentModel = m_course.studentModel;
+    
+    if (![studentModel addStudent:student]) {
+        // Open a alert with an OK button
+        NSString *alertString = [NSString stringWithFormat:@"The student is existing"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
+        return;
+    }
+    
+    [self refreshData];
+
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)refreshData 
+{
+    NSString *searchText = m_searchBar.text;
+    if([searchText isEqualToString:@""] || (searchText == nil)){
+        [m_studentModel copyDataFrom:m_course.studentModel];
+        
+        [m_studentTableView reloadData];
+        return;
+    }
+    
+    // Filter student by name
+    StudentModel *studentModel = [m_course.studentModel searchByName:searchText];
+    if (studentModel == nil)
+        [m_studentModel clear];
+    else {
+        [m_studentModel copyDataFrom:studentModel];
+    }
+    
+    [m_studentTableView reloadData];
+}
 
 @end

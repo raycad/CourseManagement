@@ -61,6 +61,8 @@
         m_category = @"IOS";
         m_description = @"iOS";
         
+        m_studentModel = [[StudentModel alloc] init];
+        
         [m_coursePK autorelease]; // Use this to avoid releasing itself
         m_coursePK = [coursePK retain];
     }
