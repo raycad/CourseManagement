@@ -18,6 +18,7 @@
 
 - (BOOL)removeStudentByPK:(PersonPK *)studentPK;
 - (BOOL)removeStudentByIndex:(int)index;
+- (BOOL)removeStudent:(Student *)student;
 
 - (Student *)studentAtIndex:(int)index;
 

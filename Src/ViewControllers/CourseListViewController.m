@@ -284,12 +284,16 @@
 //tutorial for now we are hard coding the text to be added.   
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CourseModel *courseModel = m_cmModel.courseModel;
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        if ([m_courseModel removeCourseByIndex:indexPath.row]) {
-            //[m_courseTableView reloadData];
-            
-            [m_courseTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        CourseViewCell *cell = (CourseViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        assert(cell != nil);
+        Course *course = cell.course;
+        assert(course != nil);
+        if ([courseModel removeCourse:course]) {
+            [self refreshData];
+            //[m_courseTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             
             NSLog(@"Remove course button was clicked");
         }

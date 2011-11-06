@@ -18,6 +18,7 @@
 
 - (BOOL)removeCourseByPK:(CoursePK *)coursePK;
 - (BOOL)removeCourseByIndex:(int)index;
+- (BOOL)removeCourse:(Course *)course;
 
 - (Course *)courseAtIndex:(int)index;
 

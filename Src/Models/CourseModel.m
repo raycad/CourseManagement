@@ -68,6 +68,17 @@
     }    
 }
 
+- (BOOL)removeCourse:(Course *)course
+{
+    for (int i = 0; i < [m_courses count]; i++) {
+        Course *courseTmp = [m_courses objectAtIndex:i];
+        if (courseTmp == course) {
+            [m_courses removeObjectAtIndex:i];
+            return YES;
+        }
+    }
+}
+
 - (Course *)courseAtIndex:(int)index
 {
     return [m_courses objectAtIndex:index];

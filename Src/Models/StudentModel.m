@@ -67,6 +67,17 @@
     }    
 }
 
+- (BOOL)removeStudent:(Student *)student
+{
+    for (int i = 0; i < [m_students count]; i++) {
+        Student *studentTmp = [m_students objectAtIndex:i];
+        if (studentTmp == student) {
+            [m_students removeObjectAtIndex:i];
+            return YES;
+        }
+    }
+}
+
 - (Student *)studentAtIndex:(int)index
 {
     return [m_students objectAtIndex:index];
