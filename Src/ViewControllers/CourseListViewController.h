@@ -9,21 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CourseModel.h"
 #import "CMModel.h"
+#import "SdtViewController.h"
 
-@interface CourseViewCell : UITableViewCell {
-    UILabel     *m_titleLabel;
-    UILabel     *m_categoryLabel;
-    UIImageView *m_thumbnailImageView;
-    
-    Course      *m_course;
-}
-@property (nonatomic, retain) UILabel     *titleLabel;
-@property (nonatomic, retain) UILabel     *categoryLabel;
-@property (nonatomic, retain) UIImageView *thumbnailImageView;
-@property (nonatomic, retain) Course      *course;
-@end
-
-@interface CourseListViewController : UIViewController {
+@interface CourseListViewController : SdtViewController {
     CourseModel *m_courseModel;    
     UITableView *m_courseTableView;
     UISearchBar *m_searchBar;

@@ -10,8 +10,9 @@
 #import "StudentModel.h"
 #import "Student.h"
 #import "CMModel.h"
+#import "SdtViewController.h"
 
-@interface StudentListViewController : UIViewController {
+@interface StudentListViewController : SdtViewController {
     StudentModel    *m_studentModel;    
     UISearchBar     *m_searchBar;
     UITableView     *m_studentTableView;

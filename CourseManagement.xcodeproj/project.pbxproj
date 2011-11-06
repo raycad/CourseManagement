@@ -12,6 +12,9 @@
 		7685B8DE145EBA7D008F8FA2 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = 7685B8DC145EBA7D008F8FA2 /* course.png */; };
 		768C539A1466D7750003AC71 /* add_student.png in Resources */ = {isa = PBXBuildFile; fileRef = 768C53991466D7750003AC71 /* add_student.png */; };
 		768C539E1466DF9D0003AC71 /* StudentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C539D1466DF9C0003AC71 /* StudentViewCell.m */; };
+		768C53A11466E8870003AC71 /* ModelessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C53A01466E8870003AC71 /* ModelessViewController.m */; };
+		768C53A41466E8BB0003AC71 /* CourseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C53A31466E8BB0003AC71 /* CourseViewCell.m */; };
+		768C53A71466FA0E0003AC71 /* SdtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C53A61466FA0D0003AC71 /* SdtViewController.m */; };
 		768FD0A01465163600E709AD /* CourseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768FD09F1465163600E709AD /* CourseListViewController.xib */; };
 		76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A47144D784E00D66A0A /* UIKit.framework */; };
 		76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A49144D784E00D66A0A /* Foundation.framework */; };
@@ -45,6 +48,12 @@
 		768C53991466D7750003AC71 /* add_student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_student.png; path = Images/add_student.png; sourceTree = SOURCE_ROOT; };
 		768C539C1466DF9C0003AC71 /* StudentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentViewCell.h; path = Src/ViewControllers/StudentViewCell.h; sourceTree = SOURCE_ROOT; };
 		768C539D1466DF9C0003AC71 /* StudentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentViewCell.m; path = Src/ViewControllers/StudentViewCell.m; sourceTree = SOURCE_ROOT; };
+		768C539F1466E8860003AC71 /* ModelessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelessViewController.h; path = Src/ViewControllers/ModelessViewController.h; sourceTree = SOURCE_ROOT; };
+		768C53A01466E8870003AC71 /* ModelessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelessViewController.m; path = Src/ViewControllers/ModelessViewController.m; sourceTree = SOURCE_ROOT; };
+		768C53A21466E8BA0003AC71 /* CourseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseViewCell.h; path = Src/ViewControllers/CourseViewCell.h; sourceTree = SOURCE_ROOT; };
+		768C53A31466E8BB0003AC71 /* CourseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseViewCell.m; path = Src/ViewControllers/CourseViewCell.m; sourceTree = SOURCE_ROOT; };
+		768C53A51466FA0C0003AC71 /* SdtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SdtViewController.h; path = Src/ViewControllers/SdtViewController.h; sourceTree = SOURCE_ROOT; };
+		768C53A61466FA0D0003AC71 /* SdtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SdtViewController.m; path = Src/ViewControllers/SdtViewController.m; sourceTree = SOURCE_ROOT; };
 		768FD09F1465163600E709AD /* CourseListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseListViewController.xib; path = XIBs/CourseListViewController.xib; sourceTree = SOURCE_ROOT; };
 		76A29A43144D784E00D66A0A /* CourseManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A29A47144D784E00D66A0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -210,6 +219,12 @@
 				76E346541464D53600FFE364 /* StudentViewController.m */,
 				768C539C1466DF9C0003AC71 /* StudentViewCell.h */,
 				768C539D1466DF9C0003AC71 /* StudentViewCell.m */,
+				768C539F1466E8860003AC71 /* ModelessViewController.h */,
+				768C53A01466E8870003AC71 /* ModelessViewController.m */,
+				768C53A21466E8BA0003AC71 /* CourseViewCell.h */,
+				768C53A31466E8BB0003AC71 /* CourseViewCell.m */,
+				768C53A51466FA0C0003AC71 /* SdtViewController.h */,
+				768C53A61466FA0D0003AC71 /* SdtViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -325,6 +340,9 @@
 				76E3466D1464D55800FFE364 /* Common.m in Sources */,
 				76AB6299146520BC009E9BEB /* CMModel.m in Sources */,
 				768C539E1466DF9D0003AC71 /* StudentViewCell.m in Sources */,
+				768C53A11466E8870003AC71 /* ModelessViewController.m in Sources */,
+				768C53A41466E8BB0003AC71 /* CourseViewCell.m in Sources */,
+				768C53A71466FA0E0003AC71 /* SdtViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

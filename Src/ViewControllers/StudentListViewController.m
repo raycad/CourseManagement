@@ -183,12 +183,12 @@
     [vc presentModallyOn:self];
 }
 
-- (void)didSaveStudent:(StudentViewController *)controller
+- (void)didSave:(NSObject *)controller
 {
-#pragma unused(controller)
     assert(controller != nil);
     
-    NSString *idNumber = [controller.idNumberTextField text];
+    StudentViewController *studentViewController = (StudentViewController *)controller;
+    NSString *idNumber = [studentViewController.idNumberTextField text];
     
     if ([idNumber isEqualToString:@""] || idNumber == nil) {
         // Open a alert with an OK button
@@ -200,10 +200,10 @@
         return;
     }
     
-    NSString *fullName = [controller.fullNameTextField text];
-    NSString *dateOfBirth = [controller.dateOfBirthTextField text];
-    NSString *address = [controller.addressTextField text];
-    NSString *phoneNumber = [controller.phoneTextField text];
+    NSString *fullName = [studentViewController.fullNameTextField text];
+    NSString *dateOfBirth = [studentViewController.dateOfBirthTextField text];
+    NSString *address = [studentViewController.addressTextField text];
+    NSString *phoneNumber = [studentViewController.phoneTextField text];
     
     PersonPK *personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
     Student *student = [[Student alloc] initWithPersonPK:personPK];
@@ -230,11 +230,9 @@
     [self refreshData];
 }
 
-- (void)didCancelStudent:(StudentViewController *)controller
+- (void)didCancel:(NSObject *)controller
 // Called when the user taps Cancel in the options view.
 {
-#pragma unused(controller)
-    assert(controller != nil);
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -324,19 +322,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    if (tableView == m_studentTableView) {    
-        StudentViewController *studentViewController = [[StudentViewController alloc] init];
-        
-        StudentViewCell *cell = (StudentViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-        assert(cell != nil);
-        Student *student = cell.student;
-        assert(student != nil);
-        
-        studentViewController.student = student;
-        
-        [[self navigationController] pushViewController:studentViewController animated:YES];
-        [studentViewController release];
+    if (m_viewMode != SelectMode) {
+        // Navigation logic may go here. Create and push another view controller.
+        if (tableView == m_studentTableView) {    
+            StudentViewController *studentViewController = [[StudentViewController alloc] init];
+            
+            StudentViewCell *cell = (StudentViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+            assert(cell != nil);
+            Student *student = cell.student;
+            assert(student != nil);
+            
+            studentViewController.student = student;
+            
+            [[self navigationController] pushViewController:studentViewController animated:YES];
+            [studentViewController release];
+        }
     }
 }
 

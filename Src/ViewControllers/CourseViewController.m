@@ -9,6 +9,7 @@
 #import "CourseViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "StudentViewCell.h"
+#import "StudentListViewController.h"
 
 @implementation CourseViewController
 
@@ -18,7 +19,6 @@
 @synthesize addStudentButton    = m_addStudentButton;
 @synthesize searchBar           = m_searchBar;
 @synthesize studentTableView    = m_studentTableView;
-@synthesize delegate            = m_delegate;
 @synthesize course              = m_course;
 
 - (id)init
@@ -30,61 +30,18 @@
     return self;
 }
 
-- (void)saveAction:(id)sender
+- (IBAction)addStudent:(id)sender
 {
-#pragma unused(sender)
-    // Tell the delegate about the save.
-    if ((self.delegate != nil) && [self.delegate respondsToSelector:@selector(didSaveCourse:)]) {
-        [self.delegate didSaveCourse:self];
-    }
-}
-
-- (void)cancelAction:(id)sender
-{
-#pragma unused(sender)
+    StudentListViewController * vc;
     
-    // Tell the delegate about the cancellation.
+    vc = [[[StudentListViewController alloc] init] autorelease];
+    assert(vc != nil);
     
-    if ((self.delegate != nil) && [self.delegate respondsToSelector:@selector(didCancelCourse:)] ) {
-        [self.delegate didCancelCourse:self];
-    }
-}
-
-- (IBAction)addStudent:(id)sender {
-}
-
-- (void)presentModallyOn:(UIViewController *)parent
-{
-    UINavigationController *nav;
+    vc.viewMode = SelectMode;
     
-    // Create a navigation controller with us as its root.
+    vc.delegate = self;    
     
-    nav = [[[UINavigationController alloc] initWithRootViewController:self] autorelease];
-    assert(nav != nil);
-    
-    // Set up the Cancel button on the left of the navigation bar.    
-    self.navigationItem.leftBarButtonItem  = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)] autorelease];
-    assert(self.navigationItem.leftBarButtonItem != nil);
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave   target:self action:@selector(saveAction:)] autorelease];
-    assert(self.navigationItem.rightBarButtonItem != nil);
-    
-    // Present the navigation controller on the specified parent 
-    // view controller.
-    
-    [parent presentModalViewController:nav animated:YES];
-}
-
-- (IBAction)selectImage:(id)sender 
-{
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [vc presentModallyOn:self];
 }
 
 - (void)dealloc
@@ -98,14 +55,6 @@
     [m_searchBar release];
     [m_studentTableView release];
     [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle

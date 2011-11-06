@@ -7,61 +7,9 @@
 //
 
 #import "CourseListViewController.h"
-#import "Course.h"
+#import "CourseViewCell.h"
 #import "CourseViewController.h"
 #import "Common.h"
-
-@implementation CourseViewCell
-
-@synthesize titleLabel = m_titleLabel;
-@synthesize categoryLabel = m_categoryLabel;
-@synthesize thumbnailImageView = m_thumbnailImageView;
-@synthesize course = m_course;
-
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier 
-{
-    if ((self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier])) {
-        // Initialization code
-        m_titleLabel = [[UILabel alloc]init];
-        m_titleLabel.textAlignment = UITextAlignmentLeft;
-        m_titleLabel.font = [UIFont systemFontOfSize:15];
-        m_categoryLabel = [[UILabel alloc]init];
-        m_categoryLabel.textAlignment = UITextAlignmentLeft;
-        //m_categoryLabel.font = [UIFont systemFontOfSize:10];
-        m_categoryLabel.font = [UIFont fontWithMarkupDescription:@"font-family: Arial; font-size: 11px; font-weight: bold; font-style : italic;"];
-        m_categoryLabel.textColor = [UIColor orangeColor];
-        m_thumbnailImageView = [[UIImageView alloc]init];
-        [self.contentView addSubview:m_titleLabel];
-        [self.contentView addSubview:m_categoryLabel];
-        [self.contentView addSubview:m_thumbnailImageView];
-        
-    }
-    return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    CGRect contentRect = self.contentView.bounds;
-    CGFloat boundsX = contentRect.origin.x;
-    CGRect frame;
-    frame = CGRectMake(boundsX+10 ,0, 50, 50);
-    m_thumbnailImageView.frame = frame;
-    
-    frame = CGRectMake(boundsX+70 ,5, 200, 25);
-    m_titleLabel.frame = frame;
-    
-    frame = CGRectMake(boundsX+70 ,32, 100, 15);
-    m_categoryLabel.frame = frame;
-}
-
-- (void)dealloc
-{
-    [m_titleLabel release];
-    [m_categoryLabel release];
-    [m_thumbnailImageView release];
-    [m_course retain];
-}
-@end
 
 @implementation CourseListViewController
 @synthesize courseTableView = m_courseTableView;
@@ -304,7 +252,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (m_courseTableView == tableView) {
+    if (m_courseTableView == tableView && (m_viewMode != SelectMode)) {
         // Navigation logic may go here. Create and push another view controller.
         CourseViewController *courseViewController = [[CourseViewController alloc] init];
         
@@ -361,12 +309,13 @@
     [vc presentModallyOn:self];
 }
 
-- (void)didSaveCourse:(CourseViewController *)controller
+- (void)didSave:(NSObject *)controller
 {
 #pragma unused(controller)
     assert(controller != nil);
+    CourseViewController *courseViewController = (CourseViewController *)controller;
     
-    NSString *title = [controller.titleTextField text];
+    NSString *title = [courseViewController.titleTextField text];
     
     if ([title isEqualToString:@""]) {
         // Open a alert with an OK button
@@ -378,8 +327,8 @@
         return;
     }
 
-    NSString *category = [controller.categoryTextField text];
-    NSString *description = [controller.descriptionTextView text];
+    NSString *category = [courseViewController.categoryTextField text];
+    NSString *description = [courseViewController.descriptionTextView text];
     if (title == @"")
         return;
     
@@ -406,7 +355,7 @@
     [self refreshData];
 }
 
-- (void)didCancelCourse:(CourseViewController *)controller
+- (void)didCancel:(NSObject *)controller
 // Called when the user taps Cancel in the options view.
 {
 #pragma unused(controller)
