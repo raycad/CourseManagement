@@ -51,6 +51,7 @@
 @synthesize title = m_title;
 @synthesize category = m_category;
 @synthesize description = m_description;
+@synthesize studentModel = m_studentModel;
 
 - (id)initWithCoursePK:(CoursePK *)coursePK
 {
@@ -77,6 +78,7 @@
     [m_category release];
     [m_description release];
     [m_coursePK release];
+    [m_studentModel release];
 }
 
 @end

@@ -10,6 +10,8 @@
 		76844C091463F7D7001E54D1 /* student_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 76844C081463F7D7001E54D1 /* student_female.png */; };
 		76844C0B1463F7E2001E54D1 /* student_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 76844C0A1463F7E2001E54D1 /* student_male.png */; };
 		7685B8DE145EBA7D008F8FA2 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = 7685B8DC145EBA7D008F8FA2 /* course.png */; };
+		768C539A1466D7750003AC71 /* add_student.png in Resources */ = {isa = PBXBuildFile; fileRef = 768C53991466D7750003AC71 /* add_student.png */; };
+		768C539E1466DF9D0003AC71 /* StudentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C539D1466DF9C0003AC71 /* StudentViewCell.m */; };
 		768FD0A01465163600E709AD /* CourseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768FD09F1465163600E709AD /* CourseListViewController.xib */; };
 		76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A47144D784E00D66A0A /* UIKit.framework */; };
 		76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A49144D784E00D66A0A /* Foundation.framework */; };
@@ -40,6 +42,9 @@
 		76844C081463F7D7001E54D1 /* student_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = student_female.png; path = Images/student_female.png; sourceTree = SOURCE_ROOT; };
 		76844C0A1463F7E2001E54D1 /* student_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = student_male.png; path = Images/student_male.png; sourceTree = SOURCE_ROOT; };
 		7685B8DC145EBA7D008F8FA2 /* course.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = course.png; path = Images/course.png; sourceTree = SOURCE_ROOT; };
+		768C53991466D7750003AC71 /* add_student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_student.png; path = Images/add_student.png; sourceTree = SOURCE_ROOT; };
+		768C539C1466DF9C0003AC71 /* StudentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentViewCell.h; path = Src/ViewControllers/StudentViewCell.h; sourceTree = SOURCE_ROOT; };
+		768C539D1466DF9C0003AC71 /* StudentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentViewCell.m; path = Src/ViewControllers/StudentViewCell.m; sourceTree = SOURCE_ROOT; };
 		768FD09F1465163600E709AD /* CourseListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseListViewController.xib; path = XIBs/CourseListViewController.xib; sourceTree = SOURCE_ROOT; };
 		76A29A43144D784E00D66A0A /* CourseManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A29A47144D784E00D66A0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -99,6 +104,7 @@
 		760B3098145B0FAD003AF889 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				768C53991466D7750003AC71 /* add_student.png */,
 				76E346411464D50800FFE364 /* xcode.png */,
 				76844C0A1463F7E2001E54D1 /* student_male.png */,
 				76844C081463F7D7001E54D1 /* student_female.png */,
@@ -202,6 +208,8 @@
 				76E346521464D53600FFE364 /* StudentListViewController.m */,
 				76E346531464D53600FFE364 /* StudentViewController.h */,
 				76E346541464D53600FFE364 /* StudentViewController.m */,
+				768C539C1466DF9C0003AC71 /* StudentViewCell.h */,
+				768C539D1466DF9C0003AC71 /* StudentViewCell.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +299,7 @@
 				76E346701464D79E00FFE364 /* CourseManagement-Info.plist in Resources */,
 				76E346731464D7A700FFE364 /* InfoPlist.strings in Resources */,
 				768FD0A01465163600E709AD /* CourseListViewController.xib in Resources */,
+				768C539A1466D7750003AC71 /* add_student.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +324,7 @@
 				76E3466A1464D54400FFE364 /* StudentModel.m in Sources */,
 				76E3466D1464D55800FFE364 /* Common.m in Sources */,
 				76AB6299146520BC009E9BEB /* CMModel.m in Sources */,
+				768C539E1466DF9D0003AC71 /* StudentViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

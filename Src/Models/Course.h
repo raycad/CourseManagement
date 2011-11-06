@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "StudentModel.h"
 
 @interface CoursePK : NSObject {
-    NSString *m_courseTitle;
+    NSString *m_courseTitle;    
 }
 
 -(id)initWithCourseTitle:(NSString *)courseTitle;
@@ -18,12 +19,14 @@
 @end
 
 @interface Course : NSObject {
-    CoursePK *m_coursePK;
+    CoursePK        *m_coursePK;
+    StudentModel    *m_studentModel;
 }
 
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *category;
-@property (nonatomic, retain) NSString *description;
+@property (nonatomic, retain) NSString      *title;
+@property (nonatomic, retain) NSString      *category;
+@property (nonatomic, retain) NSString      *description;
+@property (nonatomic, retain) StudentModel  *studentModel;
 
 -(id)initWithCoursePK:(CoursePK *)coursePK;
 -(CoursePK *)coursePK;

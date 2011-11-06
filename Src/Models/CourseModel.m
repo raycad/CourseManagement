@@ -8,7 +8,6 @@
 
 #import "CourseModel.h"
 
-
 @implementation CourseModel
 
 - (id)init
@@ -125,7 +124,7 @@
 
 - (void)dealloc
 {
-    [m_courses release];
+    [m_courses release];    
     [super dealloc];
 }
 @end

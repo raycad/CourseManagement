@@ -10,7 +10,7 @@
 #import "Course.h"
 
 @interface CourseModel : NSObject {
-    NSMutableArray *m_courses;
+    NSMutableArray  *m_courses;    
 }
 
 - (BOOL)addCourse:(Course *)course;
