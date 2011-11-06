@@ -141,10 +141,7 @@
     
     // Set data model
     [m_cmModel setStudentModel:studentModel];
-    
-    // Reset data model
-    [m_studentModel copyDataFrom:studentModel];
-    
+   
     [studentModel release];
 }
 
@@ -185,7 +182,7 @@
 	[self loadDataFromDB];
     
     // Reload data
-    [self.studentTableView reloadData];
+    [self refreshData];
 }
 
 - (void)dealloc
@@ -203,7 +200,24 @@
 
 - (void)refreshData 
 {
-    [self.studentTableView reloadData];
+    NSString *searchText = m_searchBar.text;
+    if([searchText isEqualToString:@""] || (searchText == nil)){
+        [m_studentModel copyDataFrom:m_cmModel.studentModel];
+        
+        [m_studentTableView reloadData];
+        return;
+    }
+    
+    // Filter student by name
+    StudentModel *studentModel = [m_cmModel.studentModel searchByName:searchText];
+    if (studentModel == nil)
+        [m_studentModel clear];
+    else {
+        [m_studentModel copyDataFrom:studentModel];
+        //[studentModel release]; // Cause the crash
+    }
+    
+    [m_studentTableView reloadData];
 }
 
 - (void)presentStudentViewModally
@@ -221,14 +235,50 @@
 }
 
 - (void)didSaveStudent:(StudentViewController *)controller
-// Called when the user taps Save in the options view.  The options 
-// view has already saved the options, so we have nothing to do other 
-// than to tear down the view.
 {
 #pragma unused(controller)
     assert(controller != nil);
     
+    NSString *idNumber = [controller.idNumberTextField text];
+    
+    if ([idNumber isEqualToString:@""] || idNumber == nil) {
+        // Open a alert with an OK button
+        NSString *alertString = [NSString stringWithFormat:@"ID card number must not be empty"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
+        return;
+    }
+    
+    NSString *fullName = [controller.fullNameTextField text];
+    NSString *dateOfBirth = [controller.dateOfBirthTextField text];
+    NSString *address = [controller.addressTextField text];
+    NSString *phoneNumber = [controller.phoneTextField text];
+    
+    PersonPK *personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
+    Student *student = [[Student alloc] initWithPersonPK:personPK];
+    student.idNumber = idNumber;
+    student.fullName = fullName;
+    student.dateOfBirth = dateOfBirth;
+    student.address = address;
+    student.mobilePhoneNumber = phoneNumber;
+    
+    StudentModel *studentModel = m_cmModel.studentModel;
+    
+    if (![studentModel addStudent:student]) {
+        // Open a alert with an OK button
+        NSString *alertString = [NSString stringWithFormat:@"The student is existing"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
+        return;
+    }
+    
     [self dismissModalViewControllerAnimated:YES];
+    
+    [self refreshData];
 }
 
 - (void)didCancelStudent:(StudentViewController *)controller
@@ -351,23 +401,10 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    if([searchText isEqualToString:@""] || (searchText == nil)){
-        [m_studentModel copyDataFrom:m_cmModel.studentModel];
-        
-        [m_studentTableView reloadData];
+    if (searchBar != m_searchBar)
         return;
-    }
     
-    // Filter student by name
-    StudentModel *studentModel = [m_cmModel.studentModel searchByName:searchText];
-    if (studentModel == nil)
-        [m_studentModel clear];
-    else {
-        [m_studentModel copyDataFrom:studentModel];
-        //[studentModel release]; // Cause the crash
-    }
-    
-    [m_studentTableView reloadData];
+    [self refreshData];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar

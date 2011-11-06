@@ -190,11 +190,9 @@
     // Set data model
     [m_cmModel setCourseModel:courseModel];
     
-    // Reset data model
-    [m_courseModel copyDataFrom:courseModel];
-    
     [courseModel release];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -206,7 +204,7 @@
     [self loadDataFromDB];
     
     // Reload data
-    [m_courseTableView reloadData];
+    [self refreshData];
 }
 
 - (void)viewDidUnload {
@@ -323,31 +321,25 @@
     [self presentCourseViewModally];  
 }
 
-/*- (void)removeCourse 
+- (void)refreshData
 {
-    // Get selected row
-    NSIndexPath *selectedIndexPath = [m_courseTableView indexPathForSelectedRow];
-    
-    if (selectedIndexPath == nil) {
-        // Open a alert with an OK button
-        NSString *alertString = [NSString stringWithFormat:@"You must select a course"];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
+    NSString *searchText = m_searchBar.text;
+    if([searchText isEqualToString:@""] || (searchText == nil)){
+        [m_courseModel copyDataFrom:m_cmModel.courseModel];
+        
+        [m_courseTableView reloadData];
         return;
     }
     
-    if ([m_courseModel removeCourseByIndex:selectedIndexPath.row]) {
-        //[m_courseTableView reloadData];
-        
-        [m_courseTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-        NSLog(@"Remove course button was clicked");
+    // Filter course by title
+    CourseModel *courseModel = [m_cmModel.courseModel searchByTitle:searchText];
+    if (courseModel == nil)
+        [m_courseModel clear];
+    else {
+        [m_courseModel copyDataFrom:courseModel];
+        //[courseModel release]; // Cause the crash
     }
-}*/
-
-- (void)refreshData
-{
+    
     [m_courseTableView reloadData];
 }
 
@@ -366,9 +358,6 @@
 }
 
 - (void)didSaveCourse:(CourseViewController *)controller
-// Called when the user taps Save in the options view.  The options 
-// view has already saved the options, so we have nothing to do other 
-// than to tear down the view.
 {
 #pragma unused(controller)
     assert(controller != nil);
@@ -396,7 +385,9 @@
     [course setCategory:category];
     [course setDescription:description];
     
-    if (![m_courseModel addCourse:course]) {
+    CourseModel *courseModel = m_cmModel.courseModel;
+    
+    if (![courseModel addCourse:course]) {
         // Open a alert with an OK button
         NSString *alertString = [NSString stringWithFormat:@"The course is existing"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -407,7 +398,8 @@
     }
         
     [self dismissModalViewControllerAnimated:YES];
-    [m_courseTableView reloadData];
+    
+    [self refreshData];
 }
 
 - (void)didCancelCourse:(CourseViewController *)controller
@@ -432,23 +424,10 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    if([searchText isEqualToString:@""] || (searchText == nil)){
-        [m_courseModel copyDataFrom:m_cmModel.courseModel];
-        
-        [m_courseTableView reloadData];
+    if (searchBar != m_searchBar)
         return;
-    }
     
-    // Filter course by title
-    CourseModel *courseModel = [m_cmModel.courseModel searchByTitle:searchText];
-    if (courseModel == nil)
-        [m_courseModel clear];
-    else {
-        [m_courseModel copyDataFrom:courseModel];
-        //[courseModel release]; // Cause the crash
-    }
-    
-    [m_courseTableView reloadData];
+    [self refreshData];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar

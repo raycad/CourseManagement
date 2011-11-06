@@ -105,7 +105,7 @@
 {
     [super viewDidLoad];
     // Set default parameters
-    UIImage *thumbnailImage = [UIImage imageNamed:@"Xcode-48.png"];
+    UIImage *thumbnailImage = [UIImage imageNamed:@"xcode.png"];
     [m_thumbnailImageButton setImage:thumbnailImage forState:UIControlStateNormal];
     
     if (m_course){

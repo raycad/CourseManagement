@@ -34,4 +34,6 @@
 
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, retain) IBOutlet UITableView *studentTableView;
+
+- (void) refreshData;
 @end

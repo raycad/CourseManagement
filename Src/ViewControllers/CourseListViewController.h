@@ -33,4 +33,5 @@
 @property (nonatomic, retain) IBOutlet UITableView *courseTableView;
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 
+- (void) refreshData;
 @end
