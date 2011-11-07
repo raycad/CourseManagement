@@ -402,7 +402,9 @@
 {
 #pragma unused(object)
     assert(object != nil);
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    [self refreshData];
 }
 
 @end

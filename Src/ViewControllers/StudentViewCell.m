@@ -30,9 +30,9 @@
         m_avatarImageView = [[UIImageView alloc]init];
         [self.contentView addSubview:m_fullNameLabel];
         [self.contentView addSubview:m_idNumberLabel];
-        [self.contentView addSubview:m_avatarImageView];
-        
+        [self.contentView addSubview:m_avatarImageView];        
     }
+    
     return self;
 }
 
