@@ -26,11 +26,7 @@
 
         // Set up our navigation bar.
         self.title = CourseListViewTitle;        
-        self.tabBarItem.image = [UIImage imageNamed:@"course.png"];
-        
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
-          
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCourse)];
+        self.tabBarItem.image = [UIImage imageNamed:@"course.png"];        
     }
     
     return self;
@@ -51,94 +47,96 @@
 
 - (void)loadDataFromDB
 {
-    CourseModel *courseModel = [[CourseModel alloc] init];
-    
-    NSString *title = nil;
-    CoursePK *coursePK = nil;
-    Course *course = nil;
-    
-    title = [NSString stringWithFormat:@"iOS Programming"];
-    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
-    course = [[Course alloc] initWithCoursePK:coursePK];
-    [course setTitle:title];
-    [course setCategory:@"IOS"];
-    [course setDescription:@"Course for developing IOS skill"];    
-    if ([courseModel addCourse:course]) {
-        NSLog(@"Added sucessfully");
+    if (m_cmModel.courseModel == nil) {
+        CourseModel *courseModel = [[CourseModel alloc] init];
+        
+        NSString *title = nil;
+        CoursePK *coursePK = nil;
+        Course *course = nil;
+        
+        title = [NSString stringWithFormat:@"iOS Programming"];
+        coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+        course = [[Course alloc] initWithCoursePK:coursePK];
+        [course setTitle:title];
+        [course setCategory:@"IOS"];
+        [course setDescription:@"Course for developing IOS skill"];    
+        if ([courseModel addCourse:course]) {
+            NSLog(@"Added sucessfully");
+        }
+        [title release];
+        [coursePK release];
+        [course release];  
+        
+        title = [NSString stringWithFormat:@"Android Programming"];
+        coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+        course = [[Course alloc] initWithCoursePK:coursePK];
+        [course setTitle:title];
+        [course setCategory:@"Android"];
+        [course setDescription:@"Course for developing Android skill"];    
+        if ([courseModel addCourse:course]) {
+            NSLog(@"Added sucessfully");
+        }
+        [title release];
+        [coursePK release];
+        [course release];  
+        
+        title = [NSString stringWithFormat:@"Windows Phone 12/12/2011"];
+        coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+        course = [[Course alloc] initWithCoursePK:coursePK];
+        [course setTitle:title];
+        [course setCategory:@"Windows phone"];
+        [course setDescription:@"Course for developing IOS skill"];    
+        if ([courseModel addCourse:course]) {
+            NSLog(@"Added sucessfully");
+        }
+        [title release];
+        [coursePK release];
+        [course release];  
+        
+        title = [NSString stringWithFormat:@"Windows Phone 30/12/2011"];
+        coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+        course = [[Course alloc] initWithCoursePK:coursePK];
+        [course setTitle:title];
+        [course setCategory:@"Windows phone"];
+        [course setDescription:@"Course for developing IOS skill"];    
+        if ([courseModel addCourse:course]) {
+            NSLog(@"Added sucessfully");
+        }
+        [title release];
+        [coursePK release];
+        [course release];  
+        
+        title = [NSString stringWithFormat:@"C++ Programming 01/11/2011"];
+        coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+        course = [[Course alloc] initWithCoursePK:coursePK];
+        [course setTitle:title];
+        [course setCategory:@"C++"];
+        [course setDescription:@"Course for developing C++ skill"];    
+        if ([courseModel addCourse:course]) {
+            NSLog(@"Added sucessfully");
+        }
+        [title release];
+        [coursePK release];
+        [course release];  
+        
+        title = [NSString stringWithFormat:@"Java Programming 01/11/2011"];
+        coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+        course = [[Course alloc] initWithCoursePK:coursePK];
+        [course setTitle:title];
+        [course setCategory:@"Java"];
+        [course setDescription:@"Course for developing Java skill"];    
+        if ([courseModel addCourse:course]) {
+            NSLog(@"Added sucessfully");
+        }
+        [title release];
+        [coursePK release];
+        [course release];  
+        
+        // Set data model
+        [m_cmModel setCourseModel:courseModel];
+        
+        [courseModel release];
     }
-    [title release];
-    [coursePK release];
-    [course release];  
-    
-    title = [NSString stringWithFormat:@"Android Programming"];
-    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
-    course = [[Course alloc] initWithCoursePK:coursePK];
-    [course setTitle:title];
-    [course setCategory:@"Android"];
-    [course setDescription:@"Course for developing Android skill"];    
-    if ([courseModel addCourse:course]) {
-        NSLog(@"Added sucessfully");
-    }
-    [title release];
-    [coursePK release];
-    [course release];  
-    
-    title = [NSString stringWithFormat:@"Windows Phone 12/12/2011"];
-    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
-    course = [[Course alloc] initWithCoursePK:coursePK];
-    [course setTitle:title];
-    [course setCategory:@"Windows phone"];
-    [course setDescription:@"Course for developing IOS skill"];    
-    if ([courseModel addCourse:course]) {
-        NSLog(@"Added sucessfully");
-    }
-    [title release];
-    [coursePK release];
-    [course release];  
-    
-    title = [NSString stringWithFormat:@"Windows Phone 30/12/2011"];
-    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
-    course = [[Course alloc] initWithCoursePK:coursePK];
-    [course setTitle:title];
-    [course setCategory:@"Windows phone"];
-    [course setDescription:@"Course for developing IOS skill"];    
-    if ([courseModel addCourse:course]) {
-        NSLog(@"Added sucessfully");
-    }
-    [title release];
-    [coursePK release];
-    [course release];  
-    
-    title = [NSString stringWithFormat:@"C++ Programming 01/11/2011"];
-    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
-    course = [[Course alloc] initWithCoursePK:coursePK];
-    [course setTitle:title];
-    [course setCategory:@"C++"];
-    [course setDescription:@"Course for developing C++ skill"];    
-    if ([courseModel addCourse:course]) {
-        NSLog(@"Added sucessfully");
-    }
-    [title release];
-    [coursePK release];
-    [course release];  
-    
-    title = [NSString stringWithFormat:@"Java Programming 01/11/2011"];
-    coursePK = [[CoursePK alloc] initWithCourseTitle:title];
-    course = [[Course alloc] initWithCoursePK:coursePK];
-    [course setTitle:title];
-    [course setCategory:@"Java"];
-    [course setDescription:@"Course for developing Java skill"];    
-    if ([courseModel addCourse:course]) {
-        NSLog(@"Added sucessfully");
-    }
-    [title release];
-    [coursePK release];
-    [course release];  
-    
-    // Set data model
-    [m_cmModel setCourseModel:courseModel];
-    
-    [courseModel release];
 }
 
 - (void)viewDidLoad
@@ -148,6 +146,12 @@
     // Configure the table view    
     m_courseTableView.editing = YES;
     m_courseTableView.allowsSelectionDuringEditing = YES;
+    
+    if (m_viewMode == CreateNewMode) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCourse)];
+    }
     
     [self loadDataFromDB];
     

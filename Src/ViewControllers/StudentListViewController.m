@@ -18,80 +18,82 @@
 
 - (void)loadDataFromDB
 {
-    StudentModel *studentModel = [[StudentModel alloc] init];
-    
-    NSString *idNumber = nil;
-    PersonPK *personPK = nil;
-    Student *student = nil;    
-    
-    idNumber = [NSString stringWithFormat:@"172062231"];
-    personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
-    student = [[Student alloc] initWithPersonPK:personPK];
-    [student setAddress:@"Tay Mo street"];
-    student.dateOfBirth = @"27/06/1982";
-    student.fullName = @"Raycad";  
-    student.mobilePhoneNumber = @"0989641245";
-    student.idNumber = idNumber;
-    student.sex = 0;
-    if ([studentModel addStudent:student]) {
-        NSLog(@"Added sucessfully");
+    if (m_cmModel.studentModel == nil) {
+        StudentModel *studentModel = [[StudentModel alloc] init];
+        
+        NSString *idNumber = nil;
+        PersonPK *personPK = nil;
+        Student *student = nil;    
+        
+        idNumber = [NSString stringWithFormat:@"172062231"];
+        personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
+        student = [[Student alloc] initWithPersonPK:personPK];
+        [student setAddress:@"Tay Mo street"];
+        student.dateOfBirth = @"27/06/1982";
+        student.fullName = @"Raycad";  
+        student.mobilePhoneNumber = @"0989641245";
+        student.idNumber = idNumber;
+        student.sex = 0;
+        if ([studentModel addStudent:student]) {
+            NSLog(@"Added sucessfully");
+        }
+        [idNumber release];
+        [personPK release];
+        [student release];  
+        
+        idNumber = [NSString stringWithFormat:@"337789"];
+        personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
+        student = [[Student alloc] initWithPersonPK:personPK];
+        [student setAddress:@"33 Phan Boi Chau street"];
+        student.dateOfBirth = @"12/3/1980";
+        student.fullName = @"Hamman";  
+        student.mobilePhoneNumber = @"0975641245";
+        student.idNumber = idNumber;
+        student.sex = 0;
+        if ([studentModel addStudent:student]) {
+            NSLog(@"Added sucessfully");
+        }
+        [idNumber release];
+        [personPK release];
+        [student release];  
+        
+        idNumber = [NSString stringWithFormat:@"123456"];
+        personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
+        student = [[Student alloc] initWithPersonPK:personPK];
+        [student setAddress:@"123 Nguyen Chi Thanh street"];
+        student.dateOfBirth = @"4/8/1990";
+        student.fullName = @"Marry";  
+        student.mobilePhoneNumber = @"0989641245";
+        student.idNumber = idNumber;
+        student.sex = 1;
+        if ([studentModel addStudent:student]) {
+            NSLog(@"Added sucessfully");
+        }
+        [idNumber release];
+        [personPK release];
+        [student release];  
+        
+        idNumber = [NSString stringWithFormat:@"2255678"];
+        personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
+        student = [[Student alloc] initWithPersonPK:personPK];
+        [student setAddress:@"55 Kim Ma street"];
+        student.dateOfBirth = @"23/8/1983";
+        student.fullName = @"Linda";  
+        student.mobilePhoneNumber = @"0985504455";
+        student.idNumber = idNumber;
+        student.sex = 1;
+        if ([studentModel addStudent:student]) {
+            NSLog(@"Added sucessfully");
+        }
+        [idNumber release];
+        [personPK release];
+        [student release];  
+        
+        // Set data model
+        [m_cmModel setStudentModel:studentModel];
+        
+        [studentModel release];
     }
-    [idNumber release];
-    [personPK release];
-    [student release];  
-    
-    idNumber = [NSString stringWithFormat:@"337789"];
-    personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
-    student = [[Student alloc] initWithPersonPK:personPK];
-    [student setAddress:@"33 Phan Boi Chau street"];
-    student.dateOfBirth = @"12/3/1980";
-    student.fullName = @"Hamman";  
-    student.mobilePhoneNumber = @"0975641245";
-    student.idNumber = idNumber;
-    student.sex = 0;
-    if ([studentModel addStudent:student]) {
-        NSLog(@"Added sucessfully");
-    }
-    [idNumber release];
-    [personPK release];
-    [student release];  
-    
-    idNumber = [NSString stringWithFormat:@"123456"];
-    personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
-    student = [[Student alloc] initWithPersonPK:personPK];
-    [student setAddress:@"123 Nguyen Chi Thanh street"];
-    student.dateOfBirth = @"4/8/1990";
-    student.fullName = @"Marry";  
-    student.mobilePhoneNumber = @"0989641245";
-    student.idNumber = idNumber;
-    student.sex = 1;
-    if ([studentModel addStudent:student]) {
-        NSLog(@"Added sucessfully");
-    }
-    [idNumber release];
-    [personPK release];
-    [student release];  
-    
-    idNumber = [NSString stringWithFormat:@"2255678"];
-    personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
-    student = [[Student alloc] initWithPersonPK:personPK];
-    [student setAddress:@"55 Kim Ma street"];
-    student.dateOfBirth = @"23/8/1983";
-    student.fullName = @"Linda";  
-    student.mobilePhoneNumber = @"0985504455";
-    student.idNumber = idNumber;
-    student.sex = 1;
-    if ([studentModel addStudent:student]) {
-        NSLog(@"Added sucessfully");
-    }
-    [idNumber release];
-    [personPK release];
-    [student release];  
-    
-    // Set data model
-    [m_cmModel setStudentModel:studentModel];
-   
-    [studentModel release];
 }
 
 - (id)init
@@ -101,15 +103,11 @@
     if (self != nil) {
         // Initialize the student model
         m_studentModel = [[StudentModel alloc] init];
-        m_cmModel = [CMModel instance];
+        m_cmModel = [CMModel instance];    
         
         // Set up our navigation bar.
         self.title = StudentListViewTitle;
         self.tabBarItem.image = [UIImage imageNamed:@"student_male.png"];
-        
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];        
-        
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addStudent)];
     }    
         
     return self;
@@ -127,6 +125,16 @@
     // Configure the table view    
     self.studentTableView.editing = YES;
     self.studentTableView.allowsSelectionDuringEditing = YES;
+    
+    if (m_viewMode == CreateNewMode) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];        
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addStudent)];
+    } else if (m_viewMode == SelectMode) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(didCancel:)];        
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addStudent)];
+    }
     
 	[self loadDataFromDB];
     
