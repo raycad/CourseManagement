@@ -31,6 +31,26 @@
     }
 }
 
+- (void)selectAction:(id)sender
+{
+#pragma unused(sender)
+    
+    // Tell the delegate about the selection.    
+    if ((self.delegate != nil) && [self.delegate respondsToSelector:@selector(didSelect:)] ) {
+        [self.delegate didSelect:self];
+    }
+}
+
+- (void)updateAction:(id)sender
+{
+#pragma unused(sender)
+    
+    // Tell the delegate about the update.    
+    if ((self.delegate != nil) && [self.delegate respondsToSelector:@selector(didUpdate:)] ) {
+        [self.delegate didUpdate:self];
+    }
+}
+
 - (void)presentModallyOn:(UIViewController *)parent
 {
     UINavigationController *nav;
@@ -38,12 +58,6 @@
     // Create a navigation controller with us as its root.    
     nav = [[[UINavigationController alloc] initWithRootViewController:self] autorelease];
     assert(nav != nil);
-    
-    // Set up the Save & Cancel buttons on the right & left of the navigation bar.    
-    self.navigationItem.leftBarButtonItem  = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)] autorelease];
-    assert(self.navigationItem.leftBarButtonItem != nil);
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave   target:self action:@selector(saveAction:)] autorelease];
-    assert(self.navigationItem.rightBarButtonItem != nil);
     
     // Present the navigation controller on the specified parent 
     // view controller.    

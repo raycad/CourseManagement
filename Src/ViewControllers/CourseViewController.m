@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "StudentViewCell.h"
 #import "StudentListViewController.h"
+#import "CMModel.h"
 
 @implementation CourseViewController
 
@@ -293,4 +294,52 @@
     [m_studentTableView reloadData];
 }
 
+- (void)updateAction:(id)sender
+{
+#pragma unused(sender)
+    // Update the current course
+    if(m_course) {
+        NSString *title = [self.titleTextField text];
+        
+        if ([title isEqualToString:@""]) {
+            // Open a alert with an OK button
+            NSString *alertString = [NSString stringWithFormat:@"Title must not be empty"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            
+            return;
+        }
+        
+        NSString *category = [self.categoryTextField text];
+        NSString *description = [self.descriptionTextView text];
+        if (title == @"")
+            return;        
+        
+        CMModel *cmModel = [CMModel instance];
+        CourseModel *courseModel = cmModel.courseModel;
+        
+        CoursePK *coursePK = [[CoursePK alloc] initWithCourseTitle:title];
+        CoursePK *currentCoursePK = [m_course coursePK];
+        
+        if ((![coursePK isEqual:currentCoursePK]) && [courseModel getCourseByPK:coursePK] != nil) {
+            // Open a alert with an OK button
+            NSString *alertString = [NSString stringWithFormat:@"The course is existing"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            
+            return;
+        }
+        
+        [m_course setTitle:title];
+        [m_course setCategory:category];
+        [m_course setDescription:description];
+    }
+    
+    // Tell the delegate about the update.    
+    if ((self.delegate != nil) && [self.delegate respondsToSelector:@selector(didUpdate:)] ) {
+        [self.delegate didUpdate:self];
+    }
+}
 @end

@@ -341,6 +341,8 @@
             assert(student != nil);
             
             studentViewController.student = student;
+            studentViewController.viewMode = UpdateMode;
+            studentViewController.delegate = self;
             
             [[self navigationController] pushViewController:studentViewController animated:YES];
             [studentViewController release];
@@ -393,6 +395,14 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
+}
+
+- (void)didUpdate:(NSObject *)object
+// Called when the user taps Cancel in the options view.
+{
+#pragma unused(object)
+    assert(object != nil);
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

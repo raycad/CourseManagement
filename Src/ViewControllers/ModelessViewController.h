@@ -15,6 +15,11 @@
 
 @property (nonatomic, retain)id<ModelessViewControllerDelegate> delegate;
 
+- (void)saveAction:(id)sender;
+- (void)cancelAction:(id)sender;
+- (void)selectAction:(id)sender;
+- (void)updateAction:(id)sender;
+
 - (void)presentModallyOn:(UIViewController *)parent;
 @end
 

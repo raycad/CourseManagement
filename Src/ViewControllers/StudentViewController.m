@@ -7,6 +7,7 @@
 //
 
 #import "StudentViewController.h"
+#import "CMModel.h"
 
 @implementation StudentViewController
 
@@ -53,7 +54,7 @@
         
         self.title = m_student.fullName;
     }
-}
+ }
 
 - (void)viewDidUnload
 {
@@ -79,4 +80,54 @@
     return TRUE;
 }
 
+- (void)updateAction:(id)sender
+{
+#pragma unused(sender)
+    // Update the current student
+    if(m_student) {
+        NSString *idNumber = [self.idNumberTextField text];
+        
+        if ([idNumber isEqualToString:@""] || idNumber == nil) {
+            // Open a alert with an OK button
+            NSString *alertString = [NSString stringWithFormat:@"ID card number must not be empty"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            
+            return;
+        }
+        
+        CMModel *cmModel = [CMModel instance];
+        StudentModel *studentModel = cmModel.studentModel;
+        
+        PersonPK *personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
+        PersonPK *currentPersonPK = [m_student personPK];
+        
+        if ((![personPK isEqual:currentPersonPK]) && [studentModel getStudentByPK:personPK] != nil) {
+            // Open a alert with an OK button
+            NSString *alertString = [NSString stringWithFormat:@"The student is existing"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            
+            return;
+        }
+        
+        NSString *fullName = [self.fullNameTextField text];
+        NSString *dateOfBirth = [self.dateOfBirthTextField text];
+        NSString *address = [self.addressTextField text];
+        NSString *phoneNumber = [self.phoneTextField text];
+        
+        m_student.idNumber = idNumber;
+        m_student.fullName = fullName;
+        m_student.dateOfBirth = dateOfBirth;
+        m_student.address = address;
+        m_student.mobilePhoneNumber = phoneNumber;
+    }
+    
+    // Tell the delegate about the update.    
+    if ((self.delegate != nil) && [self.delegate respondsToSelector:@selector(didUpdate:)] ) {
+        [self.delegate didUpdate:self];
+    }
+}
 @end

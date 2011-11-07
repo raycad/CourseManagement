@@ -266,6 +266,8 @@
         assert(course != nil);
         
         courseViewController.course = course;
+        courseViewController.viewMode = UpdateMode;
+        courseViewController.delegate = self;
         
         [[self navigationController] pushViewController:courseViewController animated:YES];
         [courseViewController release];
@@ -360,6 +362,14 @@
 }
 
 - (void)didCancel:(NSObject *)object
+// Called when the user taps Cancel in the options view.
+{
+#pragma unused(object)
+    assert(object != nil);
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)didUpdate:(NSObject *)object
 // Called when the user taps Cancel in the options view.
 {
 #pragma unused(object)
