@@ -32,6 +32,9 @@
 
 - (Student *)getStudentByPK:(PersonPK *)personPK
 {
+    if (personPK == nil)
+        return nil;
+    
     for (int i = 0; i < [m_students count]; i++) {
         Student *student = [m_students objectAtIndex:i];
         if ([personPK isEqual:[student personPK]])

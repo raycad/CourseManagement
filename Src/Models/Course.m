@@ -10,6 +10,8 @@
 
 @implementation CoursePK
 
+@synthesize courseTitle = m_courseTitle;
+
 - (id)initWithCourseTitle:(NSString *)courseTitle
 {
     if ((self = [super init])) {
@@ -18,11 +20,6 @@
         m_courseTitle = [courseTitle retain];
     }
     return self;   
-}
-
-- (NSString *)courseTitle
-{
-    return m_courseTitle;
 }
 
 - (void)dealloc 
@@ -39,7 +36,11 @@
     if (!object || ![object isKindOfClass:[self class]])
         return NO;
     
-    if ([self.courseTitle isEqual:[object courseTitle]])
+    NSString *courseTitle = [(CoursePK *)object courseTitle];
+    if (!courseTitle)
+        return NO;
+
+    if ([self.courseTitle isEqual:courseTitle])
         return YES;
 
     return NO;
@@ -48,9 +49,9 @@
 
 @implementation Course
 
-@synthesize title = m_title;
-@synthesize category = m_category;
-@synthesize description = m_description;
+@synthesize title           = m_title;
+@synthesize category        = m_category;
+@synthesize description     = m_description;
 @synthesize studentModel = m_studentModel;
 
 - (id)initWithCoursePK:(CoursePK *)coursePK

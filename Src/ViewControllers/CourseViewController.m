@@ -21,13 +21,15 @@
 @synthesize searchBar           = m_searchBar;
 @synthesize studentTableView    = m_studentTableView;
 @synthesize course              = m_course;
+@synthesize studentModel        = m_studentModel;
 
 - (id)init
 {
     self = [super init];
     if (self != nil) {
         self.title = @"Add Course";    
-        m_studentModel = [[StudentModel alloc] init];
+        m_studentModel = [[StudentModel alloc] init];        
+        m_filterStudentModel = [[StudentModel alloc] init];
     }
     return self;
 }
@@ -57,6 +59,7 @@
     [m_searchBar release];
     [m_studentTableView release];
     
+    [m_filterStudentModel release];
     [m_studentModel release];
     [super dealloc];
 }
@@ -86,6 +89,9 @@
         m_titleTextField.text = m_course.title;
         m_descriptionTextView.text = m_course.description;
         m_categoryTextField.text = m_course.category;
+        if (m_course.studentModel) {
+            self.studentModel = m_course.studentModel;
+        }
         
         self.title = m_course.title;
     }
@@ -117,7 +123,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //NSLog(@”contacts error in num of row”);
-    return [m_studentModel count];
+    return [m_filterStudentModel count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,7 +140,7 @@
 	}
     
     // Set up the cell...
-    Student *student = [m_studentModel studentAtIndex:indexPath.row];
+    Student *student = [m_filterStudentModel studentAtIndex:indexPath.row];
     if (!student)
         return nil;
 	
@@ -171,7 +177,7 @@
         assert(cell != nil);
         Student *student = cell.student;
         assert(student != nil);
-        if ([m_course.studentModel removeStudent:student]) {
+        if ([m_studentModel removeStudent:student]) {
             [self refreshData];            
             NSLog(@"Remove course button was clicked");
         }
@@ -219,7 +225,7 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     @try{
-        [m_studentModel copyDataFrom:m_course.studentModel];
+        [m_filterStudentModel copyDataFrom:m_studentModel];
         
         [m_studentTableView reloadData];
     }
@@ -256,9 +262,8 @@
     assert(object != nil);
     
     Student *student = (Student *)object;    
-    StudentModel *studentModel = m_course.studentModel;
     
-    if (![studentModel addStudent:student]) {
+    if (![m_studentModel addStudent:student]) {
         // Open a alert with an OK button
         NSString *alertString = [NSString stringWithFormat:@"The student is existing"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -277,18 +282,18 @@
 {
     NSString *searchText = m_searchBar.text;
     if([searchText isEqualToString:@""] || (searchText == nil)){
-        [m_studentModel copyDataFrom:m_course.studentModel];
+        [m_filterStudentModel copyDataFrom:m_studentModel];
         
         [m_studentTableView reloadData];
         return;
     }
     
     // Filter student by name
-    StudentModel *studentModel = [m_course.studentModel searchByName:searchText];
+    StudentModel *studentModel = [m_studentModel searchByName:searchText];
     if (studentModel == nil)
-        [m_studentModel clear];
+        [m_filterStudentModel clear];
     else {
-        [m_studentModel copyDataFrom:studentModel];
+        [m_filterStudentModel copyDataFrom:studentModel];
     }
     
     [m_studentTableView reloadData];
@@ -313,8 +318,6 @@
         
         NSString *category = [self.categoryTextField text];
         NSString *description = [self.descriptionTextView text];
-        if (title == @"")
-            return;        
         
         CMModel *cmModel = [CMModel instance];
         CourseModel *courseModel = cmModel.courseModel;
@@ -335,6 +338,9 @@
         [m_course setTitle:title];
         [m_course setCategory:category];
         [m_course setDescription:description];
+        
+        // Reset coursePK
+        [m_course coursePK].courseTitle = title;
     }
     
     // Tell the delegate about the update.    

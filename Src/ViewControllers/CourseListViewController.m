@@ -335,14 +335,14 @@
 
     NSString *category = [courseViewController.categoryTextField text];
     NSString *description = [courseViewController.descriptionTextView text];
-    if (title == @"")
-        return;
+    StudentModel *studentModel = [courseViewController studentModel];
     
     CoursePK *coursePK = [[CoursePK alloc] initWithCourseTitle:title];
     Course *course = [[Course alloc] initWithCoursePK:coursePK];
     [course setTitle:title];
     [course setCategory:category];
     [course setDescription:description];
+    [course setStudentModel:studentModel];
     
     CourseModel *courseModel = m_cmModel.courseModel;
     

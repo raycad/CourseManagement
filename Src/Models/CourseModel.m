@@ -32,6 +32,9 @@
 
 - (Course *)getCourseByPK:(CoursePK *)coursePK
 {
+    if (coursePK == nil)
+        return nil;
+    
     for (int i = 0; i < [m_courses count]; i++) {
         Course *course = [m_courses objectAtIndex:i];
         if ([coursePK isEqual:[course coursePK]])
@@ -76,6 +79,7 @@
             return YES;
         }
     }
+    return NO;
 }
 
 - (Course *)courseAtIndex:(int)index

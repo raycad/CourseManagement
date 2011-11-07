@@ -13,9 +13,9 @@
     NSString *m_courseTitle;    
 }
 
--(id)initWithCourseTitle:(NSString *)courseTitle;
--(NSString *)courseTitle;
+@property NSString *courseTitle;
 
+-(id)initWithCourseTitle:(NSString *)courseTitle;
 @end
 
 @interface Course : NSObject {
@@ -30,5 +30,4 @@
 
 -(id)initWithCoursePK:(CoursePK *)coursePK;
 -(CoursePK *)coursePK;
-
 @end

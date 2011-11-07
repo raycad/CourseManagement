@@ -21,8 +21,8 @@
     UIButton                            *m_addStudentButton;
     UISearchBar                         *m_searchBar;
     UITableView                         *m_studentTableView;
-    
-    StudentModel                        *m_studentModel; // filter student model
+    StudentModel                        *m_studentModel;        // selected students model
+    StudentModel                        *m_filterStudentModel;  // filter students model
 }
 
 @property (nonatomic, retain) IBOutlet UITextField  *titleTextField;
@@ -32,6 +32,7 @@
 @property (nonatomic, retain) IBOutlet UISearchBar  *searchBar;
 @property (nonatomic, retain) IBOutlet UITableView  *studentTableView;
 @property (nonatomic, retain)Course                 *course;
+@property (nonatomic, retain) StudentModel          *studentModel;
 
 - (void) refreshData;
 
