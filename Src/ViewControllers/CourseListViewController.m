@@ -127,10 +127,10 @@
         [course setDescription:@"Course for developing Java skill"];    
         if ([courseModel addCourse:course]) {
             NSLog(@"Added sucessfully");
-        }
+        }        
         [title release];
         [coursePK release];
-        [course release];  
+        [course release];
         
         // Set data model
         [m_cmModel setCourseModel:courseModel];
@@ -299,6 +299,9 @@
     }
     
     [m_courseTableView reloadData];
+    
+    NSString *title = [NSString stringWithFormat:@"%s (%d)", CourseListViewTitle, [m_courseModel count]];
+    self.title = title;
 }
 
 - (void)presentCourseViewModally

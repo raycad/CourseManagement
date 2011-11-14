@@ -44,7 +44,7 @@
     return nil;
 }
 
-- (BOOL)removeCourseByPK:(CoursePK *)coursePK;
+- (BOOL)removeCourseByPK:(CoursePK *)coursePK
 {
     for (int i = 0; i < [m_courses count]; i++) {
         Course *course = [m_courses objectAtIndex:i];

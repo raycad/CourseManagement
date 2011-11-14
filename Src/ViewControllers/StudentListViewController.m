@@ -175,6 +175,9 @@
     }
     
     [m_studentTableView reloadData];
+    
+    NSString *title = [NSString stringWithFormat:@"%s (%d)", StudentListViewTitle, [m_studentModel count]];
+    self.title = title;
 }
 
 - (void)presentStudentViewModally

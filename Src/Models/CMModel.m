@@ -48,4 +48,10 @@ static CMModel *_instance = nil;
 	return self;
 }
 
+- (void)dealloc
+{
+    [m_courseModel release];
+    [m_studentModel release];
+    [super dealloc];
+}
 @end

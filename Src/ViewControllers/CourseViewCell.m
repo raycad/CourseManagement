@@ -41,13 +41,13 @@
     CGRect contentRect = self.contentView.bounds;
     CGFloat boundsX = contentRect.origin.x;
     CGRect frame;
-    frame = CGRectMake(boundsX+10 ,0, 50, 50);
+    frame = CGRectMake(boundsX+10, 5, 40, 40);
     m_thumbnailImageView.frame = frame;
     
-    frame = CGRectMake(boundsX+70 ,5, 200, 25);
+    frame = CGRectMake(boundsX+70, 5, 200, 25);
     m_titleLabel.frame = frame;
     
-    frame = CGRectMake(boundsX+70 ,32, 100, 15);
+    frame = CGRectMake(boundsX+70, 32, 100, 15);
     m_categoryLabel.frame = frame;
 }
 

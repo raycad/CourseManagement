@@ -46,7 +46,7 @@
 					<object class="IBUITableView" id="347906028">
 						<reference key="NSNextResponder" ref="1002731997"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{2.67029e-05, 44}, {320, 416}}</string>
+						<string key="NSFrame">{{-1, 44}, {320, 416}}</string>
 						<reference key="NSSuperview" ref="1002731997"/>
 						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -166,8 +166,8 @@
 						<reference key="object" ref="1002731997"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="347906028"/>
 							<reference ref="651726372"/>
+							<reference ref="347906028"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -224,7 +224,7 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
 					<string key="className">CourseListViewController</string>
-					<string key="superclassName">UIViewController</string>
+					<string key="superclassName">SdtViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -260,6 +260,22 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/CourseListViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ModelessViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ModelessViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SdtViewController</string>
+					<string key="superclassName">ModelessViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SdtViewController.h</string>
 					</object>
 				</object>
 			</object>
