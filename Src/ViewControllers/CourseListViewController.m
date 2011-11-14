@@ -300,8 +300,8 @@
     
     [m_courseTableView reloadData];
     
-    NSString *title = [NSString stringWithFormat:@"%s (%d)", CourseListViewTitle, [m_courseModel count]];
-    self.title = title;
+    /*NSString *title = [NSString stringWithFormat:@"%@ (%d)", CourseListViewTitle, [m_courseModel count]];
+    self.title = title;*/
 }
 
 - (void)presentCourseViewModally
