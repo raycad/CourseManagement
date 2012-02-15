@@ -13,7 +13,7 @@
     NSString *m_courseTitle;    
 }
 
-@property NSString *courseTitle;
+@property (nonatomic, strong) NSString *courseTitle;
 
 -(id)initWithCourseTitle:(NSString *)courseTitle;
 @end
@@ -23,10 +23,10 @@
     StudentModel    *m_studentModel;
 }
 
-@property (nonatomic, retain) NSString      *title;
-@property (nonatomic, retain) NSString      *category;
-@property (nonatomic, retain) NSString      *description;
-@property (nonatomic, retain) StudentModel  *studentModel;
+@property (nonatomic, strong) NSString      *title;
+@property (nonatomic, strong) NSString      *category;
+@property (nonatomic, strong) NSString      *description;
+@property (nonatomic, strong) StudentModel  *studentModel;
 
 -(id)initWithCoursePK:(CoursePK *)coursePK;
 -(CoursePK *)coursePK;

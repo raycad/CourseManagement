@@ -18,18 +18,6 @@
 @synthesize addressTextField = m_addressTextField;
 @synthesize phoneTextField = m_phoneTextField;
 
-- (void)dealloc
-{
-    [m_student release];
-    
-    [m_fullNameTextField release];
-    [m_dateOfBirthTextField release];
-    [m_idNumberTextField release];
-    [m_addressTextField release];
-    [m_phoneTextField release];
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -92,7 +80,6 @@
             NSString *alertString = [NSString stringWithFormat:@"ID card number must not be empty"];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            [alert release];
             
             return;
         }
@@ -108,7 +95,6 @@
             NSString *alertString = [NSString stringWithFormat:@"The student is existing"];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            [alert release];
             
             return;
         }

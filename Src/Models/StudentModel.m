@@ -111,8 +111,6 @@
     
     if ([studentModel count] == 0)
         return nil;
-    
-    return [studentModel autorelease];
 }
 
 - (StudentModel *)searchByName:(NSString *)searchText
@@ -121,16 +119,20 @@
     Student *student = nil;
     for (int i = 0; i < [self count]; i++) {
         student = [self studentAtIndex:i];
-        NSComparisonResult result = [student.fullName compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-        if (result == NSOrderedSame) {
+        NSRange range = [student.fullName rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        if (range.location != NSNotFound) {
             [studentModel addStudent:student];
         }
+        /*NSComparisonResult result = [student.fullName compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        if (result == NSOrderedSame) {
+            [studentModel addStudent:student];
+        }*/
     }
     
     if ([studentModel count] == 0)
         return nil;
     
-    return [studentModel autorelease];
+    return studentModel;
 }
 
 - (void)clear
@@ -143,9 +145,4 @@
     return [m_students count];
 }
 
-- (void)dealloc
-{
-    [m_students release];
-    [super dealloc];
-}
 @end

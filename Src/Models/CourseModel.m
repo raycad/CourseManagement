@@ -104,16 +104,20 @@
     Course *course = nil;
     for (int i = 0; i < [self count]; i++) {
         course = [self courseAtIndex:i];
-        NSComparisonResult result = [course.title compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-        if (result == NSOrderedSame) {
+        NSRange range = [course.title rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        if (range.location != NSNotFound) {
             [courseModel addCourse:course];
         }
+        /*NSComparisonResult result = [course.title compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        if (result == NSOrderedSame) {
+            [courseModel addCourse:course];
+        }*/
     }
         
     if ([courseModel count] == 0)
         return nil;
-
-    return [courseModel autorelease];
+    
+    return courseModel;
 }
 
 - (void)clear
@@ -126,9 +130,4 @@
     return [m_courses count];
 }
 
-- (void)dealloc
-{
-    [m_courses release];    
-    [super dealloc];
-}
 @end

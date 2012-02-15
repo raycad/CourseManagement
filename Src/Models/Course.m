@@ -16,8 +16,7 @@
 {
     if ((self = [super init])) {
         // Initialize parameters
-        [m_courseTitle autorelease]; // Use this to avoid releasing itself
-        m_courseTitle = [courseTitle retain];
+        m_courseTitle = courseTitle;
     }
     return self;   
 }
@@ -63,9 +62,6 @@
         m_description = @"iOS";
         
         m_studentModel = [[StudentModel alloc] init];
-        
-        [m_coursePK autorelease]; // Use this to avoid releasing itself
-        m_coursePK = [coursePK retain];
     }
     
     return self;
@@ -74,14 +70,6 @@
 - (CoursePK *)coursePK
 {
     return m_coursePK;
-}
-
-- (void)dealloc {
-    [m_title release];
-    [m_category release];
-    [m_description release];
-    [m_coursePK release];
-    [m_studentModel release];
 }
 
 @end

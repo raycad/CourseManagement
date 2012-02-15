@@ -7,266 +7,264 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		76844C091463F7D7001E54D1 /* student_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 76844C081463F7D7001E54D1 /* student_female.png */; };
-		76844C0B1463F7E2001E54D1 /* student_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 76844C0A1463F7E2001E54D1 /* student_male.png */; };
-		7685B8DE145EBA7D008F8FA2 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = 7685B8DC145EBA7D008F8FA2 /* course.png */; };
-		768C539A1466D7750003AC71 /* add_student.png in Resources */ = {isa = PBXBuildFile; fileRef = 768C53991466D7750003AC71 /* add_student.png */; };
-		768C539E1466DF9D0003AC71 /* StudentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C539D1466DF9C0003AC71 /* StudentViewCell.m */; };
-		768C53A11466E8870003AC71 /* ModelessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C53A01466E8870003AC71 /* ModelessViewController.m */; };
-		768C53A41466E8BB0003AC71 /* CourseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C53A31466E8BB0003AC71 /* CourseViewCell.m */; };
-		768C53A71466FA0E0003AC71 /* SdtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768C53A61466FA0D0003AC71 /* SdtViewController.m */; };
-		768FD0A01465163600E709AD /* CourseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 768FD09F1465163600E709AD /* CourseListViewController.xib */; };
-		76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A47144D784E00D66A0A /* UIKit.framework */; };
-		76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A49144D784E00D66A0A /* Foundation.framework */; };
-		76A29A4C144D784E00D66A0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A29A4B144D784E00D66A0A /* CoreGraphics.framework */; };
-		76AB6299146520BC009E9BEB /* CMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AB6298146520BC009E9BEB /* CMModel.m */; };
-		76E346401464D4D600FFE364 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3463F1464D4D600FFE364 /* main.m */; };
-		76E346421464D50800FFE364 /* xcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E346411464D50800FFE364 /* xcode.png */; };
-		76E346461464D51700FFE364 /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E346431464D51700FFE364 /* CourseViewController.xib */; };
-		76E346471464D51700FFE364 /* StudentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E346441464D51700FFE364 /* StudentListViewController.xib */; };
-		76E346481464D51700FFE364 /* StudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E346451464D51700FFE364 /* StudentViewController.xib */; };
-		76E3464C1464D52900FFE364 /* CourseManagementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3464A1464D52900FFE364 /* CourseManagementAppDelegate.m */; };
-		76E346551464D53600FFE364 /* CourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3464E1464D53600FFE364 /* CourseListViewController.m */; };
-		76E346561464D53600FFE364 /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E346501464D53600FFE364 /* CourseViewController.m */; };
-		76E346571464D53600FFE364 /* StudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E346521464D53600FFE364 /* StudentListViewController.m */; };
-		76E346581464D53600FFE364 /* StudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E346541464D53600FFE364 /* StudentViewController.m */; };
-		76E346651464D54400FFE364 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3465A1464D54400FFE364 /* Course.m */; };
-		76E346661464D54400FFE364 /* CourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3465C1464D54400FFE364 /* CourseModel.m */; };
-		76E346671464D54400FFE364 /* Instructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3465E1464D54400FFE364 /* Instructor.m */; };
-		76E346681464D54400FFE364 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E346601464D54400FFE364 /* Person.m */; };
-		76E346691464D54400FFE364 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E346621464D54400FFE364 /* Student.m */; };
-		76E3466A1464D54400FFE364 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E346641464D54400FFE364 /* StudentModel.m */; };
-		76E3466D1464D55800FFE364 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3466C1464D55800FFE364 /* Common.m */; };
-		76E346701464D79E00FFE364 /* CourseManagement-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76E3466E1464D79E00FFE364 /* CourseManagement-Info.plist */; };
-		76E346731464D7A700FFE364 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76E346711464D7A700FFE364 /* InfoPlist.strings */; };
+		D89DF57114EBFEEE00AAEF40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89DF57014EBFEEE00AAEF40 /* UIKit.framework */; };
+		D89DF57314EBFEEE00AAEF40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89DF57214EBFEEE00AAEF40 /* Foundation.framework */; };
+		D89DF57514EBFEEE00AAEF40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89DF57414EBFEEE00AAEF40 /* CoreGraphics.framework */; };
+		D89DF57B14EBFEEE00AAEF40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D89DF57914EBFEEE00AAEF40 /* InfoPlist.strings */; };
+		D89DF57D14EBFEEE00AAEF40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF57C14EBFEEE00AAEF40 /* main.m */; };
+		D89DF58114EBFEEE00AAEF40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF58014EBFEEE00AAEF40 /* AppDelegate.m */; };
+		D89DF5BA14EBFF5900AAEF40 /* add_student.png in Resources */ = {isa = PBXBuildFile; fileRef = D89DF58814EBFF5900AAEF40 /* add_student.png */; };
+		D89DF5BB14EBFF5900AAEF40 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = D89DF58914EBFF5900AAEF40 /* course.png */; };
+		D89DF5BC14EBFF5900AAEF40 /* student_female.png in Resources */ = {isa = PBXBuildFile; fileRef = D89DF58A14EBFF5900AAEF40 /* student_female.png */; };
+		D89DF5BD14EBFF5900AAEF40 /* student_male.png in Resources */ = {isa = PBXBuildFile; fileRef = D89DF58B14EBFF5900AAEF40 /* student_male.png */; };
+		D89DF5BE14EBFF5900AAEF40 /* xcode.png in Resources */ = {isa = PBXBuildFile; fileRef = D89DF58C14EBFF5900AAEF40 /* xcode.png */; };
+		D89DF5C014EBFF5900AAEF40 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF59414EBFF5900AAEF40 /* Common.m */; };
+		D89DF5C114EBFF5900AAEF40 /* CMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF59714EBFF5900AAEF40 /* CMModel.m */; };
+		D89DF5C214EBFF5900AAEF40 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF59914EBFF5900AAEF40 /* Course.m */; };
+		D89DF5C314EBFF5900AAEF40 /* CourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF59B14EBFF5900AAEF40 /* CourseModel.m */; };
+		D89DF5C414EBFF5900AAEF40 /* Instructor.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF59D14EBFF5900AAEF40 /* Instructor.m */; };
+		D89DF5C514EBFF5900AAEF40 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF59F14EBFF5900AAEF40 /* Person.m */; };
+		D89DF5C614EBFF5900AAEF40 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5A114EBFF5900AAEF40 /* Student.m */; };
+		D89DF5C714EBFF5900AAEF40 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5A314EBFF5900AAEF40 /* StudentModel.m */; };
+		D89DF5C814EBFF5900AAEF40 /* CourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5A614EBFF5900AAEF40 /* CourseListViewController.m */; };
+		D89DF5C914EBFF5900AAEF40 /* CourseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5A814EBFF5900AAEF40 /* CourseViewCell.m */; };
+		D89DF5CA14EBFF5900AAEF40 /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5AA14EBFF5900AAEF40 /* CourseViewController.m */; };
+		D89DF5CB14EBFF5900AAEF40 /* ModelessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5AC14EBFF5900AAEF40 /* ModelessViewController.m */; };
+		D89DF5CC14EBFF5900AAEF40 /* SdtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5AE14EBFF5900AAEF40 /* SdtViewController.m */; };
+		D89DF5CD14EBFF5900AAEF40 /* StudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5B014EBFF5900AAEF40 /* StudentListViewController.m */; };
+		D89DF5CE14EBFF5900AAEF40 /* StudentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5B214EBFF5900AAEF40 /* StudentViewCell.m */; };
+		D89DF5CF14EBFF5900AAEF40 /* StudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89DF5B414EBFF5900AAEF40 /* StudentViewController.m */; };
+		D89DF5D014EBFF5900AAEF40 /* CourseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89DF5B614EBFF5900AAEF40 /* CourseListViewController.xib */; };
+		D89DF5D114EBFF5900AAEF40 /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89DF5B714EBFF5900AAEF40 /* CourseViewController.xib */; };
+		D89DF5D214EBFF5900AAEF40 /* StudentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89DF5B814EBFF5900AAEF40 /* StudentListViewController.xib */; };
+		D89DF5D314EBFF5900AAEF40 /* StudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89DF5B914EBFF5900AAEF40 /* StudentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		76844C081463F7D7001E54D1 /* student_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = student_female.png; path = Images/student_female.png; sourceTree = SOURCE_ROOT; };
-		76844C0A1463F7E2001E54D1 /* student_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = student_male.png; path = Images/student_male.png; sourceTree = SOURCE_ROOT; };
-		7685B8DC145EBA7D008F8FA2 /* course.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = course.png; path = Images/course.png; sourceTree = SOURCE_ROOT; };
-		768C53991466D7750003AC71 /* add_student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_student.png; path = Images/add_student.png; sourceTree = SOURCE_ROOT; };
-		768C539C1466DF9C0003AC71 /* StudentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentViewCell.h; path = Src/ViewControllers/StudentViewCell.h; sourceTree = SOURCE_ROOT; };
-		768C539D1466DF9C0003AC71 /* StudentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentViewCell.m; path = Src/ViewControllers/StudentViewCell.m; sourceTree = SOURCE_ROOT; };
-		768C539F1466E8860003AC71 /* ModelessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelessViewController.h; path = Src/ViewControllers/ModelessViewController.h; sourceTree = SOURCE_ROOT; };
-		768C53A01466E8870003AC71 /* ModelessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelessViewController.m; path = Src/ViewControllers/ModelessViewController.m; sourceTree = SOURCE_ROOT; };
-		768C53A21466E8BA0003AC71 /* CourseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseViewCell.h; path = Src/ViewControllers/CourseViewCell.h; sourceTree = SOURCE_ROOT; };
-		768C53A31466E8BB0003AC71 /* CourseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseViewCell.m; path = Src/ViewControllers/CourseViewCell.m; sourceTree = SOURCE_ROOT; };
-		768C53A51466FA0C0003AC71 /* SdtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SdtViewController.h; path = Src/ViewControllers/SdtViewController.h; sourceTree = SOURCE_ROOT; };
-		768C53A61466FA0D0003AC71 /* SdtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SdtViewController.m; path = Src/ViewControllers/SdtViewController.m; sourceTree = SOURCE_ROOT; };
-		768FD09F1465163600E709AD /* CourseListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseListViewController.xib; path = XIBs/CourseListViewController.xib; sourceTree = SOURCE_ROOT; };
-		76A29A43144D784E00D66A0A /* CourseManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		76A29A47144D784E00D66A0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		76A29A49144D784E00D66A0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		76A29A4B144D784E00D66A0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		76AB6297146520BC009E9BEB /* CMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMModel.h; path = Src/Models/CMModel.h; sourceTree = "<group>"; };
-		76AB6298146520BC009E9BEB /* CMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMModel.m; path = Src/Models/CMModel.m; sourceTree = "<group>"; };
-		76E3463F1464D4D600FFE364 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
-		76E346411464D50800FFE364 /* xcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = xcode.png; path = Images/xcode.png; sourceTree = SOURCE_ROOT; };
-		76E346431464D51700FFE364 /* CourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseViewController.xib; path = XIBs/CourseViewController.xib; sourceTree = SOURCE_ROOT; };
-		76E346441464D51700FFE364 /* StudentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StudentListViewController.xib; path = XIBs/StudentListViewController.xib; sourceTree = SOURCE_ROOT; };
-		76E346451464D51700FFE364 /* StudentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StudentViewController.xib; path = XIBs/StudentViewController.xib; sourceTree = SOURCE_ROOT; };
-		76E346491464D52900FFE364 /* CourseManagementAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseManagementAppDelegate.h; path = Src/Delegators/CourseManagementAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		76E3464A1464D52900FFE364 /* CourseManagementAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseManagementAppDelegate.m; path = Src/Delegators/CourseManagementAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		76E3464B1464D52900FFE364 /* ModalViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModalViewControllerDelegate.h; path = Src/Delegators/ModalViewControllerDelegate.h; sourceTree = SOURCE_ROOT; };
-		76E3464D1464D53600FFE364 /* CourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseListViewController.h; path = Src/ViewControllers/CourseListViewController.h; sourceTree = SOURCE_ROOT; };
-		76E3464E1464D53600FFE364 /* CourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseListViewController.m; path = Src/ViewControllers/CourseListViewController.m; sourceTree = SOURCE_ROOT; };
-		76E3464F1464D53600FFE364 /* CourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseViewController.h; path = Src/ViewControllers/CourseViewController.h; sourceTree = SOURCE_ROOT; };
-		76E346501464D53600FFE364 /* CourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseViewController.m; path = Src/ViewControllers/CourseViewController.m; sourceTree = SOURCE_ROOT; };
-		76E346511464D53600FFE364 /* StudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentListViewController.h; path = Src/ViewControllers/StudentListViewController.h; sourceTree = SOURCE_ROOT; };
-		76E346521464D53600FFE364 /* StudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentListViewController.m; path = Src/ViewControllers/StudentListViewController.m; sourceTree = SOURCE_ROOT; };
-		76E346531464D53600FFE364 /* StudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentViewController.h; path = Src/ViewControllers/StudentViewController.h; sourceTree = SOURCE_ROOT; };
-		76E346541464D53600FFE364 /* StudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentViewController.m; path = Src/ViewControllers/StudentViewController.m; sourceTree = SOURCE_ROOT; };
-		76E346591464D54400FFE364 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = Src/Models/Course.h; sourceTree = "<group>"; };
-		76E3465A1464D54400FFE364 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Src/Models/Course.m; sourceTree = "<group>"; };
-		76E3465B1464D54400FFE364 /* CourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseModel.h; path = Src/Models/CourseModel.h; sourceTree = "<group>"; };
-		76E3465C1464D54400FFE364 /* CourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseModel.m; path = Src/Models/CourseModel.m; sourceTree = "<group>"; };
-		76E3465D1464D54400FFE364 /* Instructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Instructor.h; path = Src/Models/Instructor.h; sourceTree = "<group>"; };
-		76E3465E1464D54400FFE364 /* Instructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Instructor.m; path = Src/Models/Instructor.m; sourceTree = "<group>"; };
-		76E3465F1464D54400FFE364 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Src/Models/Person.h; sourceTree = "<group>"; };
-		76E346601464D54400FFE364 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Src/Models/Person.m; sourceTree = "<group>"; };
-		76E346611464D54400FFE364 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Student.h; path = Src/Models/Student.h; sourceTree = "<group>"; };
-		76E346621464D54400FFE364 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Student.m; path = Src/Models/Student.m; sourceTree = "<group>"; };
-		76E346631464D54400FFE364 /* StudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentModel.h; path = Src/Models/StudentModel.h; sourceTree = "<group>"; };
-		76E346641464D54400FFE364 /* StudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentModel.m; path = Src/Models/StudentModel.m; sourceTree = "<group>"; };
-		76E3466B1464D55800FFE364 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = Src/Global/Common.h; sourceTree = SOURCE_ROOT; };
-		76E3466C1464D55800FFE364 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = Src/Global/Common.m; sourceTree = SOURCE_ROOT; };
-		76E3466E1464D79E00FFE364 /* CourseManagement-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CourseManagement-Info.plist"; sourceTree = "<group>"; };
-		76E3466F1464D79E00FFE364 /* CourseManagement-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CourseManagement-Prefix.pch"; sourceTree = "<group>"; };
-		76E346721464D7A700FFE364 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D89DF56C14EBFEEE00AAEF40 /* CourseManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D89DF57014EBFEEE00AAEF40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D89DF57214EBFEEE00AAEF40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D89DF57414EBFEEE00AAEF40 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D89DF57814EBFEEE00AAEF40 /* CourseManagement-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CourseManagement-Info.plist"; sourceTree = "<group>"; };
+		D89DF57A14EBFEEE00AAEF40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D89DF57C14EBFEEE00AAEF40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D89DF57E14EBFEEE00AAEF40 /* CourseManagement-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CourseManagement-Prefix.pch"; sourceTree = "<group>"; };
+		D89DF57F14EBFEEE00AAEF40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D89DF58014EBFEEE00AAEF40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D89DF58814EBFF5900AAEF40 /* add_student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_student.png; sourceTree = "<group>"; };
+		D89DF58914EBFF5900AAEF40 /* course.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = course.png; sourceTree = "<group>"; };
+		D89DF58A14EBFF5900AAEF40 /* student_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = student_female.png; sourceTree = "<group>"; };
+		D89DF58B14EBFF5900AAEF40 /* student_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = student_male.png; sourceTree = "<group>"; };
+		D89DF58C14EBFF5900AAEF40 /* xcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xcode.png; sourceTree = "<group>"; };
+		D89DF59114EBFF5900AAEF40 /* ModalViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewControllerDelegate.h; sourceTree = "<group>"; };
+		D89DF59314EBFF5900AAEF40 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		D89DF59414EBFF5900AAEF40 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		D89DF59614EBFF5900AAEF40 /* CMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMModel.h; sourceTree = "<group>"; };
+		D89DF59714EBFF5900AAEF40 /* CMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMModel.m; sourceTree = "<group>"; };
+		D89DF59814EBFF5900AAEF40 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		D89DF59914EBFF5900AAEF40 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		D89DF59A14EBFF5900AAEF40 /* CourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseModel.h; sourceTree = "<group>"; };
+		D89DF59B14EBFF5900AAEF40 /* CourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseModel.m; sourceTree = "<group>"; };
+		D89DF59C14EBFF5900AAEF40 /* Instructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instructor.h; sourceTree = "<group>"; };
+		D89DF59D14EBFF5900AAEF40 /* Instructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instructor.m; sourceTree = "<group>"; };
+		D89DF59E14EBFF5900AAEF40 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		D89DF59F14EBFF5900AAEF40 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		D89DF5A014EBFF5900AAEF40 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		D89DF5A114EBFF5900AAEF40 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		D89DF5A214EBFF5900AAEF40 /* StudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentModel.h; sourceTree = "<group>"; };
+		D89DF5A314EBFF5900AAEF40 /* StudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentModel.m; sourceTree = "<group>"; };
+		D89DF5A514EBFF5900AAEF40 /* CourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListViewController.h; sourceTree = "<group>"; };
+		D89DF5A614EBFF5900AAEF40 /* CourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListViewController.m; sourceTree = "<group>"; };
+		D89DF5A714EBFF5900AAEF40 /* CourseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseViewCell.h; sourceTree = "<group>"; };
+		D89DF5A814EBFF5900AAEF40 /* CourseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseViewCell.m; sourceTree = "<group>"; };
+		D89DF5A914EBFF5900AAEF40 /* CourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseViewController.h; sourceTree = "<group>"; };
+		D89DF5AA14EBFF5900AAEF40 /* CourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseViewController.m; sourceTree = "<group>"; };
+		D89DF5AB14EBFF5900AAEF40 /* ModelessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelessViewController.h; sourceTree = "<group>"; };
+		D89DF5AC14EBFF5900AAEF40 /* ModelessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelessViewController.m; sourceTree = "<group>"; };
+		D89DF5AD14EBFF5900AAEF40 /* SdtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdtViewController.h; sourceTree = "<group>"; };
+		D89DF5AE14EBFF5900AAEF40 /* SdtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdtViewController.m; sourceTree = "<group>"; };
+		D89DF5AF14EBFF5900AAEF40 /* StudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentListViewController.h; sourceTree = "<group>"; };
+		D89DF5B014EBFF5900AAEF40 /* StudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentListViewController.m; sourceTree = "<group>"; };
+		D89DF5B114EBFF5900AAEF40 /* StudentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentViewCell.h; sourceTree = "<group>"; };
+		D89DF5B214EBFF5900AAEF40 /* StudentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentViewCell.m; sourceTree = "<group>"; };
+		D89DF5B314EBFF5900AAEF40 /* StudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentViewController.h; sourceTree = "<group>"; };
+		D89DF5B414EBFF5900AAEF40 /* StudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentViewController.m; sourceTree = "<group>"; };
+		D89DF5B614EBFF5900AAEF40 /* CourseListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseListViewController.xib; sourceTree = "<group>"; };
+		D89DF5B714EBFF5900AAEF40 /* CourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseViewController.xib; sourceTree = "<group>"; };
+		D89DF5B814EBFF5900AAEF40 /* StudentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentListViewController.xib; sourceTree = "<group>"; };
+		D89DF5B914EBFF5900AAEF40 /* StudentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		76A29A40144D784D00D66A0A /* Frameworks */ = {
+		D89DF56914EBFEEE00AAEF40 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76A29A48144D784E00D66A0A /* UIKit.framework in Frameworks */,
-				76A29A4A144D784E00D66A0A /* Foundation.framework in Frameworks */,
-				76A29A4C144D784E00D66A0A /* CoreGraphics.framework in Frameworks */,
+				D89DF57114EBFEEE00AAEF40 /* UIKit.framework in Frameworks */,
+				D89DF57314EBFEEE00AAEF40 /* Foundation.framework in Frameworks */,
+				D89DF57514EBFEEE00AAEF40 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		760B3098145B0FAD003AF889 /* Images */ = {
+		D89DF56114EBFEEE00AAEF40 = {
 			isa = PBXGroup;
 			children = (
-				768C53991466D7750003AC71 /* add_student.png */,
-				76E346411464D50800FFE364 /* xcode.png */,
-				76844C0A1463F7E2001E54D1 /* student_male.png */,
-				76844C081463F7D7001E54D1 /* student_female.png */,
-				7685B8DC145EBA7D008F8FA2 /* course.png */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
-		76A29A38144D784D00D66A0A = {
-			isa = PBXGroup;
-			children = (
-				76A29A4D144D784E00D66A0A /* CourseManagement */,
-				76A29A46144D784E00D66A0A /* Frameworks */,
-				76A29A44144D784E00D66A0A /* Products */,
+				D89DF57614EBFEEE00AAEF40 /* CourseManagement */,
+				D89DF56F14EBFEEE00AAEF40 /* Frameworks */,
+				D89DF56D14EBFEEE00AAEF40 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		76A29A44144D784E00D66A0A /* Products */ = {
+		D89DF56D14EBFEEE00AAEF40 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76A29A43144D784E00D66A0A /* CourseManagement.app */,
+				D89DF56C14EBFEEE00AAEF40 /* CourseManagement.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		76A29A46144D784E00D66A0A /* Frameworks */ = {
+		D89DF56F14EBFEEE00AAEF40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				76A29A47144D784E00D66A0A /* UIKit.framework */,
-				76A29A49144D784E00D66A0A /* Foundation.framework */,
-				76A29A4B144D784E00D66A0A /* CoreGraphics.framework */,
+				D89DF57014EBFEEE00AAEF40 /* UIKit.framework */,
+				D89DF57214EBFEEE00AAEF40 /* Foundation.framework */,
+				D89DF57414EBFEEE00AAEF40 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		76A29A4D144D784E00D66A0A /* CourseManagement */ = {
+		D89DF57614EBFEEE00AAEF40 /* CourseManagement */ = {
 			isa = PBXGroup;
 			children = (
-				760B3098145B0FAD003AF889 /* Images */,
-				76A29A78144D84EC00D66A0A /* Common */,
-				76A29A71144D7A3600D66A0A /* XIBs */,
-				76A29A70144D79B600D66A0A /* Main */,
-				76A29A63144D78DC00D66A0A /* ViewControllers */,
-				76A29A62144D78C400D66A0A /* Delegators */,
-				76A29A61144D78A000D66A0A /* Models */,
-				76A29A4E144D784E00D66A0A /* Supporting Files */,
+				D89DF58714EBFF5900AAEF40 /* Images */,
+				D89DF58D14EBFF5900AAEF40 /* Src */,
+				D89DF5B514EBFF5900AAEF40 /* XIBs */,
+				D89DF57F14EBFEEE00AAEF40 /* AppDelegate.h */,
+				D89DF58014EBFEEE00AAEF40 /* AppDelegate.m */,
+				D89DF57714EBFEEE00AAEF40 /* Supporting Files */,
 			);
 			path = CourseManagement;
 			sourceTree = "<group>";
 		};
-		76A29A4E144D784E00D66A0A /* Supporting Files */ = {
+		D89DF57714EBFEEE00AAEF40 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				76E346711464D7A700FFE364 /* InfoPlist.strings */,
-				76E3466E1464D79E00FFE364 /* CourseManagement-Info.plist */,
-				76E3466F1464D79E00FFE364 /* CourseManagement-Prefix.pch */,
+				D89DF57814EBFEEE00AAEF40 /* CourseManagement-Info.plist */,
+				D89DF57914EBFEEE00AAEF40 /* InfoPlist.strings */,
+				D89DF57C14EBFEEE00AAEF40 /* main.m */,
+				D89DF57E14EBFEEE00AAEF40 /* CourseManagement-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		76A29A61144D78A000D66A0A /* Models */ = {
+		D89DF58714EBFF5900AAEF40 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				76E346591464D54400FFE364 /* Course.h */,
-				76E3465A1464D54400FFE364 /* Course.m */,
-				76E3465B1464D54400FFE364 /* CourseModel.h */,
-				76E3465C1464D54400FFE364 /* CourseModel.m */,
-				76E3465D1464D54400FFE364 /* Instructor.h */,
-				76E3465E1464D54400FFE364 /* Instructor.m */,
-				76E3465F1464D54400FFE364 /* Person.h */,
-				76E346601464D54400FFE364 /* Person.m */,
-				76E346611464D54400FFE364 /* Student.h */,
-				76E346621464D54400FFE364 /* Student.m */,
-				76E346631464D54400FFE364 /* StudentModel.h */,
-				76E346641464D54400FFE364 /* StudentModel.m */,
-				76AB6297146520BC009E9BEB /* CMModel.h */,
-				76AB6298146520BC009E9BEB /* CMModel.m */,
+				D89DF58814EBFF5900AAEF40 /* add_student.png */,
+				D89DF58914EBFF5900AAEF40 /* course.png */,
+				D89DF58A14EBFF5900AAEF40 /* student_female.png */,
+				D89DF58B14EBFF5900AAEF40 /* student_male.png */,
+				D89DF58C14EBFF5900AAEF40 /* xcode.png */,
 			);
-			name = Models;
-			path = ..;
+			path = Images;
+			sourceTree = SOURCE_ROOT;
+		};
+		D89DF58D14EBFF5900AAEF40 /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				D89DF58E14EBFF5900AAEF40 /* Delegators */,
+				D89DF59214EBFF5900AAEF40 /* Global */,
+				D89DF59514EBFF5900AAEF40 /* Models */,
+				D89DF5A414EBFF5900AAEF40 /* ViewControllers */,
+			);
+			path = Src;
+			sourceTree = SOURCE_ROOT;
+		};
+		D89DF58E14EBFF5900AAEF40 /* Delegators */ = {
+			isa = PBXGroup;
+			children = (
+				D89DF59114EBFF5900AAEF40 /* ModalViewControllerDelegate.h */,
+			);
+			path = Delegators;
 			sourceTree = "<group>";
 		};
-		76A29A62144D78C400D66A0A /* Delegators */ = {
+		D89DF59214EBFF5900AAEF40 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				76E346491464D52900FFE364 /* CourseManagementAppDelegate.h */,
-				76E3464A1464D52900FFE364 /* CourseManagementAppDelegate.m */,
-				76E3464B1464D52900FFE364 /* ModalViewControllerDelegate.h */,
+				D89DF59314EBFF5900AAEF40 /* Common.h */,
+				D89DF59414EBFF5900AAEF40 /* Common.m */,
 			);
-			name = Delegators;
+			path = Global;
 			sourceTree = "<group>";
 		};
-		76A29A63144D78DC00D66A0A /* ViewControllers */ = {
+		D89DF59514EBFF5900AAEF40 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				76E3464D1464D53600FFE364 /* CourseListViewController.h */,
-				76E3464E1464D53600FFE364 /* CourseListViewController.m */,
-				76E3464F1464D53600FFE364 /* CourseViewController.h */,
-				76E346501464D53600FFE364 /* CourseViewController.m */,
-				76E346511464D53600FFE364 /* StudentListViewController.h */,
-				76E346521464D53600FFE364 /* StudentListViewController.m */,
-				76E346531464D53600FFE364 /* StudentViewController.h */,
-				76E346541464D53600FFE364 /* StudentViewController.m */,
-				768C539C1466DF9C0003AC71 /* StudentViewCell.h */,
-				768C539D1466DF9C0003AC71 /* StudentViewCell.m */,
-				768C539F1466E8860003AC71 /* ModelessViewController.h */,
-				768C53A01466E8870003AC71 /* ModelessViewController.m */,
-				768C53A21466E8BA0003AC71 /* CourseViewCell.h */,
-				768C53A31466E8BB0003AC71 /* CourseViewCell.m */,
-				768C53A51466FA0C0003AC71 /* SdtViewController.h */,
-				768C53A61466FA0D0003AC71 /* SdtViewController.m */,
+				D89DF59614EBFF5900AAEF40 /* CMModel.h */,
+				D89DF59714EBFF5900AAEF40 /* CMModel.m */,
+				D89DF59814EBFF5900AAEF40 /* Course.h */,
+				D89DF59914EBFF5900AAEF40 /* Course.m */,
+				D89DF59A14EBFF5900AAEF40 /* CourseModel.h */,
+				D89DF59B14EBFF5900AAEF40 /* CourseModel.m */,
+				D89DF59C14EBFF5900AAEF40 /* Instructor.h */,
+				D89DF59D14EBFF5900AAEF40 /* Instructor.m */,
+				D89DF59E14EBFF5900AAEF40 /* Person.h */,
+				D89DF59F14EBFF5900AAEF40 /* Person.m */,
+				D89DF5A014EBFF5900AAEF40 /* Student.h */,
+				D89DF5A114EBFF5900AAEF40 /* Student.m */,
+				D89DF5A214EBFF5900AAEF40 /* StudentModel.h */,
+				D89DF5A314EBFF5900AAEF40 /* StudentModel.m */,
 			);
-			name = ViewControllers;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		76A29A70144D79B600D66A0A /* Main */ = {
+		D89DF5A414EBFF5900AAEF40 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				76E3463F1464D4D600FFE364 /* main.m */,
+				D89DF5A514EBFF5900AAEF40 /* CourseListViewController.h */,
+				D89DF5A614EBFF5900AAEF40 /* CourseListViewController.m */,
+				D89DF5A714EBFF5900AAEF40 /* CourseViewCell.h */,
+				D89DF5A814EBFF5900AAEF40 /* CourseViewCell.m */,
+				D89DF5A914EBFF5900AAEF40 /* CourseViewController.h */,
+				D89DF5AA14EBFF5900AAEF40 /* CourseViewController.m */,
+				D89DF5AB14EBFF5900AAEF40 /* ModelessViewController.h */,
+				D89DF5AC14EBFF5900AAEF40 /* ModelessViewController.m */,
+				D89DF5AD14EBFF5900AAEF40 /* SdtViewController.h */,
+				D89DF5AE14EBFF5900AAEF40 /* SdtViewController.m */,
+				D89DF5AF14EBFF5900AAEF40 /* StudentListViewController.h */,
+				D89DF5B014EBFF5900AAEF40 /* StudentListViewController.m */,
+				D89DF5B114EBFF5900AAEF40 /* StudentViewCell.h */,
+				D89DF5B214EBFF5900AAEF40 /* StudentViewCell.m */,
+				D89DF5B314EBFF5900AAEF40 /* StudentViewController.h */,
+				D89DF5B414EBFF5900AAEF40 /* StudentViewController.m */,
 			);
-			name = Main;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		76A29A71144D7A3600D66A0A /* XIBs */ = {
+		D89DF5B514EBFF5900AAEF40 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				76E346431464D51700FFE364 /* CourseViewController.xib */,
-				76E346441464D51700FFE364 /* StudentListViewController.xib */,
-				76E346451464D51700FFE364 /* StudentViewController.xib */,
-				768FD09F1465163600E709AD /* CourseListViewController.xib */,
+				D89DF5B614EBFF5900AAEF40 /* CourseListViewController.xib */,
+				D89DF5B714EBFF5900AAEF40 /* CourseViewController.xib */,
+				D89DF5B814EBFF5900AAEF40 /* StudentListViewController.xib */,
+				D89DF5B914EBFF5900AAEF40 /* StudentViewController.xib */,
 			);
-			name = XIBs;
-			sourceTree = "<group>";
-		};
-		76A29A78144D84EC00D66A0A /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				76E3466B1464D55800FFE364 /* Common.h */,
-				76E3466C1464D55800FFE364 /* Common.m */,
-			);
-			name = Common;
-			sourceTree = "<group>";
+			path = XIBs;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		76A29A42144D784D00D66A0A /* CourseManagement */ = {
+		D89DF56B14EBFEEE00AAEF40 /* CourseManagement */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76A29A5E144D784E00D66A0A /* Build configuration list for PBXNativeTarget "CourseManagement" */;
+			buildConfigurationList = D89DF58414EBFEEE00AAEF40 /* Build configuration list for PBXNativeTarget "CourseManagement" */;
 			buildPhases = (
-				76A29A3F144D784D00D66A0A /* Sources */,
-				76A29A40144D784D00D66A0A /* Frameworks */,
-				76A29A41144D784D00D66A0A /* Resources */,
+				D89DF56814EBFEEE00AAEF40 /* Sources */,
+				D89DF56914EBFEEE00AAEF40 /* Frameworks */,
+				D89DF56A14EBFEEE00AAEF40 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -274,85 +272,87 @@
 			);
 			name = CourseManagement;
 			productName = CourseManagement;
-			productReference = 76A29A43144D784E00D66A0A /* CourseManagement.app */;
+			productReference = D89DF56C14EBFEEE00AAEF40 /* CourseManagement.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		76A29A3A144D784D00D66A0A /* Project object */ = {
+		D89DF56314EBFEEE00AAEF40 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 76A29A3D144D784D00D66A0A /* Build configuration list for PBXProject "CourseManagement" */;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D89DF56614EBFEEE00AAEF40 /* Build configuration list for PBXProject "CourseManagement" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 76A29A38144D784D00D66A0A;
-			productRefGroup = 76A29A44144D784E00D66A0A /* Products */;
+			mainGroup = D89DF56114EBFEEE00AAEF40;
+			productRefGroup = D89DF56D14EBFEEE00AAEF40 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76A29A42144D784D00D66A0A /* CourseManagement */,
+				D89DF56B14EBFEEE00AAEF40 /* CourseManagement */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		76A29A41144D784D00D66A0A /* Resources */ = {
+		D89DF56A14EBFEEE00AAEF40 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7685B8DE145EBA7D008F8FA2 /* course.png in Resources */,
-				76844C091463F7D7001E54D1 /* student_female.png in Resources */,
-				76844C0B1463F7E2001E54D1 /* student_male.png in Resources */,
-				76E346421464D50800FFE364 /* xcode.png in Resources */,
-				76E346461464D51700FFE364 /* CourseViewController.xib in Resources */,
-				76E346471464D51700FFE364 /* StudentListViewController.xib in Resources */,
-				76E346481464D51700FFE364 /* StudentViewController.xib in Resources */,
-				76E346701464D79E00FFE364 /* CourseManagement-Info.plist in Resources */,
-				76E346731464D7A700FFE364 /* InfoPlist.strings in Resources */,
-				768FD0A01465163600E709AD /* CourseListViewController.xib in Resources */,
-				768C539A1466D7750003AC71 /* add_student.png in Resources */,
+				D89DF57B14EBFEEE00AAEF40 /* InfoPlist.strings in Resources */,
+				D89DF5BA14EBFF5900AAEF40 /* add_student.png in Resources */,
+				D89DF5BB14EBFF5900AAEF40 /* course.png in Resources */,
+				D89DF5BC14EBFF5900AAEF40 /* student_female.png in Resources */,
+				D89DF5BD14EBFF5900AAEF40 /* student_male.png in Resources */,
+				D89DF5BE14EBFF5900AAEF40 /* xcode.png in Resources */,
+				D89DF5D014EBFF5900AAEF40 /* CourseListViewController.xib in Resources */,
+				D89DF5D114EBFF5900AAEF40 /* CourseViewController.xib in Resources */,
+				D89DF5D214EBFF5900AAEF40 /* StudentListViewController.xib in Resources */,
+				D89DF5D314EBFF5900AAEF40 /* StudentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		76A29A3F144D784D00D66A0A /* Sources */ = {
+		D89DF56814EBFEEE00AAEF40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76E346401464D4D600FFE364 /* main.m in Sources */,
-				76E3464C1464D52900FFE364 /* CourseManagementAppDelegate.m in Sources */,
-				76E346551464D53600FFE364 /* CourseListViewController.m in Sources */,
-				76E346561464D53600FFE364 /* CourseViewController.m in Sources */,
-				76E346571464D53600FFE364 /* StudentListViewController.m in Sources */,
-				76E346581464D53600FFE364 /* StudentViewController.m in Sources */,
-				76E346651464D54400FFE364 /* Course.m in Sources */,
-				76E346661464D54400FFE364 /* CourseModel.m in Sources */,
-				76E346671464D54400FFE364 /* Instructor.m in Sources */,
-				76E346681464D54400FFE364 /* Person.m in Sources */,
-				76E346691464D54400FFE364 /* Student.m in Sources */,
-				76E3466A1464D54400FFE364 /* StudentModel.m in Sources */,
-				76E3466D1464D55800FFE364 /* Common.m in Sources */,
-				76AB6299146520BC009E9BEB /* CMModel.m in Sources */,
-				768C539E1466DF9D0003AC71 /* StudentViewCell.m in Sources */,
-				768C53A11466E8870003AC71 /* ModelessViewController.m in Sources */,
-				768C53A41466E8BB0003AC71 /* CourseViewCell.m in Sources */,
-				768C53A71466FA0E0003AC71 /* SdtViewController.m in Sources */,
+				D89DF57D14EBFEEE00AAEF40 /* main.m in Sources */,
+				D89DF58114EBFEEE00AAEF40 /* AppDelegate.m in Sources */,
+				D89DF5C014EBFF5900AAEF40 /* Common.m in Sources */,
+				D89DF5C114EBFF5900AAEF40 /* CMModel.m in Sources */,
+				D89DF5C214EBFF5900AAEF40 /* Course.m in Sources */,
+				D89DF5C314EBFF5900AAEF40 /* CourseModel.m in Sources */,
+				D89DF5C414EBFF5900AAEF40 /* Instructor.m in Sources */,
+				D89DF5C514EBFF5900AAEF40 /* Person.m in Sources */,
+				D89DF5C614EBFF5900AAEF40 /* Student.m in Sources */,
+				D89DF5C714EBFF5900AAEF40 /* StudentModel.m in Sources */,
+				D89DF5C814EBFF5900AAEF40 /* CourseListViewController.m in Sources */,
+				D89DF5C914EBFF5900AAEF40 /* CourseViewCell.m in Sources */,
+				D89DF5CA14EBFF5900AAEF40 /* CourseViewController.m in Sources */,
+				D89DF5CB14EBFF5900AAEF40 /* ModelessViewController.m in Sources */,
+				D89DF5CC14EBFF5900AAEF40 /* SdtViewController.m in Sources */,
+				D89DF5CD14EBFF5900AAEF40 /* StudentListViewController.m in Sources */,
+				D89DF5CE14EBFF5900AAEF40 /* StudentViewCell.m in Sources */,
+				D89DF5CF14EBFF5900AAEF40 /* StudentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		76E346711464D7A700FFE364 /* InfoPlist.strings */ = {
+		D89DF57914EBFEEE00AAEF40 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				76E346721464D7A700FFE364 /* en */,
+				D89DF57A14EBFEEE00AAEF40 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -360,44 +360,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		76A29A5C144D784E00D66A0A /* Debug */ = {
+		D89DF58214EBFEEE00AAEF40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		76A29A5D144D784E00D66A0A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
-			};
-			name = Release;
-		};
-		76A29A5F144D784E00D66A0A /* Debug */ = {
+		D89DF58314EBFEEE00AAEF40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D89DF58514EBFEEE00AAEF40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CourseManagement/CourseManagement-Prefix.pch";
 				INFOPLIST_FILE = "CourseManagement/CourseManagement-Info.plist";
@@ -406,16 +416,13 @@
 			};
 			name = Debug;
 		};
-		76A29A60144D784E00D66A0A /* Release */ = {
+		D89DF58614EBFEEE00AAEF40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CourseManagement/CourseManagement-Prefix.pch";
 				INFOPLIST_FILE = "CourseManagement/CourseManagement-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -423,25 +430,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		76A29A3D144D784D00D66A0A /* Build configuration list for PBXProject "CourseManagement" */ = {
+		D89DF56614EBFEEE00AAEF40 /* Build configuration list for PBXProject "CourseManagement" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76A29A5C144D784E00D66A0A /* Debug */,
-				76A29A5D144D784E00D66A0A /* Release */,
+				D89DF58214EBFEEE00AAEF40 /* Debug */,
+				D89DF58314EBFEEE00AAEF40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76A29A5E144D784E00D66A0A /* Build configuration list for PBXNativeTarget "CourseManagement" */ = {
+		D89DF58414EBFEEE00AAEF40 /* Build configuration list for PBXNativeTarget "CourseManagement" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76A29A5F144D784E00D66A0A /* Debug */,
-				76A29A60144D784E00D66A0A /* Release */,
+				D89DF58514EBFEEE00AAEF40 /* Debug */,
+				D89DF58614EBFEEE00AAEF40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 76A29A3A144D784D00D66A0A /* Project object */;
+	rootObject = D89DF56314EBFEEE00AAEF40 /* Project object */;
 }

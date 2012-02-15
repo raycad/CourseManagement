@@ -37,9 +37,6 @@
         if ([studentModel addStudent:student]) {
             NSLog(@"Added sucessfully");
         }
-        [idNumber release];
-        [personPK release];
-        [student release];  
         
         idNumber = [NSString stringWithFormat:@"337789"];
         personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
@@ -53,9 +50,6 @@
         if ([studentModel addStudent:student]) {
             NSLog(@"Added sucessfully");
         }
-        [idNumber release];
-        [personPK release];
-        [student release];  
         
         idNumber = [NSString stringWithFormat:@"123456"];
         personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
@@ -69,9 +63,6 @@
         if ([studentModel addStudent:student]) {
             NSLog(@"Added sucessfully");
         }
-        [idNumber release];
-        [personPK release];
-        [student release];  
         
         idNumber = [NSString stringWithFormat:@"2255678"];
         personPK = [[PersonPK alloc] initWithIdNumber:idNumber];
@@ -85,14 +76,9 @@
         if ([studentModel addStudent:student]) {
             NSLog(@"Added sucessfully");
         }
-        [idNumber release];
-        [personPK release];
-        [student release];  
         
         // Set data model
         [m_cmModel setStudentModel:studentModel];
-        
-        [studentModel release];
     }
 }
 
@@ -142,12 +128,18 @@
     [self refreshData];
 }
 
-- (void)dealloc
+- (void)presentStudentViewModally
+// Displays the options view so that the user can add a new number to the 
+// list of numbers to add up.
 {
-    [m_studentModel release];
-    [m_searchBar release];
-    [m_studentTableView release];
-    [super dealloc];
+    StudentViewController * vc;
+    
+    vc = [[StudentViewController alloc] init];
+    assert(vc != nil);
+    
+    vc.delegate = self;
+    
+    [vc presentModallyOn:self];
 }
 
 - (void)addStudent
@@ -180,20 +172,6 @@
     self.title = title;*/
 }
 
-- (void)presentStudentViewModally
-// Displays the options view so that the user can add a new number to the 
-// list of numbers to add up.
-{
-    StudentViewController * vc;
-    
-    vc = [[[StudentViewController alloc] init] autorelease];
-    assert(vc != nil);
-    
-    vc.delegate = self;
-    
-    [vc presentModallyOn:self];
-}
-
 - (void)didSave:(NSObject *)object
 {
     assert(object != nil);
@@ -206,7 +184,6 @@
         NSString *alertString = [NSString stringWithFormat:@"ID card number must not be empty"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        [alert release];
         
         return;
     }
@@ -231,7 +208,6 @@
         NSString *alertString = [NSString stringWithFormat:@"The student is existing"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        [alert release];
         
         return;
     }
@@ -264,7 +240,7 @@
      cell = [[[CourseViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
      }*/    
     if (cell == nil) {
-		cell = [[[StudentViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[StudentViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
         // Show row with the AccessoryDisclosureIndicator
 		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	}
@@ -348,7 +324,6 @@
             studentViewController.delegate = self;
             
             [[self navigationController] pushViewController:studentViewController animated:YES];
-            [studentViewController release];
         }
     } else {
         if ((self.delegate != nil) && [self.delegate respondsToSelector:@selector(didSelect:)] ) {

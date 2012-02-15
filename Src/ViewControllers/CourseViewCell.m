@@ -25,7 +25,7 @@
         m_categoryLabel = [[UILabel alloc]init];
         m_categoryLabel.textAlignment = UITextAlignmentLeft;
         //m_categoryLabel.font = [UIFont systemFontOfSize:10];
-        m_categoryLabel.font = [UIFont fontWithMarkupDescription:@"font-family: Arial; font-size: 11px; font-weight: bold; font-style : italic;"];
+        m_categoryLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
         m_categoryLabel.textColor = [UIColor orangeColor];
         m_thumbnailImageView = [[UIImageView alloc]init];
         [self.contentView addSubview:m_titleLabel];
@@ -49,13 +49,5 @@
     
     frame = CGRectMake(boundsX+70, 32, 100, 15);
     m_categoryLabel.frame = frame;
-}
-
-- (void)dealloc
-{
-    [m_titleLabel release];
-    [m_categoryLabel release];
-    [m_thumbnailImageView release];
-    [m_course retain];
 }
 @end

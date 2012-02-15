@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76A29A42144D784D00D66A0A"
+               BlueprintIdentifier = "D89DF56B14EBFEEE00AAEF40"
                BuildableName = "CourseManagement.app"
                BlueprintName = "CourseManagement"
                ReferencedContainer = "container:CourseManagement.xcodeproj">
@@ -28,19 +28,28 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D89DF56B14EBFEEE00AAEF40"
+            BuildableName = "CourseManagement.app"
+            BlueprintName = "CourseManagement"
+            ReferencedContainer = "container:CourseManagement.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
-      displayScaleIsEnabled = "NO"
-      displayScale = "1.00"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug">
+      buildConfiguration = "Debug"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76A29A42144D784D00D66A0A"
+            BlueprintIdentifier = "D89DF56B14EBFEEE00AAEF40"
             BuildableName = "CourseManagement.app"
             BlueprintName = "CourseManagement"
             ReferencedContainer = "container:CourseManagement.xcodeproj">
@@ -50,16 +59,15 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      displayScaleIsEnabled = "NO"
-      displayScale = "1.00"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release">
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76A29A42144D784D00D66A0A"
+            BlueprintIdentifier = "D89DF56B14EBFEEE00AAEF40"
             BuildableName = "CourseManagement.app"
             BlueprintName = "CourseManagement"
             ReferencedContainer = "container:CourseManagement.xcodeproj">

@@ -19,6 +19,6 @@
 // Declare the singleton
 + (CMModel *)instance;
 
-@property (nonatomic, retain) CourseModel *courseModel;
-@property (nonatomic, retain) StudentModel *studentModel;
+@property (nonatomic, strong) CourseModel *courseModel;
+@property (nonatomic, strong) StudentModel *studentModel;
 @end

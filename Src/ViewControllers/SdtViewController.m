@@ -27,7 +27,7 @@
 {
     UINavigationController *nav;        
     // Create a navigation controller with us as its root.    
-    nav = [[[UINavigationController alloc] initWithRootViewController:self] autorelease];
+    nav = [[UINavigationController alloc] initWithRootViewController:self];
     assert(nav != nil);    
         
     // Present the navigation controller on the specified parent 
@@ -42,20 +42,15 @@
     
     if (m_viewMode == CreateNewMode) {        
         // Set up the Save & Cancel buttons on the right & left of the navigation bar.    
-        self.navigationItem.leftBarButtonItem  = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)] autorelease];
+        self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)];
         assert(self.navigationItem.leftBarButtonItem != nil);
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave   target:self action:@selector(saveAction:)] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave   target:self action:@selector(saveAction:)];
         assert(self.navigationItem.rightBarButtonItem != nil);         
     } else if (m_viewMode == SelectMode) {
         // Do something
     } else if (m_viewMode == UpdateMode) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(updateAction:)];
     }
-}
-
-- (void)dealloc
-{
-    [super dealloc];
 }
 
 @end

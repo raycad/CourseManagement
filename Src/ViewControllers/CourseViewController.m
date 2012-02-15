@@ -38,7 +38,7 @@
 {
     StudentListViewController * vc;
     
-    vc = [[[StudentListViewController alloc] init] autorelease];
+    vc = [[StudentListViewController alloc] init];
     assert(vc != nil);
     
     vc.viewMode = SelectMode;
@@ -46,22 +46,6 @@
     vc.delegate = self;    
     
     [vc presentModallyOn:self];
-}
-
-- (void)dealloc
-{
-    [m_titleTextField release];
-    [m_descriptionTextView release];
-    [m_categoryTextField release];
-    [m_course release];
-    
-    [m_addStudentButton release];
-    [m_searchBar release];
-    [m_studentTableView release];
-    
-    [m_filterStudentModel release];
-    [m_studentModel release];
-    [super dealloc];
 }
 
 #pragma mark - View lifecycle
@@ -134,7 +118,7 @@
      cell = [[[CourseViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
      }*/    
     if (cell == nil) {
-		cell = [[[StudentViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[StudentViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
         // Show row with the AccessoryDisclosureIndicator
 		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	}
@@ -268,7 +252,6 @@
         NSString *alertString = [NSString stringWithFormat:@"The student is existing"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        [alert release];
         
         return;
     }
@@ -311,7 +294,6 @@
             NSString *alertString = [NSString stringWithFormat:@"Title must not be empty"];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            [alert release];
             
             return;
         }
@@ -330,7 +312,6 @@
             NSString *alertString = [NSString stringWithFormat:@"The course is existing"];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            [alert release];
             
             return;
         }

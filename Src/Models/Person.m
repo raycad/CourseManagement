@@ -14,8 +14,7 @@
 {
     if ((self = [super init])) {
         // Initialize parameters
-        [m_idNumber autorelease]; // Use this to avoid releasing itself
-        m_idNumber = [idNumber retain];
+        m_idNumber = idNumber;
     }
     return self;   
 }
@@ -23,11 +22,6 @@
 - (NSString *)idNumber
 {
     return m_idNumber;
-}
-
-- (void)dealloc 
-{
-    [m_idNumber release];
 }
 
 - (BOOL)isEqual:(id)object
@@ -58,8 +52,7 @@
 {
     if ((self = [super init])) {
         // Initialize parameters
-        [m_personPK autorelease]; // Use this to avoid releasing itself
-        m_personPK = [personPK retain];
+        m_personPK = personPK;
     }
     
     return self;
@@ -68,17 +61,6 @@
 - (PersonPK *)personPK
 {
     return m_personPK;
-}
-
-- (void)dealloc
-{
-    [m_fullName release];
-    [m_idNumber release];
-    [m_dateOfBirth release];
-    [m_address release];
-    [m_mobilePhoneNumber release];
-    
-    [super dealloc];
 }
 
 @end

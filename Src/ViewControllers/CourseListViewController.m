@@ -37,14 +37,6 @@
     return 50;
 }
 
-- (void)dealloc
-{
-    [m_courseModel release];    
-    [m_courseTableView release];
-    [m_searchBar release];
-    [super dealloc];
-}
-
 - (void)loadDataFromDB
 {
     if (m_cmModel.courseModel == nil) {
@@ -63,9 +55,6 @@
         if ([courseModel addCourse:course]) {
             NSLog(@"Added sucessfully");
         }
-        [title release];
-        [coursePK release];
-        [course release];  
         
         title = [NSString stringWithFormat:@"Android Programming"];
         coursePK = [[CoursePK alloc] initWithCourseTitle:title];
@@ -76,9 +65,6 @@
         if ([courseModel addCourse:course]) {
             NSLog(@"Added sucessfully");
         }
-        [title release];
-        [coursePK release];
-        [course release];  
         
         title = [NSString stringWithFormat:@"Windows Phone 12/12/2011"];
         coursePK = [[CoursePK alloc] initWithCourseTitle:title];
@@ -89,9 +75,6 @@
         if ([courseModel addCourse:course]) {
             NSLog(@"Added sucessfully");
         }
-        [title release];
-        [coursePK release];
-        [course release];  
         
         title = [NSString stringWithFormat:@"Windows Phone 30/12/2011"];
         coursePK = [[CoursePK alloc] initWithCourseTitle:title];
@@ -102,9 +85,6 @@
         if ([courseModel addCourse:course]) {
             NSLog(@"Added sucessfully");
         }
-        [title release];
-        [coursePK release];
-        [course release];  
         
         title = [NSString stringWithFormat:@"C++ Programming 01/11/2011"];
         coursePK = [[CoursePK alloc] initWithCourseTitle:title];
@@ -115,9 +95,6 @@
         if ([courseModel addCourse:course]) {
             NSLog(@"Added sucessfully");
         }
-        [title release];
-        [coursePK release];
-        [course release];  
         
         title = [NSString stringWithFormat:@"Java Programming 01/11/2011"];
         coursePK = [[CoursePK alloc] initWithCourseTitle:title];
@@ -128,14 +105,9 @@
         if ([courseModel addCourse:course]) {
             NSLog(@"Added sucessfully");
         }        
-        [title release];
-        [coursePK release];
-        [course release];
-        
+
         // Set data model
         [m_cmModel setCourseModel:courseModel];
-        
-        [courseModel release];
     }
 }
 
@@ -194,7 +166,7 @@
         cell = [[[CourseViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
     }*/    
     if (cell == nil) {
-		cell = [[[CourseViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[CourseViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
         // Show row with the AccessoryDisclosureIndicator
 		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 	}
@@ -270,8 +242,21 @@
         courseViewController.delegate = self;
         
         [[self navigationController] pushViewController:courseViewController animated:YES];
-        [courseViewController release];
     }
+}
+
+- (void)presentCourseViewModally
+// Displays the options view so that the user can add a new number to the 
+// list of numbers to add up.
+{
+    CourseViewController * vc;
+    
+    vc = [[CourseViewController alloc] init];
+    assert(vc != nil);
+    
+    vc.delegate = self;
+    
+    [vc presentModallyOn:self];
 }
 
 - (void)addCourse
@@ -304,20 +289,6 @@
     self.title = title;*/
 }
 
-- (void)presentCourseViewModally
-// Displays the options view so that the user can add a new number to the 
-// list of numbers to add up.
-{
-    CourseViewController * vc;
-    
-    vc = [[[CourseViewController alloc] init] autorelease];
-    assert(vc != nil);
-    
-    vc.delegate = self;
-    
-    [vc presentModallyOn:self];
-}
-
 - (void)didSave:(NSObject *)object
 {
 #pragma unused(object)
@@ -331,7 +302,6 @@
         NSString *alertString = [NSString stringWithFormat:@"Title must not be empty"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        [alert release];
         
         return;
     }
@@ -354,7 +324,6 @@
         NSString *alertString = [NSString stringWithFormat:@"The course is existing"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:alertString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        [alert release];
         
         return;
     }

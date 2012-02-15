@@ -1,25 +1,27 @@
 //
-//  CourseManagementAppDelegate.m
+//  AppDelegate.m
 //  CourseManagement
 //
-//  Created by raycad on 10/18/11.
-//  Copyright 2011 seedotech. All rights reserved.
+//  Created by Nguyen Duong on 2/15/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CourseManagementAppDelegate.h"
+#import "AppDelegate.h"
 #import "CourseListViewController.h"
 #import "StudentListViewController.h"
+#import "Common.h"
 
-@implementation CourseManagementAppDelegate
+@implementation AppDelegate
 
 @synthesize window = m_window;
 @synthesize tabBarController = m_tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        
     // Initialize view controller map
     m_viewControllerMap = [[NSMutableDictionary alloc] init];
-    
     m_tabBarController = [[UITabBarController alloc] init];
     
     UINavigationController *studentNavigationController = [[UINavigationController alloc] init];
@@ -27,31 +29,51 @@
     if (studentListViewController) {
         [studentNavigationController pushViewController:studentListViewController animated:NO]; 
     }
-
+    
     UINavigationController *courseNavigationController = [[UINavigationController alloc] init];
     id courseListViewController = [self getViewControllerByIdString:(id)CourseListViewControllerIdString];
     if (courseListViewController) {
         [courseNavigationController pushViewController:courseListViewController animated:NO]; 
     }    
-        
+    
     m_tabBarController.viewControllers = [NSArray arrayWithObjects:courseNavigationController, studentNavigationController, nil];
     
-    [self.window addSubview:[self.tabBarController view]];
+    self.window.rootViewController = m_tabBarController;
     
     // Override point for customization after application launch.
-    [self.window makeKeyAndVisible];
-    
-    [studentListViewController release];
-    [courseListViewController release];
-    
-    [studentNavigationController release];
-    [courseNavigationController release];
-    
-    /*id viewController = [self getViewControllerByIdString:(id)CourseViewControllerIdString];
-    if (viewController)
-        [viewController test];*/
-    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible]; 
+     
     return YES;
+}
+
+- (id)createViewControllerByIdString:(NSString *)viewControllerIdString
+{
+    id viewController = nil;
+    if (viewControllerIdString == CourseListViewControllerIdString) {
+        viewController = [[CourseListViewController alloc] init];
+    } else if (viewControllerIdString == StudentListViewControllerIdString) {
+        viewController = [[StudentListViewController alloc] init];
+    } else
+           return nil;
+    
+    return viewController;
+}
+
+- (id)getViewControllerByIdString:(NSString *)viewControllerIdString
+{
+    if (!m_viewControllerMap)
+        return nil;
+    
+    id viewController = [m_viewControllerMap objectForKey:viewControllerIdString];
+    if (!viewController) {
+        // Create the view controller
+        viewController = [self createViewControllerByIdString:viewControllerIdString];
+        // Map the view controller
+        [m_viewControllerMap setObject:viewController forKey:viewControllerIdString];    
+    }
+    
+    return viewController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -91,65 +113,6 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
-}
-
-- (id)createViewControllerByIdString:(NSString *)viewControllerIdString
-{
-    id viewController = nil;
-    if (viewControllerIdString == CourseListViewControllerIdString) {
-        viewController = [[CourseListViewController alloc] init];
-    } else if (viewControllerIdString == StudentListViewControllerIdString) {
-        viewController = [[StudentListViewController alloc] init];
-    } /*else if (viewControllerIdString == CourseViewControllerIdString) {
-        viewController = [[CourseViewController alloc] initWithNibName:@"CourseViewController" bundle:[NSBundle mainBundle]];
-    } else if (viewControllerIdString == StudentViewControllerIdString) {
-        viewController = [[CourseViewController alloc] initWithNibName:@"StudentViewController" bundle:[NSBundle mainBundle]];
-    } else if (viewControllerIdString == InstructorViewControllerIdString) {
-        viewController = [[CourseViewController alloc] initWithNibName:@"" bundle:[NSBundle mainBundle]];
-    }*/ else
-        return nil;
-    
-    return viewController;
-}
-
-- (id)getViewControllerByIdString:(NSString *)viewControllerIdString
-{
-    if (!m_viewControllerMap)
-        return nil;
-    
-    id viewController = [m_viewControllerMap objectForKey:viewControllerIdString];
-    if (!viewController) {
-        // Create the view controller
-        viewController = [self createViewControllerByIdString:viewControllerIdString];
-        // Map the view controller
-        [m_viewControllerMap setObject:viewController forKey:viewControllerIdString];    
-        [viewController release];
-    }
-    
-    return viewController;
-}
-
-- (void)releaseMemory
-{       
-    // Free momery of view controllers
-    id viewController;
-    NSArray *keys = [m_viewControllerMap allKeys];
-    for (NSString *key in keys) {
-        viewController = [m_viewControllerMap objectForKey:key];
-        if (viewController) 
-            [viewController release];
-    }
-    [m_viewControllerMap removeAllObjects];
-    
-    [m_window release];
-    [m_viewControllerMap release];
-    [m_tabBarController release];
-}
-
-- (void)dealloc
-{
-    [self releaseMemory];
-    [super dealloc];
 }
 
 @end

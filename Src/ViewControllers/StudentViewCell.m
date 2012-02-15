@@ -25,7 +25,7 @@
         m_idNumberLabel = [[UILabel alloc]init];
         m_idNumberLabel.textAlignment = UITextAlignmentLeft;
         //m_categoryLabel.font = [UIFont systemFontOfSize:10];
-        m_idNumberLabel.font = [UIFont fontWithMarkupDescription:@"font-family: Arial; font-size: 11px; font-weight: bold; font-style : italic;"];
+        m_idNumberLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
         m_idNumberLabel.textColor = [UIColor orangeColor];
         m_avatarImageView = [[UIImageView alloc]init];
         [self.contentView addSubview:m_fullNameLabel];
@@ -51,11 +51,4 @@
     m_idNumberLabel.frame = frame;
 }
 
-- (void)dealloc
-{
-    [m_fullNameLabel release];
-    [m_idNumberLabel release];
-    [m_avatarImageView release];
-    [m_student release];
-}
 @end
